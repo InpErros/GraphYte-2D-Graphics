@@ -23,6 +23,7 @@ void MainWindow::on_pushButton_login_clicked()
     if(username == "username" && password == "password"){
         QMessageBox::information(this,"Login Successful", "The Login Attempt Was Successful");
         introWindow = new IntroWindow();
+        introWindow->setAttribute(Qt::WA_DeleteOnClose);
         introWindow->show();
         this->hide();
     }
@@ -34,5 +35,6 @@ void MainWindow::on_pushButton_login_clicked()
 void MainWindow::on_pushButton_createaccount_clicked()
 {
     createAccountWindow = new CreateAccountWindow();
+    createAccountWindow->setAttribute(Qt::WA_DeleteOnClose);
     createAccountWindow->show();
 }
