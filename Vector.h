@@ -2,6 +2,8 @@
 #define VECTOR_H_
 
 #include <iostream>
+#include <algorithm>
+using std::copy;
 using namespace std;
 
 namespace MyVector
@@ -17,25 +19,25 @@ namespace MyVector
 				elem[i] = T(); // elements are initialized
 		}
 
-		Vector(const Vector<T>& rhs)  // copy constructor
-        :_size(rhs._size), _capacity(rhs._capacity), elem{new T[rhs._size]}
+		Vector(const Vector<T>& RHS)  // copy constructor
+        :_size(RHS._size), _capacity(RHS._capacity), elem{new T[RHS._size]}
 		{
-			for(int i = 0; i < rhs._size; i++) elem[i] = rhs.elem[i];
+			copy(RHS.elem, RHS.elem + _size, elem); // copy elements
 		}
 
-		Vector<T>& operator=(const Vector&& rhs)
+		Vector<T>& operator=(const Vector&& RHS)
 		{  // move constructor
-			if(this != &rhs)
+			if(this != &RHS)
 			{
-				T *ptr = new T[rhs._size];
-				for(int i = 0; i < rhs._size; i++) elem[i] = rhs.elem[i];
+				T *ptr = new T[RHS._size];
+				copy(RHS.elem, RHS.elem + RHS._size, ptr); // copy elements
 				delete [] elem;
 				elem = ptr;
-				_size = rhs._size;
-				_capacity = rhs._capacity;
-				rhs.elem = nullptr;
-				rhs._size = 0;
-				rhs._capacity = 0;
+				_size = RHS._size;
+				_capacity = RHS._capacity;
+				RHS.elem = nullptr;
+				RHS._size = 0;
+				RHS._capacity = 0;
 			}
 			return *this;
 		}
@@ -76,6 +78,7 @@ namespace MyVector
 		{ // add element
 			if(_capacity == 0)
 				reserve(8);   // start with space for 8 elements
+
 			else if(_size == _capacity)
 				reserve(2 * _capacity); // get more space
 
@@ -86,18 +89,17 @@ namespace MyVector
 		void reserve(int newAlloc)
 		{ // get more space
 
-			//need a check if newAlloc is less than capacity
+			if(newAlloc <= _capacity)
+				return;
 
-			if(newAlloc > _capacity)
-			{
-				T *ptr = new T[newAlloc];
+			T *ptr = new T[newAlloc];
 
-				for(int i = 0; i < _size; i++) ptr[i] = elem[i];
+			for(int i = 0; i < _size; i++) ptr[i] = elem[i];
 
-				delete [] elem;
-				elem = ptr;
-				_capacity = newAlloc;
-			}
+			delete [] elem;
+			elem = ptr;
+			_capacity = newAlloc;
+
 		}
 
 		void clear()
@@ -116,19 +118,32 @@ namespace MyVector
 
 		iterator begin()
 		{ // points to first element
+			if(_size == 0)
+				return nullptr;
+
 			return &elem[0];
 		}
 		const_iterator begin() const
 		{
+			if(_size == 0)
+				return nullptr;
+
 			return &elem[0];
 		}
 
 		iterator end()
 		{ // points to one beyond the last element
+			if(_size == 0)
+				return nullptr;
+
 			return &elem[_size];
 		}
 
-		const_iterator end() const {
+		const_iterator end() const
+		{
+			if(_size == 0)
+				return nullptr;
+
 			return &elem[_size];
 		}
 
