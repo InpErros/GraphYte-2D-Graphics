@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/">
+        <file>graphytelogo_Trim.mp4</file>
+        <file>graphytelogoA.gif</file>
+    </qresource>
+</RCC>
