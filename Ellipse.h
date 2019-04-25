@@ -11,6 +11,7 @@ public:
         :Shape(device, id, ShapeType::Ellipse)
     {
     }
+
     ~Ellipse();
 
     void SetCordiantes(const QPoint& CORDINATES){cordinates = CORDINATES;}

@@ -14,7 +14,9 @@ public:
     ~Rectangle();
 
     void SetCordiantes(const QPoint& CORDINATES){cordinates = CORDINATES;}
+
     void SetDimensions(const int &LENGTH, const int &WIDTH);
+
     void SetDimensions(const int &LENGTH);
 
     void Draw(const int& X, const int& Y);

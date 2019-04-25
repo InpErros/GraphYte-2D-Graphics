@@ -1,10 +1,14 @@
 #include "Ellipse.h"
 
+Ellipse::~Ellipse()
+{
+}
+
 void Ellipse::SetDimensions(const int &LENGTH, const int &WIDTH)
 {
     majorAxis = WIDTH;
     minorAxis = LENGTH;
-    circle    = true;
+    circle    = false;
 }
 
 void Ellipse::SetDimensions(const int &RADIUS)

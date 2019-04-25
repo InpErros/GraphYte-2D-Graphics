@@ -99,7 +99,6 @@ namespace MyVector
             delete [] elem;
             elem = ptr;
             _capacity = newAlloc;
-
         }
 
         void clear()

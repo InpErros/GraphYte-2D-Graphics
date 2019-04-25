@@ -4,17 +4,18 @@
 #include <QPainter>
 #include "vector.h"
 
+enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square,
+                      Ellipse, Circle, Text};
+
 class Shape
 {
 public:
-    enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square,
-                          Ellipse, Circle, Text};
     Shape(QPaintDevice* device, int shapeId, ShapeType shapeType)
         :qpainter(device), id(shapeId), shape(shapeType)
     {
     }
 
-    virtual Shape* clone() const = 0;   // The Virtual (Copy) Constructor
+    //virtual Shape* clone() const = 0;   // The Virtual (Copy) Constructor
 
     virtual ~Shape();
 
@@ -33,9 +34,9 @@ public:
 
     void SetBrush(Qt::GlobalColor, Qt::BrushStyle);
 
-    virtual void Move(const int& X_CORD, const int& Y_CORD) const = 0;
+    virtual void Move(const int& X, const int& Y) = 0;
 
-    virtual void Draw(const int& X_CORD, const int& Y_CORD) const = 0;
+    virtual void Draw(const int& X, const int& Y) = 0;
 
     virtual float  Perimeter() const = 0;
 
