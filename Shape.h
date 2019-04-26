@@ -4,6 +4,8 @@
 #include <QPainter>
 #include "vector.h"
 
+using namespace MyVector;
+
 enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square,
                       Ellipse, Circle, Text};
 
@@ -13,6 +15,8 @@ public:
     Shape(QPaintDevice* device, int shapeId, ShapeType shapeType)
         :qpainter(device), id(shapeId), shape(shapeType)
     {
+        pen = Qt::SolidLine;
+        brush = Qt::NoBrush;
     }
 
     //virtual Shape* clone() const = 0;   // The Virtual (Copy) Constructor

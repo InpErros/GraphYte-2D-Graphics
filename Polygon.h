@@ -3,7 +3,6 @@
 
 #include <QtMath>
 #include "Shape.h"
-using namespace MyVector;
 
 class Polygon : public Shape
 {

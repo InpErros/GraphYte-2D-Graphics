@@ -2,7 +2,6 @@
 #define POLYLINE_H
 
 #include "Shape.h"
-using namespace MyVector;
 
 class Polyline : public Shape
 {

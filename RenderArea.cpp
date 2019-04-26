@@ -5,6 +5,13 @@ RenderArea::RenderArea(QWidget *parent) : QWidget(parent)
     currentShape = nullptr;
     setBackgroundRole(QPalette::Base);
     setAutoFillBackground(true);
+    setFixedSize(sizeHint());
+}
+
+RenderArea::~RenderArea()
+{
+    for(auto it: shapes)
+        delete it;
 }
 
 QSize RenderArea::minimumSizeHint() const
@@ -15,6 +22,41 @@ QSize RenderArea::minimumSizeHint() const
 QSize RenderArea::sizeHint() const
 {
     return QSize(1000, 500);
+}
+
+void RenderArea::CreateShape(const int &shapeId) const
+{
+    switch(shapeId)
+    {
+    case 1:     //Line *newLine = new Line;
+                //shapes.push_back(newLine);
+                //setShape(newLine);
+                break;
+    case 2:     //Polyline *newPolyLine = new Polyline;
+                //shapes.push_back(newPolyLine);
+                //setShape(newPolyLine);
+                break;
+    case 3:     //Polygon *newPolygon = new Polygon;
+                //shapes.push_back(newPolygon);
+                //setShape(newPolygon);
+                break;
+    case 4:     //Rectangle *newRect = new Rectangle;
+                //shapes.push_back(newRect);
+                //setShape(newRect);
+                break;
+    case 5:     //Rectangle *newSquare = new Rectangle;
+                //shapes.push_back(newSquare);
+                //setShape(newSquare);
+                break;
+    case 6:     //Ellipse *newEllipse = new Ellipse;
+                //shapes.push_back(newEllipse);
+                //setShape(newEllipse);
+                break;
+    case 7:     //Ellipse *newCircle = new Circle;
+                //shapes.push_back(newCircle);
+                //setShape(newCircle);
+                break;
+    }
 }
 
 void RenderArea::setShape(Shape* shape)

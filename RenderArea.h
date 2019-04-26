@@ -13,9 +13,12 @@ class RenderArea : public QWidget
     Q_OBJECT
 public:
     explicit RenderArea(QWidget *parent = nullptr);
+    ~RenderArea();
 
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
+
+    void CreateShape(const int& shapeId) const;
 
 signals:
 
@@ -26,6 +29,7 @@ public slots:
 
 protected:
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
+    Vector<Shape*> shapes;
 
 private:
     Shape *currentShape;

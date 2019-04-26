@@ -74,7 +74,7 @@ namespace MyVector
             _size = newSize;
         }
 
-        void push_back(T val)
+        void push_back(const T& val)
         { // add element
             if(_capacity == 0)
                 reserve(8);   // start with space for 8 elements
@@ -86,7 +86,7 @@ namespace MyVector
             _size++;           // increase size by q
         }
 
-        void reserve(int newAlloc)
+        void reserve(const int& newAlloc)
         { // get more space
 
             if(newAlloc <= _capacity)
