@@ -28,12 +28,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     createaccountwindow.cpp \
-    introwindow.cpp
+    introwindow.cpp \
+    accountlist.cpp
 
 HEADERS += \
         mainwindow.h \
     createaccountwindow.h \
-    introwindow.h
+    introwindow.h \
+    accountlist.h
 
 FORMS += \
         mainwindow.ui \
@@ -47,3 +49,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     resources.qrc
+
+DISTFILES += \
+    db.txt

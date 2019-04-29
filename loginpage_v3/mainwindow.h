@@ -22,6 +22,8 @@ private slots:
 
     void on_pushButton_createaccount_clicked();
 
+    void on_actionExit_triggered();
+
 private:
     Ui::MainWindow *ui;
     CreateAccountWindow *createAccountWindow;
