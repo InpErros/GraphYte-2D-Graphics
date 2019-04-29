@@ -131,7 +131,7 @@ MainWindow::~MainWindow()
 void MainWindow::shapeChanged()
 {
     if(shapeComboBox->currentIndex() != 0)
-        renderArea->CreateShape(shapeComboBox->currentIndex());
+        renderArea->CreateNewShape(shapeComboBox->currentIndex());
 }
 
 void MainWindow::penChanged()

@@ -23,20 +23,18 @@ public:
 
     virtual ~Shape();
 
-    ShapeType GetShape() const{return shape;}
-
-    QPen GetPen() const{return pen;}
-
-    QBrush GetBrush() const{return brush;}
-
     void SetShape(const ShapeType& SHAPE){shape = SHAPE;}
 
-    void SetPen(Qt::GlobalColor, int width, Qt::PenStyle, Qt::PenCapStyle,
-                Qt::PenJoinStyle);
+    void SetPen(const Qt::GlobalColor&, const int& WIDTH, const Qt::PenStyle&,
+                const Qt::PenCapStyle&, const Qt::PenJoinStyle&);
 
-    void SetPen(Qt::GlobalColor);
+    void SetPen(const Qt::GlobalColor& COLOR){qpainter.setPen(COLOR);}
 
-    void SetBrush(Qt::GlobalColor, Qt::BrushStyle);
+    void SetPen(const QPen& PEN){qpainter.setPen(PEN);}
+
+    void SetBrush(const Qt::GlobalColor&, const Qt::BrushStyle&);
+
+    void SetBrush(const QBrush& BRUSH){qpainter.setBrush(BRUSH);}
 
     virtual void Move(const int& X, const int& Y) = 0;
 
@@ -45,6 +43,13 @@ public:
     virtual float  Perimeter() const = 0;
 
     virtual float  Area() const = 0;
+
+    ShapeType GetShape() const{return shape;}
+
+    QPen GetPen() const{return pen;}
+
+    QBrush GetBrush() const{return brush;}
+
 
 protected:
     QPainter& GetPainter(){return qpainter;}

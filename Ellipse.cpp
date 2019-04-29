@@ -4,7 +4,7 @@ Ellipse::~Ellipse()
 {
 }
 
-void Ellipse::SetDimensions(const int &LENGTH, const int &WIDTH)
+void Ellipse::SetDimensions(const int &WIDTH, const int &LENGTH)
 {
     majorAxis = WIDTH;
     minorAxis = LENGTH;

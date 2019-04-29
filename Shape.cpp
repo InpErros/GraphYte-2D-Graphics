@@ -5,27 +5,23 @@ Shape::~Shape()
 
 }
 
-void Shape::SetPen(Qt::GlobalColor shapeColor)
+void Shape::SetPen(const Qt::GlobalColor& COLOR, const int& WIDTH,
+                   const Qt::PenStyle& STYLE, const Qt::PenCapStyle& CAP_STYLE,
+                   const Qt::PenJoinStyle& JOIN_STYLE)
 {
-    qpainter.setPen(shapeColor);
-}
-
-void Shape::SetPen(Qt::GlobalColor shapeColor, int width, Qt::PenStyle penStyle,
-                   Qt::PenCapStyle penCapStyle, Qt::PenJoinStyle penJointStyle)
-{
-    pen.setColor(shapeColor);
-    pen.setWidth(width);
-    pen.setStyle(penStyle);
-    pen.setCapStyle(penCapStyle);
-    pen.setJoinStyle(penJointStyle);
+    pen.setColor(COLOR);
+    pen.setWidth(WIDTH);
+    pen.setStyle(STYLE);
+    pen.setCapStyle(CAP_STYLE);
+    pen.setJoinStyle(JOIN_STYLE);
 
     qpainter.setPen(pen);
 }
 
-void Shape::SetBrush(Qt::GlobalColor shapeColor, Qt::BrushStyle shapeBrushStyle)
+void Shape::SetBrush(const Qt::GlobalColor& COLOR, const Qt::BrushStyle& STYLE)
 {
-    brush.setColor(shapeColor);
-    brush.setStyle(shapeBrushStyle);
+    brush.setColor(COLOR);
+    brush.setStyle(STYLE);
 
     qpainter.setBrush(brush);
 }

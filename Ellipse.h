@@ -15,7 +15,7 @@ public:
     ~Ellipse();
 
     void SetCordiantes(const QPoint& CORDINATES){cordinates = CORDINATES;}
-    void SetDimensions(const int &LENGTH, const int &WIDTH);
+    void SetDimensions(const int &WIDTH, const int &LENGTH);
     void SetDimensions(const int &RADIUS);
 
     void Draw(const int& X, const int& Y);
