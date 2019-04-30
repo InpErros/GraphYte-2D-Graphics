@@ -1,0 +1,14 @@
+debug/main.o
+debug/mainwindow.o
+debug/Shape.o
+debug/Line.o
+debug/Polyline.o
+debug/Polygon.o
+debug/Rectangle.o
+debug/Ellipse.o
+debug/RenderArea.o
+debug/Textbox.o
+debug/CreateShape.o
+debug/moc_mainwindow.o
+debug/moc_RenderArea.o
+debug/moc_createshape.o
