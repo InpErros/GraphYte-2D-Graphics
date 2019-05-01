@@ -9,6 +9,7 @@
 #include "Polyline.h"
 #include "Rectangle.h"
 #include "Textbox.h"
+#include "createshape.h"
 
 enum ShapesID
 {
@@ -34,7 +35,9 @@ public:
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
-    void CreateNewShape(const int& shapeId);
+    void AddNewShape(const newShapeInfo&);
+
+    Vector<Shape*>& GetShapes() {return shapes;}
 signals:
 
 public slots:
@@ -52,8 +55,7 @@ private:
     QBrush brush;
 };
 
-
-
+//Helper Functions
 Qt::GlobalColor StrToColor(QString);
 Qt::PenStyle StrToPenStyle(const QString&);
 Qt::PenCapStyle StrToCapStyle(const QString&);

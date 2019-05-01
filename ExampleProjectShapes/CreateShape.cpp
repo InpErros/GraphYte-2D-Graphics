@@ -14,6 +14,8 @@ CreateShape::CreateShape(QWidget *parent) :
     connect(shapeCBox, SIGNAL(activated(int)), this, SLOT(ShapeComboBox(int)));
     connect(page2, SIGNAL(clicked()), this, SLOT(GoToSecPage()));
     connect(finished, SIGNAL(clicked()), this, SLOT(CompleteShape()));
+    connect(polySidesBox, SIGNAL(valueChanged(int)),
+            this, SLOT(EnablePolySides(int)));
 
     //Block input from other windows exccept this main one
     setWindowModality(Qt::ApplicationModal);
@@ -42,6 +44,7 @@ CreateShape::~CreateShape()
     delete textFontFamilyLabel;
     delete textFontStyleLabel;
     delete textFontWeightLabel;
+    delete polySidesLabel;
     delete page2;
     delete finished;
     delete shapeCBox;
@@ -58,6 +61,7 @@ CreateShape::~CreateShape()
     delete textFontWeightCBox;
     delete penWidthBox;
     delete textPointBox;
+    delete polySidesBox;
     delete textString;
 
     for(auto it: *dimensionsLabels)
@@ -94,6 +98,7 @@ void CreateShape::InitializeUIValues()
     textFontFamilyLabel = new QLabel;
     textFontStyleLabel  = new QLabel;
     textFontWeightLabel = new QLabel;
+    polySidesLabel      = new QLabel;
 
     page2               = new QPushButton;
     finished            = new QPushButton;
@@ -113,6 +118,7 @@ void CreateShape::InitializeUIValues()
 
     penWidthBox         = new QSpinBox;
     textPointBox        = new QSpinBox;
+    polySidesBox        = new QSpinBox;
 
     textString          = new QLineEdit;
 
@@ -145,92 +151,88 @@ void CreateShape::SetFirstPgValues()
     textFontStyleLabel  ->setText("Text Font Style:");
     textFontWeightLabel ->setText("Text Font Weight:");
 
-    shapeCBox   ->addItem("No Shape", NO_SHAPE);
-    shapeCBox   ->addItem("Line", LINE_VALUE);
-    shapeCBox   ->addItem("Polyline", POLYLINE_VALUE);
-    shapeCBox   ->addItem("Polygon", POLYGON_VALUE);
-    shapeCBox   ->addItem("Rectangle", RECTANGLE_VALUE);
-    shapeCBox   ->addItem("Square", SQUARE_VALUE);
-    shapeCBox   ->addItem("Ellipse", ELLIPSE_VALUE);
-    shapeCBox   ->addItem("Circle", CIRCLE_VALUE);
-    shapeCBox   ->addItem("Text", TEXT_VALUE);
+    shapeCBox   ->addItem("No Shape");
+    shapeCBox   ->addItem("Line");
+    shapeCBox   ->addItem("Polyline");
+    shapeCBox   ->addItem("Polygon");
+    shapeCBox   ->addItem("Rectangle");
+    shapeCBox   ->addItem("Square");
+    shapeCBox   ->addItem("Ellipse");
+    shapeCBox   ->addItem("Circle");
+    shapeCBox   ->addItem("Text");
 
-    penColorCBox->addItem("No Color",           static_cast<int>(Qt::transparent));
-    penColorCBox->addItem("White",              static_cast<int>(Qt::white));
-    penColorCBox->addItem("Black",              static_cast<int>(Qt::black));
-    penColorCBox->addItem("Red",                static_cast<int>(Qt::red));
-    penColorCBox->addItem("Green",              static_cast<int>(Qt::green));
-    penColorCBox->addItem("Blue",               static_cast<int>(Qt::blue));
-    penColorCBox->addItem("Cyan",               static_cast<int>(Qt::cyan));
-    penColorCBox->addItem("Magenta",            static_cast<int>(Qt::magenta));
-    penColorCBox->addItem("Yellow",             static_cast<int>(Qt::yellow));
-    penColorCBox->addItem("Gray",               static_cast<int>(Qt::gray));
+    penColorCBox->addItem("No Color");
+    penColorCBox->addItem("White");
+    penColorCBox->addItem("Black");
+    penColorCBox->addItem("Red");
+    penColorCBox->addItem("Green");
+    penColorCBox->addItem("Blue");
+    penColorCBox->addItem("Cyan");
+    penColorCBox->addItem("Magenta");
+    penColorCBox->addItem("Yellow");
+    penColorCBox->addItem("Gray");
 
-    penStyleCBox->addItem("No Pen",             static_cast<int>(Qt::NoPen));
-    penStyleCBox->addItem("Solid Line",         static_cast<int>(Qt::SolidLine));
-    penStyleCBox->addItem("Dash Line",          static_cast<int>(Qt::DashLine));
-    penStyleCBox->addItem("Dot Line",           static_cast<int>(Qt::DotLine));
-    penStyleCBox->addItem("Dash Dot Line",      static_cast<int>
-                                                (Qt::DashDotLine));
-    penStyleCBox->addItem("Dash Dot Dot Line",  static_cast<int>
-                                                (Qt::DashDotDotLine));
-    penCapCBox  ->addItem("Flat",               Qt::FlatCap);
-    penCapCBox  ->addItem("Square",             Qt::SquareCap);
-    penCapCBox  ->addItem("Round",              Qt::RoundCap);
+    penStyleCBox->addItem("No Pen");
+    penStyleCBox->addItem("Solid Line");
+    penStyleCBox->addItem("Dash Line");
+    penStyleCBox->addItem("Dot Line");
+    penStyleCBox->addItem("Dash Dot Line");
+    penStyleCBox->addItem("Dash Dot Dot Line");
 
-    penJoinCBox->addItem("Miter",               Qt::MiterJoin);
-    penJoinCBox->addItem("Bevel",               Qt::BevelJoin);
-    penJoinCBox->addItem("Round",               Qt::RoundJoin);
+    penCapCBox  ->addItem("Flat");
+    penCapCBox  ->addItem("Square");
+    penCapCBox  ->addItem("Round");
 
-    brushColorCBox->addItem("No Color",         static_cast<int>(Qt::transparent));
-    brushColorCBox->addItem("White",            static_cast<int>(Qt::white));
-    brushColorCBox->addItem("Black",            static_cast<int>(Qt::black));
-    brushColorCBox->addItem("Red",              static_cast<int>(Qt::red));
-    brushColorCBox->addItem("Green",            static_cast<int>(Qt::green));
-    brushColorCBox->addItem("Blue",             static_cast<int>(Qt::blue));
-    brushColorCBox->addItem("Cyan",             static_cast<int>(Qt::cyan));
-    brushColorCBox->addItem("Magenta",          static_cast<int>(Qt::magenta));
-    brushColorCBox->addItem("Yellow",           static_cast<int>(Qt::yellow));
-    brushColorCBox->addItem("Gray",             static_cast<int>(Qt::gray));
+    penJoinCBox->addItem("Miter");
+    penJoinCBox->addItem("Bevel");
+    penJoinCBox->addItem("Round");
 
-    brushStyleCBox->addItem("None",             static_cast<int>(Qt::NoBrush));
-    brushStyleCBox->addItem("Solid",            static_cast<int>
-                                                (Qt::SolidPattern));
-    brushStyleCBox->addItem("Horizontal",       static_cast<int>(Qt::HorPattern));
-    brushStyleCBox->addItem("Vertical",         static_cast<int>(Qt::VerPattern));
+    brushColorCBox->addItem("No Color");
+    brushColorCBox->addItem("White");
+    brushColorCBox->addItem("Black");
+    brushColorCBox->addItem("Red");
+    brushColorCBox->addItem("Green");
+    brushColorCBox->addItem("Blue");
+    brushColorCBox->addItem("Cyan");
+    brushColorCBox->addItem("Magenta");
+    brushColorCBox->addItem("Yellow");
+    brushColorCBox->addItem("Gray");
 
-    textColorCBox ->addItem("No Color",         static_cast<int>(Qt::transparent));
-    textColorCBox ->addItem("White",            static_cast<int>(Qt::white));
-    textColorCBox ->addItem("Black",            static_cast<int>(Qt::black));
-    textColorCBox ->addItem("Red",              static_cast<int>(Qt::red));
-    textColorCBox ->addItem("Green",            static_cast<int>(Qt::green));
-    textColorCBox ->addItem("Blue",             static_cast<int>(Qt::blue));
-    textColorCBox ->addItem("Cyan",             static_cast<int>(Qt::cyan));
-    textColorCBox ->addItem("Magenta",          static_cast<int>(Qt::magenta));
-    textColorCBox ->addItem("Yellow",           static_cast<int>(Qt::yellow));
-    textColorCBox ->addItem("Gray",             static_cast<int>(Qt::gray));
+    brushStyleCBox->addItem("None");
+    brushStyleCBox->addItem("Solid");
+    brushStyleCBox->addItem("Horizontal");
+    brushStyleCBox->addItem("Vertical");
 
-    textAllignmentCBox->addItem("Allign Left",  static_cast<int>(Qt::AlignLeft));
-    textAllignmentCBox->addItem("Allign Top",   static_cast<int>(Qt::AlignTop));
-    textAllignmentCBox->addItem("Allign Bottom",static_cast<int>(Qt::AlignBottom));
-    textAllignmentCBox->addItem("Allign Center",static_cast<int>(Qt::AlignCenter));
+    textColorCBox ->addItem("No Color");
+    textColorCBox ->addItem("White");
+    textColorCBox ->addItem("Black");
+    textColorCBox ->addItem("Red");
+    textColorCBox ->addItem("Green");
+    textColorCBox ->addItem("Blue");
+    textColorCBox ->addItem("Cyan");
+    textColorCBox ->addItem("Magenta");
+    textColorCBox ->addItem("Yellow");
+    textColorCBox ->addItem("Gray");
+
+    textAllignmentCBox->addItem("Allign Left");
+    textAllignmentCBox->addItem("Allign Right");
+    textAllignmentCBox->addItem("Allign Top");
+    textAllignmentCBox->addItem("Allign Bottom");
+    textAllignmentCBox->addItem("Allign Center");
 
     textFontFamilyCBox->addItem("Comic Sans MS");
     textFontFamilyCBox->addItem("Courier");
     textFontFamilyCBox->addItem("Helvetica");
     textFontFamilyCBox->addItem("Times");
 
-    textFontStyleCBox->addItem("Normal Style",
-                               static_cast<int>(QFont::StyleNormal));
-    textFontStyleCBox->addItem("Italic Style",
-                               static_cast<int>(QFont::StyleItalic));
-    textFontStyleCBox->addItem("Oblique Style",
-                               static_cast<int>(QFont::StyleOblique));
+    textFontStyleCBox->addItem("Normal Style");
+    textFontStyleCBox->addItem("Italic Style");
+    textFontStyleCBox->addItem("Oblique Style");
 
-    textFontWeightCBox->addItem("Thin",  static_cast<int>(QFont::Thin));
-    textFontWeightCBox->addItem("Light", static_cast<int>(QFont::Light));
-    textFontWeightCBox->addItem("Normal",static_cast<int>(QFont::Normal));
-    textFontWeightCBox->addItem("Bold", static_cast<int> (QFont::Bold));
+    textFontWeightCBox->addItem("Thin");
+    textFontWeightCBox->addItem("Light");
+    textFontWeightCBox->addItem("Normal");
+    textFontWeightCBox->addItem("Bold");
 
     page2->setText("CONTINUE");
 
@@ -289,6 +291,14 @@ void CreateShape::SetSecondPgValues()
     int shapeBoxIndex = shapeCBox->currentIndex();
 
     shapeValuesLayout->setSpacing(0);
+
+    polySidesLabel->setText("# of Sides:");
+
+    polySidesBox->setRange(0, (MAX_POLY_SIDES / 2));
+
+    polySidesBox->setValue(0);
+
+    polySidesBox->setEnabled(false);
 
     switch(shapeBoxIndex)
     {
@@ -377,10 +387,17 @@ void CreateShape::SetSecondPgValues()
     default:                break;
     }
 
+    shapeValuesLayout->addRow(polySidesLabel,polySidesBox);
+
     for(index = 0; index < dimensionsLabels->size(); index++)
     {
         newSpinBox = new QSpinBox;
-        newSpinBox->setRange(0, MAX_DIMENSION);
+        newSpinBox->setRange(-1, MAX_DIMENSION);
+        newSpinBox->setValue(-1);
+
+        if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+            newSpinBox->setEnabled(false);
+
         dimensionsSpinBox->push_back(newSpinBox);
         shapeValuesLayout->addRow(dimensionsLabels->operator[](index),
                                   newSpinBox);
@@ -394,7 +411,46 @@ void CreateShape::SetSecondPgValues()
 
     shapeValuesLayout->setVerticalSpacing(10);
 
+    if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+        polySidesBox->setEnabled(true);
+
     shapeInfo->setLayout(shapeValuesLayout);
+}
+
+newShapeInfo CreateShape::GenerateShape()
+{
+    newShapeInfo newShape;
+    newShape.shapeId = shapeCBox->currentIndex();
+
+    for(int index = 0; index < dimensionsSpinBox->size(); index++)
+    {
+        newShape.dimensions.push_back
+                (dimensionsSpinBox->operator[](index)->value());
+    }
+
+    if(newShape.shapeId != TEXT_VALUE)
+    {
+        newShape.shapePen.setColor(StrToColor(penColorCBox->currentText()));
+        newShape.shapePen.setWidth(penWidthBox->value());
+        newShape.shapePen.setStyle(StrToPenStyle(penStyleCBox->currentText()));
+        newShape.shapePen.setCapStyle(StrToCapStyle(penCapCBox->currentText()));
+        newShape.shapePen.setJoinStyle(StrToJoinStyle(penJoinCBox->currentText()));
+        if(newShape.shapeId != LINE_VALUE || newShape.shapeId != POLYLINE_VALUE)
+        {
+            newShape.brush.setColor(StrToColor(brushColorCBox->currentText()));
+            newShape.brush.setStyle(StrToBrushStyle(brushStyleCBox->currentText()));
+        }
+    }
+    else
+    {
+        newShape.textPen.setColor(StrToColor(textColorCBox->currentText()));
+        newShape.allignment = StrToAllignment(textAllignmentCBox->currentText());
+        newShape.font.setFamily(textFontFamilyCBox->currentText());
+        newShape.font.setStyle(StrToFontStyle(textFontStyleCBox->currentText()));
+        newShape.font.setWeight(StrToFontWeight(textFontWeightCBox->currentText()));
+    }
+
+    return newShape;
 }
 
 void CreateShape::ShapeComboBox(const int& ARGUMENT)
@@ -530,23 +586,172 @@ void CreateShape::GoToSecPage()
     }
 }
 
+void CreateShape::EnablePolySides(const int& ARGUMENT)
+{
+    int index;
+    for(index = 0; index < dimensionsSpinBox->size(); index++)
+        dimensionsSpinBox->operator[](index)->setEnabled(false);
+
+    if(ARGUMENT > 1)
+    {
+        for(index = 0; index < (ARGUMENT*2);index++)
+            dimensionsSpinBox->operator[](index)->setEnabled(true);
+    }
+}
+
 void CreateShape::CompleteShape()
 {
-    bool completed = false;
-    int  index = 2;
-    while(index < dimensionsLabels->size() && !completed)
+    bool completed = true;
+    int index = 0;
+
+    if(shapeCBox->currentIndex() == POLYLINE_VALUE ||
+       shapeCBox->currentIndex() == POLYGON_VALUE)
     {
-        if( dimensionsSpinBox->operator[](index)->value() != 0)
+        if(polySidesBox->value() == 0)
+            completed = false;
+        while(index < polySidesBox->value() && completed)
         {
-            completed = true;
+            if(dimensionsSpinBox->operator[](index)->value() != -1)
+                index++;
+            else
+                completed = false;
         }
-        else
-            index++;
+    }
+    else
+    {
+        while(index < dimensionsSpinBox->size() && completed)
+        {
+            if(dimensionsSpinBox->operator[](index)->value() != -1)
+                index++;
+            else
+                completed = false;
+        }
     }
 
-    if(completed == false)
-        QMessageBox::warning(this, "Warning", "invalid fields");
-    else
+    if(completed == true)
+    {
         QMessageBox::information(this, "Shape Created!", "The Shape has "
                                                         "been fully generated");
+
+        emit shapeGenerated(GenerateShape());
+    }
+    else
+    {
+        QMessageBox::warning(this, "Warning", "invalid fields");
+    }
+}
+
+Qt::GlobalColor CreateShape::StrToColor(QString info) const
+{
+    info = info.toLower();
+
+    Qt::GlobalColor color = Qt::white;
+
+         if(info == "blue")   {color = Qt::blue;}
+    else if(info == "red")    {color = Qt::red;}
+    else if(info == "cyan")   {color = Qt::cyan;}
+    else if(info == "yellow") {color = Qt::yellow;}
+    else if(info == "magenta"){color = Qt::magenta;}
+    else if(info == "black")  {color = Qt::black;}
+    else if(info == "green")  {color = Qt::green;}
+    else if(info == "gray")   {color = Qt::gray;}
+
+    return color;
+}
+
+Qt::PenStyle CreateShape::StrToPenStyle(const QString & INFO) const
+{
+    Qt::PenStyle penStyle = Qt::NoPen;
+
+         if(INFO == "Dash Dot Line")   {penStyle = Qt::DashDotLine;}
+    else if(INFO == "Solid Line")     {penStyle = Qt::SolidLine;}
+    else if(INFO == "Dash Line")      {penStyle = Qt::DashLine;}
+    else if(INFO == "Dot Line")       {penStyle = Qt::DotLine;}
+    else if(INFO == "Dash Dot Dot Line"){penStyle = Qt::DashDotDotLine;}
+
+    return penStyle;
+}
+
+Qt::PenCapStyle CreateShape::StrToCapStyle(const QString& INFO) const
+{
+    Qt::PenCapStyle style = Qt::FlatCap;
+
+         if(INFO == "Square"){style = Qt::SquareCap;}
+    else if(INFO == "Round") {style = Qt::RoundCap;}
+    else if(INFO == "Flat")  {style = Qt::FlatCap;}
+
+    return style;
+}
+
+Qt::PenJoinStyle CreateShape::StrToJoinStyle(const QString& INFO) const
+{
+    Qt::PenJoinStyle style = Qt::MiterJoin;
+
+         if(INFO == "Miter"){style = Qt::MiterJoin;}
+    else if(INFO == "Round"){style = Qt::RoundJoin;}
+    else if(INFO == "Bevel"){style = Qt::BevelJoin;}
+
+    return style;
+}
+
+Qt::BrushStyle CreateShape::StrToBrushStyle(const QString& INFO) const
+{
+    Qt::BrushStyle style = Qt::NoBrush;
+
+        if(INFO == "Solid"){style = Qt::SolidPattern;}
+   else if(INFO == "Vertical")  {style = Qt::VerPattern;}
+   else if(INFO == "Horizontal")  {style = Qt::HorPattern;}
+
+   return style;
+}
+
+QFont::Style CreateShape::StrToFontStyle(const QString& INFO) const
+{
+    QFont::Style style = QFont::StyleNormal;
+
+         if(INFO == "Normal Style") {style = QFont::StyleNormal;}
+    else if(INFO == "Italic Style") {style = QFont::StyleItalic;}
+    else if(INFO == "Oblique Style"){style = QFont::StyleOblique;}
+
+    return style;
+}
+
+QFont::Weight CreateShape::StrToFontWeight(const QString& INFO) const
+{
+    QFont::Weight weight = QFont::Normal;
+
+         if(INFO == "Thin")  {weight = QFont::Thin;}
+    else if(INFO == "Light") {weight = QFont::Light;}
+    else if(INFO == "Normal"){weight = QFont::Normal;}
+    else if(INFO == "Bold")  {weight = QFont::Bold;}
+
+    return weight;
+}
+
+Qt::Alignment CreateShape::StrToAllignment(const QString &INFO) const
+{
+    Qt::Alignment allignment = Qt::AlignCenter;
+
+    if(INFO == "Allign Center")
+    {
+        allignment = Qt::AlignCenter;
+    }
+    else if(INFO == "Allign Right")
+    {
+        allignment = Qt::AlignRight;
+    }
+    else if(INFO == "Allign Left")
+    {
+        allignment = Qt::AlignLeft;
+    }
+    else if(INFO == "Allign Top")
+    {
+        allignment = Qt::AlignTop;
+    }
+    else if(INFO == "Allign Bottom")
+    {
+        allignment = Qt::AlignBottom;
+    }
+
+    return allignment;
 }

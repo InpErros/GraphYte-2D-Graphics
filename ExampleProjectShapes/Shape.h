@@ -19,7 +19,9 @@ public:
         brush = Qt::NoBrush;
     }
 
-    //virtual Shape* clone() const = 0;   // The Virtual (Copy) Constructor
+    Shape(const Shape& ) = delete;
+
+    Shape& operator=(const Shape& ) = delete;
 
     virtual ~Shape();
 
@@ -38,7 +40,7 @@ public:
 
     virtual void Move(const int& X, const int& Y) = 0;
 
-    virtual void Draw(const int& X, const int& Y) = 0;
+    virtual void Draw() = 0;
 
     virtual float  Perimeter() const = 0;
 

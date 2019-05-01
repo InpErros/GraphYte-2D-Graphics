@@ -23,7 +23,7 @@ public:
 
     void SetAllignment(const QString ALLIGNMENT);
 
-    void Draw(const int& X, const int& Y);
+    void Draw();
 
     void Move(const int& X, const int& Y);
 

@@ -15,7 +15,7 @@ public:
 
     void AddPoint(const QPoint& NEW_POINT);
 
-    void Draw(const int& X, const int& Y);
+    void Draw();
 
     void Move(const int& X, const int& Y);
 

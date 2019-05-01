@@ -9,15 +9,18 @@ void Polygon::AddPoint(const QPoint &NEW_POINT)
     polygonPoints.push_back(NEW_POINT);
 }
 
-void Polygon::Draw(const int& X, const int& Y)
+void Polygon::Draw()
 {
     QPointF polygonFloatPoints[polygonPoints.size()];
 
     for (int index = 0; index < polygonPoints.size(); index++)
         polygonFloatPoints[index] = polygonPoints[index];
 
-    GetPainter().translate(X, Y);
+    GetPainter().save();
+
     GetPainter().drawPolygon(polygonFloatPoints, polygonPoints.size());
+
+    GetPainter().restore();
 }
 
 void Polygon::Move(const int& X, const int& Y)

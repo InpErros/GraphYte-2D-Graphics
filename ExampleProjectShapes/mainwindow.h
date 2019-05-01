@@ -28,22 +28,14 @@ private slots:
     void penChanged();
     void brushChanged();
 
+    void GenerateShape(const newShapeInfo&);
+
+    void on_actionNew_Shape_triggered();
+
 private:
     Ui::MainWindow *ui;
     RenderArea *renderArea;
     CreateShape *createShape;
-    QLabel *shapeLabel;
-    QLabel *penWidthLabel;
-    QLabel *penStyleLabel;
-    QLabel *penCapLabel;
-    QLabel *penJoinLabel;
-    QLabel *brushStyleLabel;
-    QComboBox *shapeComboBox;
-    QSpinBox *penWidthSpinBox;
-    QComboBox *penStyleComboBox;
-    QComboBox *penCapComboBox;
-    QComboBox *penJoinComboBox;
-    QComboBox *brushStyleComboBox;
 };
 
 #endif // MAINWINDOW_H

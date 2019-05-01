@@ -309,6 +309,9 @@ debug/moc_mainwindow.cpp: mainwindow.h \
 		../../QT/5.12.2/mingw73_64/include/QtWidgets/qlineedit.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextcursor.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextformat.h \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/QMessageBox \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		../../QT/5.12.2/mingw73_64/include/QtCore/QDebug \
 		debug/moc_predefs.h \
 		../../QT/5.12.2/mingw73_64/bin/moc.exe
 	C:\Users\Owner\Desktop\QT\5.12.2\mingw73_64\bin\moc.exe $(DEFINES) --include "C:/Users/Owner/Desktop/QT Workspace/ExampleProjectShapes/debug/moc_predefs.h" -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/mkspecs/win32-g++ -I"C:/Users/Owner/Desktop/QT Workspace/ExampleProjectShapes" -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/include -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/include/QtWidgets -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/include/QtGui -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/include/QtANGLE -IC:/Users/Owner/Desktop/QT/5.12.2/mingw73_64/include/QtCore -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -IC:/Users/Owner/Desktop/QT/Tools/mingw730_64/x86_64-w64-mingw32/include mainwindow.h -o debug\moc_mainwindow.cpp
@@ -579,6 +582,9 @@ debug/moc_createshape.cpp: createshape.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextformat.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qpen.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextoption.h \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/QMessageBox \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		../../QT/5.12.2/mingw73_64/include/QtCore/QDebug \
 		Ellipse.h \
 		Shape.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/QPainter \
@@ -786,6 +792,9 @@ debug/main.o: main.cpp mainwindow.h \
 		../../QT/5.12.2/mingw73_64/include/QtWidgets/qlineedit.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextcursor.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextformat.h \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/QMessageBox \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		../../QT/5.12.2/mingw73_64/include/QtCore/QDebug \
 		../../QT/5.12.2/mingw73_64/include/QtWidgets/QApplication \
 		../../QT/5.12.2/mingw73_64/include/QtWidgets/qapplication.h \
 		../../QT/5.12.2/mingw73_64/include/QtCore/qcoreapplication.h \
@@ -958,6 +967,9 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../QT/5.12.2/mingw73_64/include/QtWidgets/qlineedit.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextcursor.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextformat.h \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/QMessageBox \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		../../QT/5.12.2/mingw73_64/include/QtCore/QDebug \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o mainwindow.cpp
 
@@ -1859,6 +1871,9 @@ debug/CreateShape.o: CreateShape.cpp createshape.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextformat.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qpen.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/qtextoption.h \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/QMessageBox \
+		../../QT/5.12.2/mingw73_64/include/QtWidgets/qmessagebox.h \
+		../../QT/5.12.2/mingw73_64/include/QtCore/QDebug \
 		Ellipse.h \
 		Shape.h \
 		../../QT/5.12.2/mingw73_64/include/QtGui/QPainter \

@@ -18,7 +18,7 @@ public:
     void SetDimensions(const int &WIDTH, const int &LENGTH);
     void SetDimensions(const int &RADIUS);
 
-    void Draw(const int& X, const int& Y);
+    void Draw();
 
     void Move(const int& X, const int& Y);
 

@@ -19,15 +19,17 @@ void Ellipse::SetDimensions(const int &RADIUS)
     SetShape(ShapeType::Circle);
 }
 
-void Ellipse::Draw(const int &X, const int &Y)
+void Ellipse::Draw()
 {
-    GetPainter().translate(X, Y);
+    GetPainter().save();
+
     if(circle != true)
         GetPainter().drawEllipse(cordinates.x(), cordinates.y(),
                                  majorAxis, minorAxis);
     else
         GetPainter().drawEllipse(cordinates.x(), cordinates.y(),
                                  majorAxis, majorAxis);
+    GetPainter().restore();
 }
 
 void Ellipse::Move(const int &X, const int &Y)

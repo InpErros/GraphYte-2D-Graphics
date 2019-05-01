@@ -26,15 +26,17 @@ void Textbox::SetAllignment(const QString ALLIGNMENT)
     }
 }
 
-void Textbox::Draw(const int &X, const int &Y)
+void Textbox::Draw()
 {
     QRect rect(cordinates.x(), cordinates.y(), width, length);
 
-    GetPainter().translate(X, Y);
+    GetPainter().save();
 
     GetPainter().drawText(rect,
                      signed(alignment),
                      text);
+
+    GetPainter().restore();
 }
 
 void Textbox::Move(const int &X, const int &Y)

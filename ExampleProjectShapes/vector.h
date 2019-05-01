@@ -25,19 +25,18 @@ namespace MyVector
             copy(RHS.elem, RHS.elem + _size, elem); // copy elements
         }
 
-        Vector<T>& operator=(const Vector&& RHS)
+        Vector<T>& operator=(const Vector<T>& RHS)
         {  // move constructor
             if(this != &RHS)
             {
                 T *ptr = new T[RHS._size];
                 copy(RHS.elem, RHS.elem + RHS._size, ptr); // copy elements
-                delete [] elem;
+
+                if(elem != nullptr)
+                    delete [] elem;
                 elem = ptr;
                 _size = RHS._size;
                 _capacity = RHS._capacity;
-                RHS.elem = nullptr;
-                RHS._size = 0;
-                RHS._capacity = 0;
             }
             return *this;
         }

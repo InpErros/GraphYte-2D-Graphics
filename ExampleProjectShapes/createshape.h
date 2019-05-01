@@ -10,6 +10,7 @@
 #include <QPushButton>
 #include <QLineEdit>
 #include <QMessageBox>
+#include <QDebug>
 
 #include "Ellipse.h"
 #include "Line.h"
@@ -20,6 +21,7 @@
 
 const int MAX_DIMENSION  = 1000;
 const int MAX_POLY_SIDES = 12;
+const int IdRole = Qt::UserRole;
 
 enum ShapeValues
 {
@@ -32,6 +34,18 @@ enum ShapeValues
     ELLIPSE_VALUE   = 6,
     CIRCLE_VALUE    = 7,
     TEXT_VALUE      = 8
+};
+
+struct newShapeInfo
+{
+    int           shapeId;
+    QPen          shapePen;
+    QBrush        brush;
+    QFont         font;
+    Vector<int>   dimensions;
+    QString       text;
+    Qt::Alignment allignment;
+    QPen          textPen;
 };
 
 namespace Ui {
@@ -50,9 +64,24 @@ public:
     void SetFirstPgValues();
     void SetSecondPgValues();
 
+    newShapeInfo GenerateShape();
+
+    Qt::GlobalColor StrToColor(QString) const;
+    Qt::PenStyle StrToPenStyle(const QString&) const;
+    Qt::PenCapStyle StrToCapStyle(const QString&)const;
+    Qt::PenJoinStyle StrToJoinStyle(const QString&)const;
+    Qt::BrushStyle StrToBrushStyle(const QString&)const;
+    QFont::Style StrToFontStyle(const QString&)const;
+    QFont::Weight StrToFontWeight(const QString&)const;
+    Qt::Alignment StrToAllignment(const QString&) const;
+
+signals:
+    void shapeGenerated(const newShapeInfo& NEW_SHAPE);
+
 private slots:
     void ShapeComboBox(const int& ARGUMENT);
     void GoToSecPage();
+    void EnablePolySides(const int& ARGUMENT);
     void CompleteShape();
 
 
@@ -81,6 +110,7 @@ private:
     QLabel *textFontFamilyLabel;
     QLabel *textFontStyleLabel;
     QLabel *textFontWeightLabel;
+    QLabel *polySidesLabel;
 
     QPushButton *page2;
     QPushButton *finished;
@@ -100,6 +130,7 @@ private:
 
     QSpinBox *penWidthBox;
     QSpinBox *textPointBox;
+    QSpinBox *polySidesBox;
 
     QLineEdit *textString;
 

@@ -19,13 +19,17 @@ void Rectangle::SetDimensions(const int &LENGTH)
     SetShape(ShapeType::Square);
 }
 
-void Rectangle::Draw(const int &X, const int &Y)
+void Rectangle::Draw()
 {
-    GetPainter().translate(X, Y);
+    GetPainter().save();
+
     if(square != true)
         GetPainter().drawRect(cordinates.x(), cordinates.y(), width, length);
     else
         GetPainter().drawRect(cordinates.x(), cordinates.y(), length, length);
+
+    GetPainter().restore();
+
 }
 
 void Rectangle::Move(const int &X, const int &Y)

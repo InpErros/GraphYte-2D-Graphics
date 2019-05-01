@@ -24,32 +24,30 @@ QSize RenderArea::sizeHint() const
     return QSize(2300, 600);
 }
 
-void RenderArea::CreateNewShape(const int &shapeId)
+void RenderArea::AddNewShape(const newShapeInfo &NEW_SHAPE)
 {
-    Shape *newShape = nullptr;
-
-    switch(shapeId)
+    switch (NEW_SHAPE.shapeId)
     {
-    case LINE:      newShape = new Line(this , LINE);
+    case LINE:
                     break;
-    case POLYLINE:  newShape = new Polyline(this , POLYLINE);
-                    break;
-    case POLYGON:   newShape = new Polygon(this , POLYGON);
-                    break;
-    case RECTANGLE: newShape = new Rectangle(this , RECTANGLE);
-                    break;
-    case SQUARE:    newShape = new Rectangle(this , SQUARE);
-                    break;
-    case ELLIPSE:   newShape = new Ellipse(this , ELLIPSE);
-                    break;
-    case CIRCLE:    newShape = new Ellipse(this , CIRCLE);
-                    break;
-    case TEXT:      newShape = new Textbox(this, TEXT);
-                    break;
-    }
 
-    shapes.push_back(newShape);
-    setShape(newShape);
+    case POLYLINE:
+                    break;
+
+    case POLYGON:
+                    break;
+    case RECTANGLE:
+                    break;
+    case SQUARE:
+                    break;
+    case ELLIPSE:
+                    break;
+    case CIRCLE:
+                    break;
+    case TEXT:
+                    break;
+    default:        break;
+    }
 }
 
 void RenderArea::setShape(Shape* shape)
@@ -235,8 +233,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                                         shapeDimensions->operator[](3)));
                         newLine->SetPen(*shapePen);
                         shapes.push_back(newLine);
-                        newLine->Draw(shapeDimensions->operator[](0),
-                                      shapeDimensions->operator[](1));
+                        newLine->Draw();
                         break;
 
         case POLYLINE:  newPloyline = new Polyline(this , POLYLINE);
@@ -254,8 +251,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                                            shapeDimensions->operator[](7)));
                         newPloyline->SetPen(*shapePen);
                         shapes.push_back(newPloyline);
-                        newPloyline->Draw(shapeDimensions->operator[](0),
-                                          shapeDimensions->operator[](1));
+                        newPloyline->Draw();
                         break;
 
         case POLYGON:   newPolygon = new Polygon(this , POLYGON);
@@ -274,8 +270,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                         newPolygon->SetPen(*shapePen);
                         newPolygon->SetBrush(*shapeBrush);
                         shapes.push_back(newPolygon);
-                        newPolygon->Draw(shapeDimensions->operator[](0),
-                                         shapeDimensions->operator[](1));
+                        newPolygon->Draw();
                         break;
         case RECTANGLE: newRectangle = new Rectangle(this , RECTANGLE);
                         newRectangle->SetCordiantes
@@ -287,8 +282,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                         newRectangle->SetPen(*shapePen);
                         newRectangle->SetBrush(*shapeBrush);
                         shapes.push_back(newRectangle);
-                        newRectangle->Draw(shapeDimensions->operator[](0),
-                                           shapeDimensions->operator[](1));
+                        newRectangle->Draw();
                         break;
         case SQUARE:    newSquare = new Rectangle(this , SQUARE);
                         newSquare->SetCordiantes
@@ -299,8 +293,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                         newSquare->SetPen(*shapePen);
                         newSquare->SetBrush(*shapeBrush);
                         shapes.push_back(newSquare);
-                        newSquare->Draw(shapeDimensions->operator[](0),
-                                        shapeDimensions->operator[](1));
+                        newSquare->Draw();
                         break;
         case ELLIPSE:   newEllipse = new Ellipse(this , ELLIPSE);
                         newEllipse->SetCordiantes
@@ -312,8 +305,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                         newEllipse->SetPen(*shapePen);
                         newEllipse->SetBrush(*shapeBrush);
                         shapes.push_back(newEllipse);
-                        newEllipse->Draw(shapeDimensions->operator[](0),
-                                         shapeDimensions->operator[](1));
+                        newEllipse->Draw();
                         break;
         case CIRCLE:    newCircle = new Ellipse(this , CIRCLE);
                         newCircle->SetCordiantes
@@ -324,8 +316,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                         newCircle->SetPen(*shapePen);
                         newCircle->SetBrush(*shapeBrush);
                         shapes.push_back(newCircle);
-                        newCircle->Draw(shapeDimensions->operator[](0),
-                                        shapeDimensions->operator[](1));
+                        newCircle->Draw();
                         break;
         case TEXT:      newTextbox = new Textbox(this, TEXT);
                         newTextbox->SetCordiantes
@@ -341,8 +332,7 @@ void RenderArea::paintEvent(QPaintEvent * /* event */)
                                                   (textAllignment));
                         newTextbox->SetFont(*textFont);
                         shapes.push_back(newTextbox);
-                        newTextbox->Draw(shapeDimensions->operator[](0),
-                                         shapeDimensions->operator[](1));
+                        newTextbox->Draw();
                         break;
         default:        break;
         }
