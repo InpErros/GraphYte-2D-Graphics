@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>graphytelogoA.gif</file>
+        <file>discordIcon.png</file>
+        <file>emailIcon.png</file>
+        <file>githubIcon.png</file>
+        <file>graphyteicon.png</file>
+    </qresource>
+</RCC>
