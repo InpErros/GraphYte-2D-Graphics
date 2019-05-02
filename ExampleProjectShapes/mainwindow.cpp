@@ -41,9 +41,9 @@ void MainWindow::brushChanged()
 
 }
 
-void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
+void MainWindow::GenerateShape(const ShapeType& NEW_SHAPE)
 {
-    renderArea->AddNewShape(NEW_SHAPE);
+    renderArea->CreateNewShape(NEW_SHAPE);
 }
 
 void MainWindow::on_actionNew_Shape_triggered()

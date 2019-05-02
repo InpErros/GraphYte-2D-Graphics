@@ -7,7 +7,7 @@ class Line : public Shape
 {
 public:
     Line(QPaintDevice* device = nullptr, int id = -1)
-            :Shape(device, id, ShapeType::Line)
+            :Shape(device, id, ShapeType::LINE)
     {
     }
 

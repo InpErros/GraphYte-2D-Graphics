@@ -8,7 +8,7 @@ class Textbox : public Shape
 {
 public:
     Textbox(QPaintDevice* device = nullptr, int id = -1)
-        :Shape(device, id, ShapeType::Text)
+        :Shape(device, id, ShapeType::TEXT)
     {
     }
     virtual ~Textbox();

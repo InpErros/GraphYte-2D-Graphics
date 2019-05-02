@@ -38,6 +38,7 @@ public:
     void AddNewShape(const newShapeInfo&);
 
     Vector<Shape*>& GetShapes() {return shapes;}
+    void CreateNewShape(const int &shapeId);
 signals:
 
 public slots:
@@ -63,5 +64,6 @@ Qt::PenJoinStyle StrToJoinStyle(const QString&);
 Qt::BrushStyle StrToBrushStyle(const QString&);
 QFont::Style StrToFontStyle(const QString&);
 QFont::Weight StrToFontWeight(const QString&);
+
 
 #endif // RENDERAREA_H

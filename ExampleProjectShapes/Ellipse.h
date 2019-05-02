@@ -8,7 +8,7 @@ class Ellipse : public Shape
 {
 public:
     Ellipse(QPaintDevice* device = nullptr, int id = -1)
-        :Shape(device, id, ShapeType::Ellipse)
+        :Shape(device, id, ShapeType::ELLIPSE)
     {
     }
 

@@ -8,7 +8,7 @@ class Polygon : public Shape
 {
 public:
     Polygon(QPaintDevice* device = nullptr, int id = -1)
-        :Shape(device, id, ShapeType::Polygon)
+        :Shape(device, id, ShapeType::POLYGON)
     {
     }
 

@@ -10,6 +10,7 @@
 #include <vector.h>
 #include "RenderArea.h"
 #include "createshape.h"
+#include "Shape.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,6 +22,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    void GenerateShape(const ShapeType& NEW_SHAPE);
     ~MainWindow();
 
 private slots:
@@ -28,7 +30,7 @@ private slots:
     void penChanged();
     void brushChanged();
 
-    void GenerateShape(const newShapeInfo&);
+
 
     void on_actionNew_Shape_triggered();
 
