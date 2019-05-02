@@ -24,30 +24,32 @@ QSize RenderArea::sizeHint() const
     return QSize(2300, 600);
 }
 
-void RenderArea::AddNewShape(const newShapeInfo &NEW_SHAPE)
+void RenderArea::CreateNewShape(const int &shapeId)
 {
-    switch (NEW_SHAPE.shapeId)
+    Shape *newShape = nullptr;
+
+    switch(shapeId)
     {
-    case LINE:
+    case LINE:      newShape = new Line(this , LINE);
                     break;
-
-    case POLYLINE:
+    case POLYLINE:  newShape = new Polyline(this , POLYLINE);
                     break;
-
-    case POLYGON:
+    case POLYGON:   newShape = new Polygon(this , POLYGON);
                     break;
-    case RECTANGLE:
+    case RECTANGLE: newShape = new Rectangle(this , RECTANGLE);
                     break;
-    case SQUARE:
+    case SQUARE:    newShape = new Rectangle(this , SQUARE);
                     break;
-    case ELLIPSE:
+    case ELLIPSE:   newShape = new Ellipse(this , ELLIPSE);
                     break;
-    case CIRCLE:
+    case CIRCLE:    newShape = new Ellipse(this , CIRCLE);
                     break;
-    case TEXT:
+    case TEXT:      newShape = new Textbox(this, TEXT);
                     break;
-    default:        break;
     }
+
+    shapes.push_back(newShape);
+    setShape(newShape);
 }
 
 void RenderArea::setShape(Shape* shape)
