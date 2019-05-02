@@ -11,17 +11,17 @@
 #include "Textbox.h"
 #include "createshape.h"
 
-enum ShapesID
-{
-    LINE = 1,
-    POLYLINE = 2,
-    POLYGON = 3,
-    RECTANGLE = 4,
-    SQUARE = 5,
-    ELLIPSE = 6,
-    CIRCLE = 7,
-    TEXT = 8
-};
+//enum ShapesID
+//{
+//    LINE = 1,
+//    POLYLINE = 2,
+//    POLYGON = 3,
+//    RECTANGLE = 4,
+//    SQUARE = 5,
+//    ELLIPSE = 6,
+//    CIRCLE = 7,
+//    TEXT = 8
+//};
 
 const string INPUT_FILE = "shapes.txt";
 

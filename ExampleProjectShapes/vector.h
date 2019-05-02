@@ -22,8 +22,9 @@ namespace MyVector
         Vector(const Vector<T>& RHS)  // copy constructor
         :_size(RHS._size), _capacity(RHS._capacity), elem{new T[RHS._size]}
         {
-            copy(RHS.elem, RHS.elem + _size, elem); // copy elements
-        }
+            for(int i = 0; i < _size; i++)
+                elem[i] = RHS.elem[i]; // elements are initialized
+		}
 
         Vector<T>& operator=(const Vector<T>& RHS)
         {  // move constructor
@@ -31,12 +32,39 @@ namespace MyVector
             {
                 T *ptr = new T[RHS._size];
                 copy(RHS.elem, RHS.elem + RHS._size, ptr); // copy elements
-
                 if(elem != nullptr)
                     delete [] elem;
                 elem = ptr;
                 _size = RHS._size;
                 _capacity = RHS._capacity;
+            }
+            return *this;
+        }
+		
+		Vector(Vector&& RHS) : _size(0), _capacity(0), elem(nullptr)
+        {
+            _size     = RHS._size;
+            _capacity = RHS._capacity;
+            elem      = RHS.elem;
+
+            RHS._size     = 0;
+            RHS._capacity = 0;
+            RHS.elem      = nullptr;
+        }
+
+        Vector& operator=(Vector&& RHS)
+        {
+            if(this != &RHS)
+            {
+                delete [] elem;
+
+                elem = RHS.elem;
+                _size = RHS._size;
+                _capacity = RHS._capacity;
+
+                RHS.elem = nullptr;
+                RHS._size = 0;
+                RHS._capacity = 0;
             }
             return *this;
         }

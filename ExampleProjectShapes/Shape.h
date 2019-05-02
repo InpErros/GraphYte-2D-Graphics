@@ -6,12 +6,14 @@
 
 using namespace MyVector;
 
-enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square,
-                      Ellipse, Circle, Text};
+enum ShapeType {NoShape, LINE, POLYLINE, POLYGON, RECTANGLE, SQUARE,
+                      ELLIPSE, CIRCLE, TEXT};
 
 class Shape
 {
 public:
+	friend ostream& operator<<(ostream& os, const Shape&);
+
     Shape(QPaintDevice* device, int shapeId, ShapeType shapeType)
         :qpainter(device), id(shapeId), shape(shapeType)
     {
@@ -51,6 +53,12 @@ public:
     QPen GetPen() const{return pen;}
 
     QBrush GetBrush() const{return brush;}
+	
+	void IdShapeListing(Vector<Shape*> shapes);
+
+    void AreaShapeListing();
+
+    void PerimeterShapeListing();
 
 
 protected:
