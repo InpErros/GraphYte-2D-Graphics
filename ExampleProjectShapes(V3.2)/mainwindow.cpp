@@ -10,6 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     renderArea         = new RenderArea;
     createShape        = new CreateShape;
 
+    // show login (lock mainwindow)
+    login = new Login();
+    login->show();
+
     this->layout()->addWidget(renderArea);
 
     connect(createShape, SIGNAL(shapeGenerated(newShapeInfo)),
@@ -23,6 +27,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete renderArea;
     delete createShape;
+    delete login;
 }
 
 void MainWindow::shapeChanged()

@@ -35,7 +35,11 @@ SOURCES += \
     Ellipse.cpp \
     RenderArea.cpp \
     Textbox.cpp \
-    CreateShape.cpp
+    CreateShape.cpp \
+    login.cpp \
+    createaccount.cpp \
+    startup.cpp \
+    accountlist.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -48,11 +52,18 @@ HEADERS += \
     Ellipse.h \
     RenderArea.h \
     Textbox.h \
-    createshape.h
+    createshape.h \
+    login.h \
+    createaccount.h \
+    startup.h \
+    accountlist.h
 
 FORMS += \
         mainwindow.ui \
-    CreateShape.ui
+    CreateShape.ui \
+    login.ui \
+    createaccount.ui \
+    startup.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -61,3 +72,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     shapes.txt
+
+RESOURCES += \
+    resource.qrc

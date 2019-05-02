@@ -11,6 +11,7 @@
 #include <vector.h>
 #include "RenderArea.h"
 #include "createshape.h"
+#include "login.h"
 
 namespace Ui {
 class MainWindow;
@@ -41,6 +42,7 @@ private:
     Ui::MainWindow *ui;
     RenderArea *renderArea;
     CreateShape *createShape;
+    Login *login;
 };
 
 #endif // MAINWINDOW_H
