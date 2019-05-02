@@ -7,7 +7,7 @@ class Rectangle : public Shape
 {
 public:
     Rectangle(QPaintDevice* device = nullptr, int id = -1)
-        :Shape(device, id, ShapeType::Rectangle)
+        :Shape(device, id, ShapeType::RECTANGLE)
     {
     }
 

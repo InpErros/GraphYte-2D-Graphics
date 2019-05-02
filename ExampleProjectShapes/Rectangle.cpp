@@ -16,7 +16,7 @@ void Rectangle::SetDimensions(const int &LENGTH)
     length = LENGTH;
     width  = 0;
     square = true;
-    SetShape(ShapeType::Square);
+    SetShape(ShapeType::SQUARE);
 }
 
 void Rectangle::Draw()

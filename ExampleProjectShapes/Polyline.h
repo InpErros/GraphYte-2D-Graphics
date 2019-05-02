@@ -7,7 +7,7 @@ class Polyline : public Shape
 {
 public:
     Polyline(QPaintDevice* device = nullptr, int id = -1)
-                :Shape(device, id, ShapeType::Polyline)
+                :Shape(device, id, ShapeType::POLYLINE)
     {
     }
 

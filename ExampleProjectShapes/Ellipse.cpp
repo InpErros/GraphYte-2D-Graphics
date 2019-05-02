@@ -16,7 +16,7 @@ void Ellipse::SetDimensions(const int &RADIUS)
     majorAxis = RADIUS;
     minorAxis = 0;
     circle    = true;
-    SetShape(ShapeType::Circle);
+    SetShape(ShapeType::CIRCLE);
 }
 
 void Ellipse::Draw()
