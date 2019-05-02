@@ -31,6 +31,10 @@ private slots:
 
     void GenerateShape(const newShapeInfo&);
 
+    void GetNewCordinates();
+
+    void GetCordinateInput(bool &ok, Vector<int>&shapeCords);
+
     void on_actionNew_Shape_triggered();
 
     void on_actionDelete_Shape_triggered();

@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <algorithm>
-using std::copy;
 using namespace std;
 
 namespace MyVector
@@ -37,6 +36,34 @@ namespace MyVector
                 elem = ptr;
                 _size = RHS._size;
                 _capacity = RHS._capacity;
+            }
+            return *this;
+        }
+
+        Vector(Vector&& RHS) : _size(0), _capacity(0), elem(nullptr)
+        {
+            _size     = RHS._size;
+            _capacity = RHS._capacity;
+            elem      = RHS.elem;
+
+            RHS._size     = 0;
+            RHS._capacity = 0;
+            RHS.elem      = nullptr;
+        }
+
+        Vector& operator=(Vector&& RHS)
+        {
+            if(this != &RHS)
+            {
+                delete [] elem;
+
+                elem = RHS.elem;
+                _size = RHS._size;
+                _capacity = RHS._capacity;
+
+                RHS.elem = nullptr;
+                RHS._size = 0;
+                RHS._capacity = 0;
             }
             return *this;
         }

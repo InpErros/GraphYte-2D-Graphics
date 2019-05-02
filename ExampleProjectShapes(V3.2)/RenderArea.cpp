@@ -58,6 +58,8 @@ void RenderArea::CreateDefault()
     string textFontWeight;
     Vector<int>* shapeDimensions;
 
+    ShapeType shapeType;
+
     textFont   = new QFont;
     shapePen   = new QPen;
     shapeBrush = new QBrush;
@@ -75,11 +77,13 @@ void RenderArea::CreateDefault()
         fin.ignore(1000, '\n');
         fin.ignore(1000, ' ');
 
+        shapeType = static_cast<ShapeType>(shapeId);
+
         //Store the dimensions of the shape
-        switch(shapeId)
+        switch(shapeType)
         {
-        case POLYLINE:
-        case POLYGON:   for(int index = 0; index < 8; index++)
+        case ShapeType::Polyline:
+        case ShapeType::Polygon:   for(int index = 0; index < 8; index++)
                         {
                             fin >> dimension;
                             shapeDimensions->push_back(dimension);
@@ -88,10 +92,10 @@ void RenderArea::CreateDefault()
                                 fin.ignore(1000, ' ');
                         }
                         break;
-        case LINE:
-        case RECTANGLE:
-        case TEXT:
-        case ELLIPSE:   for(int index = 0; index < 4; index++)
+        case ShapeType::Line:
+        case ShapeType::Rectangle:
+        case ShapeType::Text:
+        case ShapeType::Ellipse:   for(int index = 0; index < 4; index++)
                         {
                             fin >> dimension;
                             shapeDimensions->push_back(dimension);
@@ -100,8 +104,8 @@ void RenderArea::CreateDefault()
                                 fin.ignore(1000, ' ');
                         }
                         break;
-        case SQUARE:
-        case CIRCLE:    for(int index = 0; index < 3; index++)
+        case ShapeType::Square:
+        case ShapeType::Circle:    for(int index = 0; index < 3; index++)
                         {
                             fin >> dimension;
                             shapeDimensions->push_back(dimension);
@@ -116,7 +120,7 @@ void RenderArea::CreateDefault()
 
         fin.ignore(1000, ' ');
 
-        if(shapeId != TEXT)
+        if(shapeType != ShapeType::Text)
         {
             //Get the Pen info
             getline(fin, penColor);
@@ -138,7 +142,7 @@ void RenderArea::CreateDefault()
                                  (QString::fromStdString(penCapStyle)));
             shapePen->setJoinStyle(StrToJoinStyle
                                   (QString::fromStdString(penJoinStyle)));
-            if(shapeId != LINE && shapeId != POLYLINE)
+            if(shapeType != ShapeType::Line && shapeType != ShapeType::Polyline)
             {
                 //Get Brush Info
                 fin.ignore(1000, ' ');
@@ -180,20 +184,20 @@ void RenderArea::CreateDefault()
         }
 
         //Create the shape based on the shape Id
-        switch(shapeId)
+        switch(shapeType)
         {
-        case LINE:      newLine = new Line(this , LINE);
+        case ShapeType::Line:      newLine = new Line(this , static_cast<int>(shapeType));
                         newLine->SetCordinates
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)),
                                  QPoint(shapeDimensions->operator[](2),
                                         shapeDimensions->operator[](3)));
                         newLine->SetPen(*shapePen);
-                        newLine->SetName("Deafult Line");
+                        newLine->SetName("Default Line");
                         shapes.push_back(newLine);
                         break;
 
-        case POLYLINE:  newPloyline = new Polyline(this , POLYLINE);
+        case ShapeType::Polyline:  newPloyline = new Polyline(this , static_cast<int>(shapeType));
                         newPloyline->AddPoint
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -207,11 +211,11 @@ void RenderArea::CreateDefault()
                                    (QPoint(shapeDimensions->operator[](6),
                                            shapeDimensions->operator[](7)));
                         newPloyline->SetPen(*shapePen);
-                        newPloyline->SetName("Deafult Polyline");
+                        newPloyline->SetName("Default Polyline");
                         shapes.push_back(newPloyline);
                         break;
 
-        case POLYGON:   newPolygon = new Polygon(this , POLYGON);
+        case ShapeType::Polygon:   newPolygon = new Polygon(this , static_cast<int>(shapeType));
                         newPolygon->AddPoint
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -226,10 +230,10 @@ void RenderArea::CreateDefault()
                                            shapeDimensions->operator[](7)));
                         newPolygon->SetPen(*shapePen);
                         newPolygon->SetBrush(*shapeBrush);
-                        newPolygon->SetName("Deafult Polygon");
+                        newPolygon->SetName("Default Polygon");
                         shapes.push_back(newPolygon);
                         break;
-        case RECTANGLE: newRectangle = new Rectangle(this , RECTANGLE);
+        case ShapeType::Rectangle: newRectangle = new Rectangle(this , static_cast<int>(shapeType));
                         newRectangle->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -238,10 +242,10 @@ void RenderArea::CreateDefault()
                                   shapeDimensions->operator[](3));
                         newRectangle->SetPen(*shapePen);
                         newRectangle->SetBrush(*shapeBrush);
-                        newRectangle->SetName("Deafult Rectangle");
+                        newRectangle->SetName("Default Rectangle");
                         shapes.push_back(newRectangle);
                         break;
-        case SQUARE:    newSquare = new Rectangle(this , SQUARE);
+        case ShapeType::Square:    newSquare = new Rectangle(this , static_cast<int>(shapeType));
                         newSquare->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -249,10 +253,10 @@ void RenderArea::CreateDefault()
                                  (shapeDimensions->operator[](2));
                         newSquare->SetPen(*shapePen);
                         newSquare->SetBrush(*shapeBrush);
-                        newSquare->SetName("Deafult Square");
+                        newSquare->SetName("Default Square");
                         shapes.push_back(newSquare);
                         break;
-        case ELLIPSE:   newEllipse = new Ellipse(this , ELLIPSE);
+        case ShapeType::Ellipse:   newEllipse = new Ellipse(this , static_cast<int>(shapeType));
                         newEllipse->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -261,10 +265,10 @@ void RenderArea::CreateDefault()
                                   shapeDimensions->operator[](3));
                         newEllipse->SetPen(*shapePen);
                         newEllipse->SetBrush(*shapeBrush);
-                        newEllipse->SetName("Deafult Ellipse");
+                        newEllipse->SetName("Default Ellipse");
                         shapes.push_back(newEllipse);
                         break;
-        case CIRCLE:    newCircle = new Ellipse(this , CIRCLE);
+        case ShapeType::Circle:    newCircle = new Ellipse(this , static_cast<int>(shapeType));
                         newCircle->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -272,10 +276,10 @@ void RenderArea::CreateDefault()
                                  (shapeDimensions->operator[](2));
                         newCircle->SetPen(*shapePen);
                         newCircle->SetBrush(*shapeBrush);
-                        newCircle->SetName("Deafult Circle");
+                        newCircle->SetName("Default Circle");
                         shapes.push_back(newCircle);
                         break;
-        case TEXT:      newTextbox = new Textbox(this, TEXT);
+        case ShapeType::Text:      newTextbox = new Textbox(this, static_cast<int>(shapeType));
                         newTextbox->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
@@ -288,7 +292,7 @@ void RenderArea::CreateDefault()
                         newTextbox->SetAllignment(QString::fromStdString
                                                   (textAllignment));
                         newTextbox->SetFont(*textFont);
-                        newTextbox->SetName("Deafult Textbox");
+                        newTextbox->SetName("Default Textbox");
                         shapes.push_back(newTextbox);
                         break;
         default:        break;

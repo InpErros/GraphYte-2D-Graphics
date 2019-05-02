@@ -32,11 +32,30 @@ void Polyline::Draw(QPaintDevice* device)
 
 void Polyline::Move(const int& X, const int& Y)
 {
-    QPointF lineFloatPoints[linePoints.size()];
+    static int index = 0;
+    QPointF newPoint(X, Y);
+    static bool full = false;
 
-    for (int index = 0; index < linePoints.size(); index++)
-        lineFloatPoints[index] = linePoints[index];
+    if(index + 1 == linePoints.size())
+    {
+        full = true;
+    }
 
-    GetPainter().translate(X, Y);
-    GetPainter().drawPolyline(lineFloatPoints, linePoints.size());
+    if(full == false)
+    {
+        linePoints[index].setX(X);
+        linePoints[index].setY(Y);
+        index++;
+    }
+    else
+    {
+        if(index + 1 == 6)
+        {
+            index = 0;
+            full = false;
+        }
+        else {
+            index++;
+        }
+    }
 }

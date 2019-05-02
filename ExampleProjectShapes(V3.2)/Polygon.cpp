@@ -32,13 +32,32 @@ void Polygon::Draw(QPaintDevice* device)
 
 void Polygon::Move(const int& X, const int& Y)
 {
-    QPointF polygonFloatPoints[polygonPoints.size()];
+    static int index = 0;
+    QPointF newPoint(X, Y);
+    static bool full = false;
 
-    for (int index = 0; index < polygonPoints.size(); index++)
-        polygonFloatPoints[index] = polygonPoints[index];
+    if(index + 1 == polygonPoints.size())
+    {
+        full = true;
+    }
 
-    GetPainter().translate(X, Y);
-    GetPainter().drawPolygon(polygonFloatPoints, polygonPoints.size());
+    if(full == false)
+    {
+        polygonPoints[index].setX(X);
+        polygonPoints[index].setY(Y);
+        index++;
+    }
+    else
+    {
+        if(index + 1 == 6)
+        {
+            index = 0;
+            full = false;
+        }
+        else {
+            index++;
+        }
+    }
 }
 
 float Polygon::Area() const

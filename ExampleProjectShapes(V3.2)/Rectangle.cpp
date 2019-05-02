@@ -40,11 +40,7 @@ void Rectangle::Draw(QPaintDevice* device)
 
 void Rectangle::Move(const int &X, const int &Y)
 {
-    GetPainter().translate(X, Y);
-    if(square != true)
-        GetPainter().drawRect(cordinates.x(), cordinates.y(), width, length);
-    else
-        GetPainter().drawRect(cordinates.x(), cordinates.y(), length, length);
+    SetCordiantes(QPoint(X, Y));
 }
 
 float Rectangle::Area() const

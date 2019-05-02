@@ -41,13 +41,7 @@ void Ellipse::Draw(QPaintDevice* device)
 
 void Ellipse::Move(const int &X, const int &Y)
 {
-    GetPainter().translate(X, Y);
-    if(circle != true)
-        GetPainter().drawEllipse(cordinates.x(), cordinates.y(),
-                                 majorAxis, minorAxis);
-    else
-        GetPainter().drawEllipse(cordinates.x(), cordinates.y(),
-                                 majorAxis, majorAxis);
+    SetCordiantes(QPoint(X, Y));
 }
 
 float Ellipse::Area() const

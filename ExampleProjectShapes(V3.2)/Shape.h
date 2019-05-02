@@ -2,6 +2,7 @@
 #define SHAPE_H
 
 #include <QPainter>
+#include <fstream>
 #include "vector.h"
 
 using namespace MyVector;
@@ -25,6 +26,8 @@ enum class ShapeType {NoShape, Line, Polyline, Polygon, Rectangle, Square,
 class Shape
 {
 public:
+    friend ostream& operator<<(ostream& os, const Shape&);
+
     Shape(QPaintDevice* device, int shapeId, ShapeType shapeType)
         :qpainter(device), id(shapeId), shape(shapeType)
     {
@@ -68,6 +71,13 @@ public:
     QBrush GetBrush() const{return brush;}
 
     QString GetName() const{return name;}
+
+
+    void IdShapeListing(Vector<Shape*> shapes);
+
+    void AreaShapeListing();
+
+    void PerimeterShapeListing();
 
 protected:
     QPainter& GetPainter(){return qpainter;}

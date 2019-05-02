@@ -29,6 +29,16 @@ void Line::Draw(QPaintDevice* device)
 
 void Line::Move(const int& X, const int& Y)
 {
-    GetPainter().translate(X, Y);
-    GetPainter().drawLine(startingPoint, endingPoint);
+    static bool start = true;
+
+    if(start == true)
+    {
+        startingPoint = QPoint(X, Y);
+        start = false;
+    }
+    else
+    {
+        endingPoint = QPoint(X, Y);
+        start = true;
+    }
 }

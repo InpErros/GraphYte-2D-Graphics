@@ -10,18 +10,6 @@
 #include "Rectangle.h"
 #include "Textbox.h"
 
-enum ShapesID
-{
-    LINE = 1,
-    POLYLINE = 2,
-    POLYGON = 3,
-    RECTANGLE = 4,
-    SQUARE = 5,
-    ELLIPSE = 6,
-    CIRCLE = 7,
-    TEXT = 8
-};
-
 const string INPUT_FILE = "shapes.txt";
 
 class RenderArea : public QWidget

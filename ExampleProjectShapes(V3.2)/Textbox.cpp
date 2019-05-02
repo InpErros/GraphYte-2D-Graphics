@@ -46,8 +46,5 @@ void Textbox::Draw(QPaintDevice* device)
 
 void Textbox::Move(const int &X, const int &Y)
 {
-    QRect rect(cordinates.x(), cordinates.y(), width, length);
-
-    GetPainter().translate(X, Y);
-    GetPainter().drawText(rect, text);
+    SetCordiantes(QPoint(X, Y));
 }

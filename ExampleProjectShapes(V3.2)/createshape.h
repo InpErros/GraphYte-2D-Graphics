@@ -20,21 +20,8 @@
 #include "Textbox.h"
 
 const int MAX_DIMENSION  = 1000;
-const int MAX_POLY_SIDES = 12;
+const int MAX_POLY_SIDES = 10;
 const int IdRole = Qt::UserRole;
-
-enum ShapeValues
-{
-    NO_SHAPE        = 0,
-    LINE_VALUE      = 1,
-    POLYLINE_VALUE  = 2,
-    POLYGON_VALUE   = 3,
-    RECTANGLE_VALUE = 4,
-    SQUARE_VALUE    = 5,
-    ELLIPSE_VALUE   = 6,
-    CIRCLE_VALUE    = 7,
-    TEXT_VALUE      = 8
-};
 
 namespace Ui {
 class CreateShape;

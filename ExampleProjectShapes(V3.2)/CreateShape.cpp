@@ -293,6 +293,8 @@ void CreateShape::SetSecondPgValues()
 
     QSpinBox *newSpinBox;
 
+    ShapeType shapeType;
+
     int index;
     int cordCounter = 1;
     int shapeBoxIndex = shapeCBox->currentIndex();
@@ -307,12 +309,14 @@ void CreateShape::SetSecondPgValues()
 
     polySidesBox->setEnabled(false);
 
-    switch(shapeBoxIndex)
-    {
-    case NO_SHAPE:          break;
+    shapeType = static_cast<ShapeType>(shapeBoxIndex);
 
-    case POLYLINE_VALUE:
-    case POLYGON_VALUE:     for(index = 0; index < MAX_POLY_SIDES; index++)
+    switch(shapeType)
+    {
+    case ShapeType::NoShape:          break;
+
+    case ShapeType::Polyline:
+    case ShapeType::Polygon:     for(index = 0; index < MAX_POLY_SIDES; index++)
                             {
                                 newLabel = new QLabel;
                                 if(index % 2 == 0)
@@ -331,10 +335,10 @@ void CreateShape::SetSecondPgValues()
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-    case LINE_VALUE:
-    case RECTANGLE_VALUE:
-    case ELLIPSE_VALUE:
-    case TEXT_VALUE:        for(index = 0; index < 4; index++)
+    case ShapeType::Line:
+    case ShapeType::Rectangle:
+    case ShapeType::Text:
+    case ShapeType::Ellipse:        for(index = 0; index < 4; index++)
                             {
                                 newLabel = new QLabel;
                                 switch(index)
@@ -343,10 +347,10 @@ void CreateShape::SetSecondPgValues()
                                             break;
                                 case 1:     newLabel->setText("Y1:");
                                             break;
-                                case 2:     if(shapeBoxIndex == TEXT_VALUE)
+                                case 2:     if(shapeType == ShapeType::Text)
                                                 newLabel->setText("X2:");
-                                            else if(shapeBoxIndex ==
-                                                    ELLIPSE_VALUE)
+                                            else if(shapeType ==
+                                                    ShapeType::Ellipse)
                                             {
                                                 newLabel->setText
                                                         ("Semi Major Axis:");
@@ -354,10 +358,10 @@ void CreateShape::SetSecondPgValues()
                                             else
                                                 newLabel->setText("Length:");
                                             break;
-                                case 3:     if(shapeBoxIndex == TEXT_VALUE)
+                                case 3:     if(shapeType == ShapeType::Text)
                                                 newLabel->setText("Y2:");
-                                            else if(shapeBoxIndex ==
-                                                    ELLIPSE_VALUE)
+                                            else if(shapeType ==
+                                                    ShapeType::Ellipse)
                                             {
                                                 newLabel->setText
                                                         ("Semi Minor Axis:");
@@ -370,8 +374,8 @@ void CreateShape::SetSecondPgValues()
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-    case SQUARE_VALUE:
-    case CIRCLE_VALUE:      for(index = 0; index < 3; index++)
+    case ShapeType::Square:
+    case ShapeType::Circle:      for(index = 0; index < 3; index++)
                             {
                                 newLabel = new QLabel;
                                 switch(index)
@@ -380,7 +384,7 @@ void CreateShape::SetSecondPgValues()
                                             break;
                                 case 1:     newLabel->setText("Y1:");
                                             break;
-                                case 2:     if(shapeBoxIndex == SQUARE_VALUE)
+                                case 2:     if(shapeType == ShapeType::Square)
                                                 newLabel->setText("Length:");
                                             else
                                                 newLabel->setText("Radius:");
@@ -390,8 +394,6 @@ void CreateShape::SetSecondPgValues()
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-
-    default:                break;
     }
 
     shapeValuesLayout->addRow(polySidesLabel,polySidesBox);
@@ -402,7 +404,7 @@ void CreateShape::SetSecondPgValues()
         newSpinBox->setRange(-1, MAX_DIMENSION);
         newSpinBox->setValue(-1);
 
-        if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+        if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
             newSpinBox->setEnabled(false);
 
         dimensionsSpinBox->push_back(newSpinBox);
@@ -418,7 +420,7 @@ void CreateShape::SetSecondPgValues()
 
     shapeValuesLayout->setVerticalSpacing(10);
 
-    if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+    if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
         polySidesBox->setEnabled(true);
 
     shapeInfo->setLayout(shapeValuesLayout);
@@ -427,8 +429,12 @@ void CreateShape::SetSecondPgValues()
 newShapeInfo CreateShape::GenerateShape()
 {
     newShapeInfo newShape;
+
+    ShapeType shapeType;
+
     newShape.shapeId = shapeCBox->currentIndex();
     newShape.name    = shapeName->text();
+    shapeType = static_cast<ShapeType>(newShape.shapeId);
 
     for(int index = 0; index < dimensionsSpinBox->size(); index++)
     {
@@ -436,14 +442,14 @@ newShapeInfo CreateShape::GenerateShape()
                 (dimensionsSpinBox->operator[](index)->value());
     }
 
-    if(newShape.shapeId != TEXT_VALUE)
+    if(shapeType != ShapeType::Text)
     {
         newShape.shapePen.setColor(StrToColor(penColorCBox->currentText()));
         newShape.shapePen.setWidth(penWidthBox->value());
         newShape.shapePen.setStyle(StrToPenStyle(penStyleCBox->currentText()));
         newShape.shapePen.setCapStyle(StrToCapStyle(penCapCBox->currentText()));
         newShape.shapePen.setJoinStyle(StrToJoinStyle(penJoinCBox->currentText()));
-        if(newShape.shapeId != LINE_VALUE || newShape.shapeId != POLYLINE_VALUE)
+        if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
         {
             newShape.brush.setColor(StrToColor(brushColorCBox->currentText()));
             newShape.brush.setStyle(StrToBrushStyle(brushStyleCBox->currentText()));
@@ -464,9 +470,13 @@ newShapeInfo CreateShape::GenerateShape()
 
 void CreateShape::ShapeComboBox(const int& ARGUMENT)
 {
-    switch(ARGUMENT)
+    ShapeType shapeType;
+
+    shapeType = static_cast<ShapeType>(ARGUMENT);
+
+    switch(shapeType)
     {
-    case NO_SHAPE:          //Disable all features until a shape is chosen
+    case ShapeType::NoShape:          //Disable all features until a shape is chosen
                             shapeName           ->setEnabled(false);
                             penColorCBox        ->setEnabled(false);
                             penStyleCBox        ->setEnabled(false);
@@ -484,8 +494,8 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textString          ->setEnabled(false);
                             break;
 
-    case LINE_VALUE:
-    case POLYLINE_VALUE:    shapeName           ->setEnabled(true);
+    case ShapeType::Line:
+    case ShapeType::Polyline:    shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(true);
                             penStyleCBox        ->setEnabled(true);
                             penCapCBox          ->setEnabled(true);
@@ -501,11 +511,11 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(false);
                             textString          ->setEnabled(false);
                             break;
-    case POLYGON_VALUE:
-    case RECTANGLE_VALUE:
-    case SQUARE_VALUE:
-    case ELLIPSE_VALUE:
-    case CIRCLE_VALUE:      shapeName           ->setEnabled(true);
+    case ShapeType::Polygon:
+    case ShapeType::Rectangle:
+    case ShapeType::Square:
+    case ShapeType::Ellipse:
+    case ShapeType::Circle:      shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(true);
                             penStyleCBox        ->setEnabled(true);
                             penCapCBox          ->setEnabled(true);
@@ -521,7 +531,7 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(false);
                             textString          ->setEnabled(false);
                             break;
-    case TEXT_VALUE:        shapeName           ->setEnabled(true);
+    case ShapeType::Text:        shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(false);
                             penStyleCBox        ->setEnabled(false);
                             penCapCBox          ->setEnabled(false);
@@ -537,7 +547,6 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(true);
                             textString          ->setEnabled(true);
                     break;
-    default:        break;
     }
 }
 
@@ -545,22 +554,26 @@ void CreateShape::GoToSecPage()
 {
     bool completed = false;
 
-    switch(shapeCBox->currentIndex())
-    {
-    case NO_SHAPE:          break;
+    ShapeType shapeType;
 
-    case LINE_VALUE:
-    case POLYLINE_VALUE:    if(penColorCBox->currentIndex() != 0 &&
+    shapeType = static_cast<ShapeType>(shapeCBox->currentIndex());
+
+    switch(shapeType)
+    {
+    case ShapeType::NoShape:          break;
+
+    case ShapeType::Line:
+    case ShapeType::Polyline:    if(penColorCBox->currentIndex() != 0 &&
                                penStyleCBox->currentIndex() != 0 &&
                                penWidthBox ->value()        != 0 &&
                                shapeName->text().isEmpty()  == false)
                                 completed = true;
                             break;
-    case POLYGON_VALUE:
-    case RECTANGLE_VALUE:
-    case SQUARE_VALUE:
-    case ELLIPSE_VALUE:
-    case CIRCLE_VALUE:      if(penColorCBox->currentIndex()   != 0 &&
+    case ShapeType::Polygon:
+    case ShapeType::Rectangle:
+    case ShapeType::Square:
+    case ShapeType::Ellipse:
+    case ShapeType::Circle:      if(penColorCBox->currentIndex()   != 0 &&
                                penStyleCBox->currentIndex()   != 0 &&
                                penWidthBox  ->value()         != 0 &&
                                brushColorCBox->currentIndex() != 0 &&
@@ -568,13 +581,12 @@ void CreateShape::GoToSecPage()
                                shapeName->text().isEmpty()    == false)
                                     completed = true;
                             break;
-    case TEXT_VALUE:        if(textColorCBox->currentIndex()   != 0     &&
+    case ShapeType::Text:        if(textColorCBox->currentIndex()   != 0     &&
                                textPointBox ->value()          != 0     &&
                                textString   ->text().isEmpty() == false &&
                                shapeName    ->text().isEmpty() == false)
                                     completed = true;
                             break;
-    default:                break;
     }
 
     if(completed == false)
@@ -621,8 +633,11 @@ void CreateShape::CompleteShape()
     bool completed = true;
     int index = 0;
 
-    if(shapeCBox->currentIndex() == POLYLINE_VALUE ||
-       shapeCBox->currentIndex() == POLYGON_VALUE)
+    ShapeType shapeType;
+
+    shapeType = static_cast<ShapeType>(shapeCBox->currentIndex());
+
+    if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
     {
         if(polySidesBox->value() == 0)
             completed = false;
