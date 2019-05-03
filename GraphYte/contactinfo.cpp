@@ -1,5 +1,8 @@
 #include "contactinfo.h"
 #include "ui_contactinfo.h"
+#include <QDesktopServices>
+#include <QUrl>
+#include <QCoreApplication>
 
 ContactInfo::ContactInfo(QWidget *parent) :
     QMainWindow(parent),
@@ -43,20 +46,27 @@ ContactInfo::~ContactInfo()
 
 void ContactInfo::on_pushButton_URL_clicked()
 {
-
+    //QString link = "://graphytehome.html";
+    //QDesktopServices::openUrl(QUrl("file:///" + QCoreApplication::applicationDirPath() + "/graphytehome.html"));
+    //QDesktopServices::openUrl(QUrl("https://www.google.com"));
+    QDesktopServices::openUrl(QUrl("file:///" + QCoreApplication::applicationDirPath() + "/graphytehome.html"));
+    //QCoreApplication::applicationFilePath()
 }
 
 void ContactInfo::on_pushButton_discord_clicked()
 {
-
+    QString link = "https://discord.gg/k9Dxpu2";
+    QDesktopServices::openUrl(QUrl(link));
 }
 
 void ContactInfo::on_pushButton_github_clicked()
 {
-
+    QString link = "https://github.com/brandonTheProgram/GraphYte-2D-Graphics";
+    QDesktopServices::openUrl(QUrl(link));
 }
 
 void ContactInfo::on_pushButton_email_clicked()
 {
-
+    QString link = "mailto:graphyte.help@cyberservices.com";
+    QDesktopServices::openUrl(QUrl(link));
 }

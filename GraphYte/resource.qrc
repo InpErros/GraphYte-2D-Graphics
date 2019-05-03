@@ -5,5 +5,7 @@
         <file>emailIcon.png</file>
         <file>githubIcon.png</file>
         <file>graphyteicon.png</file>
+        <file>graphytehome.html</file>
+        <file>icon.png</file>
     </qresource>
 </RCC>
