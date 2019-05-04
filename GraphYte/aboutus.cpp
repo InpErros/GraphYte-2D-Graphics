@@ -7,6 +7,10 @@ AboutUs::AboutUs(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
+
+    QPixmap aboutus("://aboutus.png");
+    ui->label->setPixmap(aboutus);
+
 }
 
 AboutUs::~AboutUs()
