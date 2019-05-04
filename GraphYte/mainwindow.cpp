@@ -1,5 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <QDesktopServices>
+#include <QUrl>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -207,4 +209,9 @@ void MainWindow::on_actionContact_Us_triggered()
 {
     contactInfo = new ContactInfo;
     contactInfo->show();
+}
+
+void MainWindow::on_actionSupport_triggered()
+{
+    QDesktopServices::openUrl(QUrl("https://discord.gg/k9Dxpu2"));
 }
