@@ -41,8 +41,6 @@ private slots:
 
     void on_actionContact_Us_triggered();
 
-    void on_actionSupport_triggered();
-
 private:
     Ui::MainWindow *ui;
     RenderArea *renderArea;
