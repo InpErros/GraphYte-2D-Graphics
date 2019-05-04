@@ -40,7 +40,9 @@ SOURCES += \
     createaccount.cpp \
     startup.cpp \
     accountlist.cpp \
-    contactinfo.cpp
+    contactinfo.cpp \
+    comment.cpp \
+    aboutus.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -58,7 +60,9 @@ HEADERS += \
     createaccount.h \
     startup.h \
     accountlist.h \
-    contactinfo.h
+    contactinfo.h \
+    comment.h \
+    aboutus.h
 
 FORMS += \
         mainwindow.ui \
@@ -66,7 +70,9 @@ FORMS += \
     login.ui \
     createaccount.ui \
     startup.ui \
-    contactinfo.ui
+    contactinfo.ui \
+    comment.ui \
+    aboutus.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

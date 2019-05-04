@@ -9,6 +9,7 @@ ContactInfo::ContactInfo(QWidget *parent) :
     ui(new Ui::ContactInfo)
 {
     ui->setupUi(this);
+    setWindowModality(Qt::ApplicationModal);
 
 
     // Pixmaps
