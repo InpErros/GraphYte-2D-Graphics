@@ -15,6 +15,9 @@ public:
     explicit Comment(QWidget *parent = nullptr);
     ~Comment();
 
+private slots:
+    void on_pushButton_clicked();
+
 private:
     Ui::Comment *ui;
 };

@@ -26,30 +26,15 @@ void CreateAccount::on_pushButton_clicked()
     QString user = ui->lineEdit_newusername->text();
     QString password = ui->lineEdit_newpassword->text();
 
-    AccountList db;
-    db.fillList();
-    fstream fin("db.txt");
+    std::ofstream fout;
 
-    if(fin.is_open()){
-        qDebug() << "WORKING" << endl;
-    }
-    else{
-        qDebug() << "BROKEN" << endl;
-    }
-    if(db.isEmpty(fin)){
-        fin << name.toStdString() << endl;
-        fin << email.toStdString() << endl;
-        fin << user.toStdString() << endl;
-        fin << password.toStdString() << endl;
+    fout.open("db.txt", std::ios_base::app);
+    fout << name.toStdString() << endl;
+    fout << email.toStdString() << endl;
+    fout << user.toStdString() << endl;
+    fout << password.toStdString() << endl;
+    fout.close();
 
-        fin.close();
-        QMessageBox::information(this, "Account Created", "Your Account Was Created Successfully");
-        this->hide();
-
-        return;
-    }
-    else
-        fin.close();
     if(name.toStdString() == ""){
         QMessageBox::warning(this,"Account Creation Failed", "Account Creation Failed.\nName is Invalid!");
     }
@@ -72,4 +57,17 @@ void CreateAccount::on_pushButton_clicked()
         QMessageBox::information(this, "Account Created", "Your Account Was Created Successfully");
         this->hide();
     }
+}
+
+bool usernameExists(string user){
+    std::ifstream fin;
+    fin.open("db.txt");
+    string u;
+
+    while(!fin.eof()){
+        getline(fin,u);
+        if(user.compare(u))
+            break;
+    }
+    return user.compare(u);
 }

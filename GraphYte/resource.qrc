@@ -8,5 +8,6 @@
         <file>graphytehome.html</file>
         <file>icon.png</file>
         <file>aboutus.png</file>
+        <file>comments.png</file>
     </qresource>
 </RCC>
