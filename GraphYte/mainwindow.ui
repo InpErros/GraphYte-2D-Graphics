@@ -47,10 +47,19 @@
     </property>
     <addaction name="actionLogin"/>
    </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout_Us"/>
+    <addaction name="actionContact_Us"/>
+    <addaction name="actionComments"/>
+   </widget>
    <addaction name="menuCreate_A_New_Shape"/>
    <addaction name="menuDelete_A_Shape"/>
    <addaction name="menuMove_A_Shape"/>
    <addaction name="menuLogin"/>
+   <addaction name="menuHelp"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -79,6 +88,21 @@
   <action name="actionLogin">
    <property name="text">
     <string>Login</string>
+   </property>
+  </action>
+  <action name="actionAbout_Us">
+   <property name="text">
+    <string>About Us</string>
+   </property>
+  </action>
+  <action name="actionContact_Us">
+   <property name="text">
+    <string>Contact Us</string>
+   </property>
+  </action>
+  <action name="actionComments">
+   <property name="text">
+    <string>Comments</string>
    </property>
   </action>
  </widget>

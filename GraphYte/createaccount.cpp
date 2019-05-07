@@ -27,6 +27,7 @@ void CreateAccount::on_pushButton_clicked()
     QString password = ui->lineEdit_newpassword->text();
 
     std::ofstream fout;
+    AccountList db;
 
     fout.open("db.txt", std::ios_base::app);
     fout << name.toStdString() << endl;

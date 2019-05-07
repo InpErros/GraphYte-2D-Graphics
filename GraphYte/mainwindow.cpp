@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    login = new Login;
+    login->show();
+
     renderArea         = new RenderArea;
     createShape        = new CreateShape;
 
@@ -388,4 +391,22 @@ void MainWindow::on_actionLogin_triggered()
         QMessageBox::warning(this, "Incorrect",
                              "incorrect username or password");
     }
+}
+
+void MainWindow::on_actionContact_Us_triggered()
+{
+    contactInfo = new ContactInfo;
+    contactInfo->show();
+}
+
+void MainWindow::on_actionComments_triggered()
+{
+    comment = new Comment;
+    comment->show();
+}
+
+void MainWindow::on_actionAbout_Us_triggered()
+{
+    aboutUs = new AboutUs;
+    aboutUs->show();
 }

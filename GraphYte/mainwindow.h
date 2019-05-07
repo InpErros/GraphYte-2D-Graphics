@@ -10,6 +10,10 @@
 #include <QInputDialog>
 #include "RenderArea.h"  /** RenderArea  **/
 #include "createshape.h" /** CreateShape **/
+#include "login.h"
+#include "contactinfo.h"
+#include "aboutus.h"
+#include "comment.h"
 
 const QString USERNAME = "admin";
 const QString PASSWORD = "C++";
@@ -51,10 +55,20 @@ private slots:
     //Button to login
     void on_actionLogin_triggered();
 
+    void on_actionContact_Us_triggered();
+
+    void on_actionComments_triggered();
+
+    void on_actionAbout_Us_triggered();
+
 private:
     Ui::MainWindow *ui;             //The main ui for the program
     RenderArea     *renderArea;     //The canvas that draws the shapes
     CreateShape    *createShape;    //The Dialog to create a new shape
+    Login* login;
+    ContactInfo* contactInfo;
+    AboutUs* aboutUs;
+    Comment* comment;
 };
 
 #endif // MAINWINDOW_H
