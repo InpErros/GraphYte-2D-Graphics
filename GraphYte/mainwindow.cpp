@@ -354,42 +354,14 @@ void MainWindow::on_actionMove_Shape_triggered()
 //Login for the admin
 void MainWindow::on_actionLogin_triggered()
 {
-    bool ok;            //The condition to move on
+    login = new Login;
+    login->show();
 
-    QString username;   //The username the user inputs
-    QString password;   //The password the user inputs
-
-    username = QInputDialog::getText(this, tr("Login"),
-                                         tr("User name:"), QLineEdit::Normal,
-                                         "", &ok);
-    if (ok && !username.isEmpty())
-    {
-        password = QInputDialog::getText(this, tr("Login"),
-                                             tr("Password:"), QLineEdit::Normal,
-                                             "", &ok);
-        if (ok && !username.isEmpty())
-        {
-            if(username == USERNAME && password == PASSWORD)
-            {
-                QMessageBox::information(this, "Welcome", "Welcome back Admin");
-
-                //Enable everything for the admin
-                ui->menuCreate_A_New_Shape->setEnabled(true);
-                ui->menuDelete_A_Shape->setEnabled(true);
-                ui->menuMove_A_Shape->setEnabled(true);
-                ui->menuLogin->setEnabled(false);
-            }
-            else
-            {
-                QMessageBox::warning(this, "Incorrect",
-                                     "incorrect username or password");
-            }
-        }
-    }
-    else
-    {
-        QMessageBox::warning(this, "Incorrect",
-                             "incorrect username or password");
+    if(login->loginSuccess()){
+        ui->menuCreate_A_New_Shape->setEnabled(true);
+        ui->menuDelete_A_Shape->setEnabled(true);
+        ui->menuMove_A_Shape->setEnabled(true);
+        ui->menuLogin->setEnabled(false);
     }
 }
 

@@ -66,3 +66,14 @@ void Login::on_actionExit_triggered()
     this->close();
 }
 
+bool Login::loginSuccess(){
+
+
+    return true;
+}
+
+
+void Login::on_pushButton_clicked()
+{
+    this->hide();
+}

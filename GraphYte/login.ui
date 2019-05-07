@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>429</width>
-    <height>316</height>
+    <width>430</width>
+    <height>375</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Login | GrapYte - 2D Graphics Generator</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resource.qrc">
+    <normaloff>:/icon.png</normaloff>:/icon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QGroupBox" name="groupBox_login">
@@ -20,7 +24,7 @@
       <x>10</x>
       <y>10</y>
       <width>411</width>
-      <height>251</height>
+      <height>300</height>
      </rect>
     </property>
     <property name="title">
@@ -84,6 +88,19 @@
       </item>
      </layout>
     </widget>
+    <widget class="QPushButton" name="pushButton">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>250</y>
+       <width>391</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Login as Guest</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -91,7 +108,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>429</width>
+     <width>430</width>
      <height>17</height>
     </rect>
    </property>
