@@ -1,52 +1,128 @@
 #include "Polygon.h"
 
+/************************************************************************
+* Method ~Line: Class Line
+*----------------------------------------------------------------------
+* 	 This method deletes the Line object
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
 Polygon::~Polygon()
 {
 }
 
-void Polygon::AddPoint(const QPoint &NEW_POINT)
-{
-    polygonPoints.push_back(NEW_POINT);
-}
-
+/************************************************************************
+* Method Draw: Class Polygon
+*----------------------------------------------------------------------
+* 	 This method draw the shape to the canvas
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       device   (QPaintDevice) - the canvas to be drawn to
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
 void Polygon::Draw(QPaintDevice* device)
 {
-    QPainter painter(device);
-    QPen newPen = GetPen();
-    QBrush newBrush = GetBrush();
+    QPainter painter(device);   //Create a new painter to draw the shape to
+    QPen     newPen;            //The pen for the new painter
+    QBrush   newBrush;          //The brush for the new painter
+    QPointF  polygonFloatPoints[polygonPoints.size()]; //Create an array for
+                                                       //the floating QPoints
 
-    painter.setPen(newPen);
-    painter.setBrush(newBrush);;
+    //PROCESSING - Get the values of the old painter
+    newPen   = GetPen();
+    newBrush = GetBrush();
 
-    QPointF polygonFloatPoints[polygonPoints.size()];
+    //PROCESSING = Set the values for the new painter
+    painter.setPen  (newPen);
+    painter.setBrush(newBrush);
 
+    //Store all the polygonpoints into an array of floating point
     for (int index = 0; index < polygonPoints.size(); index++)
         polygonFloatPoints[index] = polygonPoints[index];
 
+    //PROCESSING - save current state of the painter
     painter.save();
 
     painter.drawPolygon(polygonFloatPoints, polygonPoints.size());
 
+    //PROCESSING - return the state of the current painter
     painter.restore();
 }
 
+/************************************************************************
+* Method Move: Class Polygon
+*----------------------------------------------------------------------
+* 	 This method moves the shape
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       X (int) - the new x cordinate
+*       Y (int) - the new y cordinate
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
 void Polygon::Move(const int& X, const int& Y)
 {
-    QPointF polygonFloatPoints[polygonPoints.size()];
+    static int index = 0;    //PROC - the index in the array
+    static bool full = false;//PROC - the condition if the array is full
+    QPointF newPoint;        //PROC - the new points for
 
-    for (int index = 0; index < polygonPoints.size(); index++)
-        polygonFloatPoints[index] = polygonPoints[index];
+    //Set the new points
+    newPoint.setX(X);
+    newPoint.setY(Y);
 
-    GetPainter().translate(X, Y);
-    GetPainter().drawPolygon(polygonFloatPoints, polygonPoints.size());
+    //If the has reached the max amount of stored points, then full = true;
+    if(index + 1 == polygonPoints.size()) {full = true;}
+
+    //If the array is not full, set the new points
+    if(full == false)
+    {
+        polygonPoints[index].setX(X);
+        polygonPoints[index].setY(Y);
+        index++;
+    }
+    else
+    {
+        //If the index is at the max amount of points, reset
+        if(index + 1 == 6)
+        {
+            index = 0;
+            full = false;
+        }
+        else { index++;}
+    }
 }
 
+/************************************************************************
+* Method Area: Class Polygon
+*----------------------------------------------------------------------
+* 	 This method calcualtes the area of the shape
+* 	 ==> returns area
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*
+* POST-CONDITIONS
+* 	==> returns area
+*************************************************************************/
 float Polygon::Area() const
 {
-    float area = 0.0;
+    float area = 0.0;   //PROC - the area of the shape
 
     for(int index = 0; index < polygonPoints.size(); index++)
     {
+        //If the index is now at the end of the array
         if(index == polygonPoints.size()-1)
         {
             area += polygonPoints[index].x() * polygonPoints[0].y();
@@ -61,15 +137,26 @@ float Polygon::Area() const
             area -= polygonPoints[index].y() * polygonPoints[index+1].x();
 
         }
-
     }
 
     return area / 2;
 }
 
+/************************************************************************
+* Method Perimeter: Class Polygon
+*----------------------------------------------------------------------
+* 	 This method calcualtes the perimeter of the shape
+* 	 ==> returns perimeter
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*
+* POST-CONDITIONS
+* 	==> returns perimeter
+*************************************************************************/
 float Polygon::Perimeter() const
 {
-    float perimeter = 0.0;
+    float perimeter = 0.0; //PROC - the perimeter of the shape
 
     for(int index = 0; index < polygonPoints.size()-1; index++)
     {

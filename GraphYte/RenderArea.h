@@ -10,58 +10,50 @@
 #include "Rectangle.h"
 #include "Textbox.h"
 
-enum ShapesID
-{
-    LINE = 1,
-    POLYLINE = 2,
-    POLYGON = 3,
-    RECTANGLE = 4,
-    SQUARE = 5,
-    ELLIPSE = 6,
-    CIRCLE = 7,
-    TEXT = 8
-};
-
 const string INPUT_FILE = "shapes.txt";
 
 class RenderArea : public QWidget
 {
     Q_OBJECT
 public:
+    //Constructor
     explicit RenderArea(QWidget *parent = nullptr);
+
+    //Desstructor
     ~RenderArea();
 
+    //Overrides for the screen size
     QSize minimumSizeHint() const Q_DECL_OVERRIDE;
     QSize sizeHint() const Q_DECL_OVERRIDE;
 
+    //Load in the shapes from the input file
     void CreateDefault();
 
+    //Trigger an update to the canvas
     void UpdateCanvas();
 
+    //The vector of all the shapes that have been created
     Vector<Shape*> shapes;
 signals:
 
 public slots:
-    void setShape(Shape *shape);
-    void setPen(const QPen &pen);
-    void setBrush(const QBrush &brush);
 
 protected:
+    //The canvas where the shapes are drawn
     void paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE;
 
 private:
-    Shape *currentShape;
-    QPen pen;
-    QBrush brush;
+    QPen pen;       //The pen of the canvas
+    QBrush brush;   //The brush of the canvas
 };
 
 //Helper Functions
-Qt::GlobalColor StrToColor(QString);
-Qt::PenStyle StrToPenStyle(const QString&);
-Qt::PenCapStyle StrToCapStyle(const QString&);
-Qt::PenJoinStyle StrToJoinStyle(const QString&);
-Qt::BrushStyle StrToBrushStyle(const QString&);
-QFont::Style StrToFontStyle(const QString&);
-QFont::Weight StrToFontWeight(const QString&);
+Qt::GlobalColor     StrToColor(QString);
+Qt::PenStyle        StrToPenStyle(const QString&);
+Qt::PenCapStyle     StrToCapStyle(const QString&);
+Qt::PenJoinStyle    StrToJoinStyle(const QString&);
+Qt::BrushStyle      StrToBrushStyle(const QString&);
+QFont::Style        StrToFontStyle(const QString&);
+QFont::Weight       StrToFontWeight(const QString&);
 
 #endif // RENDERAREA_H

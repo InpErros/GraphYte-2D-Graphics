@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>GraphYte | 2D Graphics</string>
+   <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -41,19 +41,16 @@
     </property>
     <addaction name="actionMove_Shape"/>
    </widget>
-   <widget class="QMenu" name="menuHelp">
+   <widget class="QMenu" name="menuLogin">
     <property name="title">
-     <string>Help</string>
+     <string>Login</string>
     </property>
-    <addaction name="actionAbout_Us"/>
-    <addaction name="actionContact_Us"/>
-    <addaction name="actionComments"/>
-    <addaction name="actionSupport"/>
+    <addaction name="actionLogin"/>
    </widget>
    <addaction name="menuCreate_A_New_Shape"/>
    <addaction name="menuDelete_A_Shape"/>
    <addaction name="menuMove_A_Shape"/>
-   <addaction name="menuHelp"/>
+   <addaction name="menuLogin"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
    <attribute name="toolBarArea">
@@ -79,24 +76,9 @@
     <string>Move Shape</string>
    </property>
   </action>
-  <action name="actionAbout_Us">
+  <action name="actionLogin">
    <property name="text">
-    <string>About Us</string>
-   </property>
-  </action>
-  <action name="actionContact_Us">
-   <property name="text">
-    <string>Contact Us</string>
-   </property>
-  </action>
-  <action name="actionComments">
-   <property name="text">
-    <string>Comments</string>
-   </property>
-  </action>
-  <action name="actionSupport">
-   <property name="text">
-    <string>Support</string>
+    <string>Login</string>
    </property>
   </action>
  </widget>
