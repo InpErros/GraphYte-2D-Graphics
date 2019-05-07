@@ -149,6 +149,9 @@ public:
     //This will calcualte and return the area of the shape
     virtual float  Area() const = 0;
 
+    // This will output all of the shape properties
+    virtual void Print(ostream& os) const = 0;
+
     /*******************
      **** ACCESSORS ****
      *******************/
@@ -186,28 +189,12 @@ public:
     QString GetName() const{return name;}
 
     /****************************************************************
-     * void IdShapeListing(Vector<Shape*> shapes) const;
-     *   Accessor; Prints the ids of every shape
-     *   Parameters: shapes(Vector<Shape*>) - the list of shapes created
-     *   Return: none
+     * int GetId() const;
+     *   Accessor; returns the id of the shape
+     *   Parameters:
+     *   Return: id
      ***************************************************************/
-    void IdShapeListing(Vector<Shape*> shapes) const;
-
-    /****************************************************************
-     * void AreaShapeListing() const;
-     *   Accessor; Prints the area of every shape in the list
-     *   Parameters: shapes(Vector<Shape*>) - the list of shapes created
-     *   Return: none
-     ***************************************************************/
-    void AreaShapeListing() const;
-
-    /****************************************************************
-     * void PerimeterShapeListing() const;
-     *   Accessor; Prints the perimeter of every shape in the list
-     *   Parameters: shapes(Vector<Shape*>) - the list of shapes created
-     *   Return: none
-     ***************************************************************/
-    void PerimeterShapeListing() const;
+    int GetId() const {return id;}
 
 protected:
     /****************************************************************
@@ -226,5 +213,13 @@ private:
     QBrush    brush;     //The brush of the shape
     QString   name;      //The name of the shape
 };
+
+// Helper functions
+string ColortoStr(const QPen& PEN);
+string BrushColorToStr(const QBrush& BRUSH);
+string PenStyleToStr(const QPen& PEN);
+string JoinStyleToStr(const QPen& PEN);
+string CapStyleToStr(const QPen& PEN);
+string BrushStyleToStr(const QBrush& BRUSH);
 
 #endif // SHAPE_H

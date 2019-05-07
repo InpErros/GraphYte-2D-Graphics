@@ -103,3 +103,37 @@ void Polyline::Move(const int& X, const int& Y)
         else {index++;}
     }
 }
+
+/************************************************************************
+* Method Print: Class Polyline
+*----------------------------------------------------------------------
+* 	 This outputs all of the shapes properties
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       os (ostream&) - the output stream
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
+void Polyline::Print(ostream& os) const
+{
+
+    os << "ShapeId: " << GetId() << endl;
+    os << "ShapeType: Polyline" << endl;
+    os << "ShapeDimensions: ";
+    for(int i = 0; i < linePoints.size(); i++)
+    {
+        os << linePoints[i].x() << ", " << linePoints[i].y();
+        if(i != linePoints.size() -1) {os << ", ";}
+
+    }
+    os << endl;
+    os << "PenColor: " << ColortoStr(GetPen()) << endl;
+    os << "PenWidth: " << GetPen().width() << endl;
+    os << "PenStyle: " << PenStyleToStr(GetPen()) << endl;
+    os << "PenCapStyle: " << CapStyleToStr(GetPen()) << endl;
+    os << "PenJoinStyle: " << JoinStyleToStr(GetPen()) << endl;
+
+}

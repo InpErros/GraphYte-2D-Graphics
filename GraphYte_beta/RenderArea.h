@@ -9,6 +9,7 @@
 #include "Polyline.h"
 #include "Rectangle.h"
 #include "Textbox.h"
+#include "shapeinfofunc.h"
 
 const string INPUT_FILE = "shapes.txt";
 

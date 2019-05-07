@@ -157,109 +157,86 @@ void Shape::SetBrush(const QBrush &BRUSH)
     qpainter.setBrush(brush);
 }
 
-/************************************************************************
-* Method IdShapeListing: Class Shape
-*----------------------------------------------------------------------
-* 	 This method prints the id of every shape in list
-* 	 ==> returns nothing
-*-----------------------------------------------------------------------
-* PRE-CONDITIONS
-* 	The following need to be passed in
-* 		shapes (Vector<Shape*>)  - the list of shapes
-*
-* POST-CONDITIONS
-* 	==> returns nothing
-*************************************************************************/
-void Shape::IdShapeListing(const Vector<Shape*> shapes) const
+// Helper functions
+string ColortoStr(const QPen& PEN)
 {
-    Vector<Shape*> temp = shapes;
-    Shape* tempSpot;
-    int j;
-    ofstream fout;
+    string color;
 
-    for(int i = 1; i < temp.size(); i++)
-    {
-        tempSpot = temp[i];
-        j = i -1;
-        while(j >= 0 && temp[i] > tempSpot)
-        {
-            temp[j + 1] = temp[j];
-            j = j -1;
-        }
-        temp[j + 1] = tempSpot;
-    }
+    if(PEN.color()      == Qt::blue)    {color = "blue";}
+    else if(PEN.color() == Qt::red)     {color = "red";}
+    else if(PEN.color() == Qt::cyan)    {color = "cyan";}
+    else if(PEN.color() == Qt::yellow)  {color = "yellow";}
+    else if(PEN.color() == Qt::magenta) {color = "magenta";}
+    else if(PEN.color() == Qt::black)   {color = "black";}
+    else if(PEN.color() == Qt::green)   {color = "green";}
+    else if(PEN.color() == Qt::gray)    {color = "gray";}
+    else {color = "white";}
 
-    //fout.open("IdShapeListing.txt");
-//    fout << temp;
-
-      //fout.close();
+    return color;
 }
 
-/************************************************************************
-* Method AreaShapeListing: Class Shape
-*----------------------------------------------------------------------
-* 	 This method prints area for every shape in the list
-* 	 ==> returns nothing
-*-----------------------------------------------------------------------
-* PRE-CONDITIONS
-* 	The following need to be passed in
-* 		shapes (Vector<Shape*>)  - the list of shapes
-*
-* POST-CONDITIONS
-* 	==> returns nothing
-*************************************************************************/
-void AreaShapeListing();
-
-/************************************************************************
-* Method PerimeterShapeListing: Class Shape
-*----------------------------------------------------------------------
-* 	 This method prints perimeter for every shape in the list
-* 	 ==> returns nothing
-*-----------------------------------------------------------------------
-* PRE-CONDITIONS
-* 	The following need to be passed in
-* 		shapes (Vector<Shape*>)  - the list of shapes
-*
-* POST-CONDITIONS
-* 	==> returns nothing
-*************************************************************************/
-void PerimeterShapeListing();
-
-ostream& operator<<(ostream& os, const Shape& shape)
+string BrushColorToStr(const QBrush& BRUSH)
 {
-    ShapeType type = shape.GetShape();
-    QPen color = shape.GetPen();
+    string color;
 
-    os << "ShapeId: " << shape.id << endl;
-    os << "ShapeType: ";
+    if(BRUSH.color()      == Qt::blue)    {color = "blue";}
+    else if(BRUSH.color() == Qt::red)     {color = "red";}
+    else if(BRUSH.color() == Qt::cyan)    {color = "cyan";}
+    else if(BRUSH.color() == Qt::yellow)  {color = "yellow";}
+    else if(BRUSH.color() == Qt::magenta) {color = "magenta";}
+    else if(BRUSH.color() == Qt::black)   {color = "black";}
+    else if(BRUSH.color() == Qt::green)   {color = "green";}
+    else if(BRUSH.color() == Qt::gray)    {color = "gray";}
+    else {color = "white";}
 
-    switch(type)
-    {
-    case ShapeType::NoShape: break;
-    case ShapeType::Line: os << "Line";
-        break;
-    case ShapeType::Polyline: os << "Polyline";
-        break;
-    case ShapeType::Polygon: os << "Polygon";
-        break;
-    case ShapeType::Rectangle: os << "Rectangle";
-        break;
-    case ShapeType::Square: os << "Square";
-        break;
-    case ShapeType::Ellipse: os << "Ellipse";
-        break;
-    case ShapeType::Circle: os << "Circle";
-        break;
-    case ShapeType::Text: os << "Text";
-        break;
-    }
-    os << endl;
-    //os << "ShapeDimensions: ";
-    //os << "PenColor: " << shape.GetPen() << endl;
-    //os << "PenWidth: " << shape.GetPen().width() << endl;
-    //os << "PenCapStyle: " << shape.GetPen().capStyle() << endl;
-    //os << "PenJoinStyle: " << shape.GetPen().joinStyle() << endl;
-    os << endl << endl;
+    return color;
+}
 
-    return os;
+string PenStyleToStr(const QPen& PEN)
+{
+    string penStyle;
+
+    if(PEN.style()      == Qt::DashDotLine)    {penStyle = "DashDotLine";}
+    else if(PEN.style() == Qt::SolidLine)      {penStyle = "SolidLine";}
+    else if(PEN.style() == Qt::DashLine)       {penStyle = "DashLine";}
+    else if(PEN.style() == Qt::DotLine)        {penStyle = "DotLine";}
+    else if(PEN.style() == Qt::CustomDashLine) {penStyle = "CustomDashLine";}
+    else if(PEN.style() == Qt::DashDotDotLine) {penStyle = "DashDotDotLine";}
+    else {penStyle = "NoPen";}
+
+    return penStyle;
+}
+
+string JoinStyleToStr(const QPen& PEN)
+{
+    string joinStyle;
+
+    if(PEN.joinStyle()      == Qt::MiterJoin) {joinStyle = "MiterJoin";}
+    else if(PEN.joinStyle() == Qt::RoundJoin) {joinStyle = "RoundJoin";}
+    else if(PEN.joinStyle() == Qt::BevelJoin) {joinStyle = "BevelJoin";}
+
+    return joinStyle;
+}
+
+string CapStyleToStr(const QPen& PEN)
+{
+    string capStyle;
+
+    if(PEN.capStyle()      == Qt::SquareCap) {capStyle = "SquareCap";}
+    else if(PEN.capStyle() == Qt::RoundCap)  {capStyle = "RoundCap";}
+    else if(PEN.capStyle() == Qt::FlatCap)   {capStyle = "FlatCap";}
+
+    return capStyle;
+}
+
+string BrushStyleToStr(const QBrush& BRUSH)
+{
+    string brushStyle;
+
+    if(BRUSH.style()      == Qt::SolidPattern) {brushStyle = "SolidPattern";}
+    else if(BRUSH.style() == Qt::VerPattern)   {brushStyle = "VerPattern";}
+    else if(BRUSH.style() == Qt::HorPattern)   {brushStyle = "HorPattern";}
+    else {brushStyle = "NoBrush";}
+
+    return brushStyle;
 }

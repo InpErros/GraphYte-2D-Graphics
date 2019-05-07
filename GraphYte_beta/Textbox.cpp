@@ -131,3 +131,55 @@ void Textbox::Move(const int &X, const int &Y)
 {
     SetCordiantes(QPoint(X, Y));
 }
+
+void Textbox::Print(ostream& os) const
+{
+
+    os << "ShapeId: " << GetId() << endl;
+    os << "ShapeType: Text" << endl;;
+    os << "ShapeDimensions: " << cordinates.x() << ", "
+                              << cordinates.y() << ", "
+                              << length         << ", "
+                              << width          << endl;
+    os << "TextString: " << text.toStdString() << endl;
+    os << "TextColor: " << BrushColorToStr(GetBrush()) << endl;
+    os << "TextAlignment: " << AlignmentToStr(alignment) << endl;
+    os << "TextPointSize: " << font.pointSize() << endl;
+    os << "TextFontFamily: " << font.family().toStdString() << endl;
+    os << "TextFontStyle: " << FontStyleToStr(font) << endl;
+    os << "TextFontWeight: " << FontWeightToStr(font) << endl;
+}
+
+string AlignmentToStr(const Qt::Alignment alignment)
+{
+    string strAlignment;
+
+    if(alignment == Qt::AlignCenter)     {strAlignment = "AlignCenter";}
+    else if(alignment == Qt::AlignRight) {strAlignment = "AlignRight";}
+    else if(alignment == Qt::AlignLeft)  {strAlignment = "AlignLeft";}
+
+    return strAlignment;
+}
+
+string FontStyleToStr(const QFont& FONT)
+{
+    string fontStyle;
+
+    if(FONT.style()      == QFont::StyleNormal)  {fontStyle = "StyleNormal";}
+    else if(FONT.style() == QFont::StyleItalic)  {fontStyle = "StyleItalic";}
+    else if(FONT.style() == QFont::StyleOblique) {fontStyle = "StyleOblique";}
+
+    return fontStyle;
+}
+
+string FontWeightToStr(const QFont& FONT)
+{
+    string fontWeight;
+
+    if(FONT.weight()       == QFont::Thin)  {fontWeight = "Thin";}
+    else if(FONT.weight()  == QFont::Light)  {fontWeight = "Light";}
+    else if(FONT.weight()  == QFont::Normal) {fontWeight = "Normal";}
+    else if (FONT.weight() == QFont::Bold)   {fontWeight = "Bold";}
+
+    return fontWeight;
+}

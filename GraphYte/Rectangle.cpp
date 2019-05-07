@@ -174,3 +174,45 @@ float Rectangle::Perimeter() const
     if(square != true){return ((2 * length) + (2 * width));}
     else{return (4 * length);}
 }
+
+/************************************************************************
+* Method Print: Class Rectangle
+*----------------------------------------------------------------------
+* 	 This outputs all of the shapes properties
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       os (ostream&) - the output stream
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
+void Rectangle::Print(ostream& os) const
+{
+
+    os << "ShapeId: " << GetId() << endl;
+    if(isSquare() == false) //check to see if the shape is a rectangle or square
+    {
+        os << "ShapeType: Rectangle" << endl;
+        os << "ShapeDimensions: " << GetCords().x() << ", "
+                                  << GetCords().y() << ", "
+                                  << GetLength()    << ", "
+                                  << GetWidth()     << endl;
+    }
+    else
+    {
+        os << "ShapeType: Square" << endl;
+        os << "ShapeDimensions: " << GetCords().x() << ", "
+                                  << GetCords().y() << ", "
+                                  << GetLength()    << endl;
+    }
+
+    os << "PenColor: " << ColortoStr(GetPen()) << endl;
+    os << "PenWidth: " << GetPen().width() << endl;
+    os << "PenStyle: " << PenStyleToStr(GetPen()) << endl;
+    os << "PenCapStyle: " << CapStyleToStr(GetPen()) << endl;
+    os << "PenJoinStyle: " << JoinStyleToStr(GetPen()) << endl;
+    os << "BrushColor: " << BrushColorToStr(GetBrush()) << endl;
+    os << "BrushStyle: " << BrushStyleToStr(GetBrush()) << endl;
+}
