@@ -1,19 +1,29 @@
 #include "createshape.h"
 #include "ui_CreateShape.h"
 
+//Constructor
 CreateShape::CreateShape(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateShape)
 {
     ui->setupUi(this);
 
+    //Set the values for the UI
     InitializeUIValues();
 
+    //Create the first page
     SetFirstPgValues();
 
+    //Get the index whenever the shape combobox changes
     connect(shapeCBox, SIGNAL(activated(int)), this, SLOT(ShapeComboBox(int)));
+
+    //Connect the button to go to the next page
     connect(page2, SIGNAL(clicked()), this, SLOT(GoToSecPage()));
+
+    //Connect the button to go to finish the shape
     connect(finished, SIGNAL(clicked()), this, SLOT(CompleteShape()));
+
+    //Get the value whenever the spinbox changes
     connect(polySidesBox, SIGNAL(valueChanged(int)),
             this, SLOT(EnablePolySides(int)));
 
@@ -21,6 +31,7 @@ CreateShape::CreateShape(QWidget *parent) :
     setWindowModality(Qt::ApplicationModal);
 }
 
+//Deconstructor
 CreateShape::~CreateShape()
 {
     delete ui;
@@ -76,6 +87,7 @@ CreateShape::~CreateShape()
     delete dimensionsSpinBox;
 }
 
+//Constructor shortcut
 void CreateShape::InitializeUIValues()
 {
     pickShape           = new QGroupBox;
@@ -129,14 +141,17 @@ void CreateShape::InitializeUIValues()
     dimensionsLabels    = new Vector<QLabel*>;
     dimensionsSpinBox   = new Vector<QSpinBox*>;
 
+    //Add the widgets to the UI
     mainLayout->addWidget(pickShape);
     mainLayout->addWidget(shapeInfo);
 
+    //Disable the second page
     shapeInfo ->setEnabled(false);
 
     setLayout(mainLayout);
 }
 
+//Initialize the values for the first page
 void CreateShape::SetFirstPgValues()
 {
     shapeLabel          ->setText("Shape:");
@@ -261,6 +276,7 @@ void CreateShape::SetFirstPgValues()
     textPointBox        ->setEnabled(false);
     textString          ->setEnabled(false);
 
+    //Add each row to the screen
     pickShapeLayout->addRow(shapeLabel,          shapeCBox);
     pickShapeLayout->addRow(shapeNameLabel,      shapeName);
     pickShapeLayout->addRow(penColorLabel,       penColorCBox);
@@ -277,25 +293,28 @@ void CreateShape::SetFirstPgValues()
     pickShapeLayout->addRow(textFontFamilyLabel, textFontFamilyCBox);
     pickShapeLayout->addRow(textFontStyleLabel,  textFontStyleCBox);
     pickShapeLayout->addRow(textFontWeightLabel, textFontWeightCBox);
-
     pickShapeLayout->addWidget(page2);
 
+    //Set the allignment for the rows
     pickShapeLayout->setFormAlignment(Qt::AlignCenter);
-
     pickShapeLayout->setVerticalSpacing(25);
 
+    //Set the layout
     pickShape->setLayout(pickShapeLayout);
 }
 
+//Initialize the values for the second page
 void CreateShape::SetSecondPgValues()
 {
-    QLabel *newLabel;
+    QLabel   *newLabel;                                 //The new label
 
-    QSpinBox *newSpinBox;
+    QSpinBox *newSpinBox;                               //The new spinbox
 
-    int index;
-    int cordCounter = 1;
-    int shapeBoxIndex = shapeCBox->currentIndex();
+    ShapeType shapeType;                                //The enumerated shape
+
+    int       index;                                    //The index in the array
+    int       cordCounter   = 1;                        //The counter for the
+                                                        //amount of cordiantes
 
     shapeValuesLayout->setSpacing(0);
 
@@ -307,12 +326,16 @@ void CreateShape::SetSecondPgValues()
 
     polySidesBox->setEnabled(false);
 
-    switch(shapeBoxIndex)
-    {
-    case NO_SHAPE:          break;
+    //Change the shape index into an enumerated type matching
+    shapeType = static_cast<ShapeType>(shapeCBox->currentIndex());
 
-    case POLYLINE_VALUE:
-    case POLYGON_VALUE:     for(index = 0; index < MAX_POLY_SIDES; index++)
+    //Find out how many labels are needed for each shape
+    switch(shapeType)
+    {
+    case ShapeType::NoShape:          break;
+
+    case ShapeType::Polyline:
+    case ShapeType::Polygon:     for(index = 0; index < MAX_POLY_SIDES; index++)
                             {
                                 newLabel = new QLabel;
                                 if(index % 2 == 0)
@@ -331,78 +354,96 @@ void CreateShape::SetSecondPgValues()
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-    case LINE_VALUE:
-    case RECTANGLE_VALUE:
-    case ELLIPSE_VALUE:
-    case TEXT_VALUE:        for(index = 0; index < 4; index++)
+
+    case ShapeType::Line:
+    case ShapeType::Rectangle:
+    case ShapeType::Text:
+    case ShapeType::Ellipse:for(index = 0; index < 4; index++)
                             {
                                 newLabel = new QLabel;
+
                                 switch(index)
                                 {
                                 case 0:     newLabel->setText("X1:");
                                             break;
+
                                 case 1:     newLabel->setText("Y1:");
                                             break;
-                                case 2:     if(shapeBoxIndex == TEXT_VALUE)
+
+                                case 2:     if(shapeType == ShapeType::Text)
                                                 newLabel->setText("X2:");
-                                            else if(shapeBoxIndex ==
-                                                    ELLIPSE_VALUE)
+
+                                            else if(shapeType ==
+                                                    ShapeType::Ellipse)
                                             {
                                                 newLabel->setText
                                                         ("Semi Major Axis:");
                                             }
+
                                             else
                                                 newLabel->setText("Length:");
+
                                             break;
-                                case 3:     if(shapeBoxIndex == TEXT_VALUE)
+
+                                case 3:     if(shapeType == ShapeType::Text)
                                                 newLabel->setText("Y2:");
-                                            else if(shapeBoxIndex ==
-                                                    ELLIPSE_VALUE)
+
+                                            else if(shapeType ==
+                                                    ShapeType::Ellipse)
                                             {
                                                 newLabel->setText
                                                         ("Semi Minor Axis:");
                                             }
+
                                             else
                                                 newLabel->setText("Width:");
                                             break;
+
                                 default:    break;
                                 }
+
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-    case SQUARE_VALUE:
-    case CIRCLE_VALUE:      for(index = 0; index < 3; index++)
+
+    case ShapeType::Square:
+    case ShapeType::Circle: for(index = 0; index < 3; index++)
                             {
                                 newLabel = new QLabel;
+
                                 switch(index)
                                 {
                                 case 0:     newLabel->setText("X1:");
                                             break;
+
                                 case 1:     newLabel->setText("Y1:");
                                             break;
-                                case 2:     if(shapeBoxIndex == SQUARE_VALUE)
+
+                                case 2:     if(shapeType == ShapeType::Square)
                                                 newLabel->setText("Length:");
                                             else
                                                 newLabel->setText("Radius:");
                                             break;
+
                                 default:    break;
                                 }
+
                                 dimensionsLabels->push_back(newLabel);
                             }
                             break;
-
-    default:                break;
     }
 
     shapeValuesLayout->addRow(polySidesLabel,polySidesBox);
 
+    //Create a new spinbox for every label that was created
     for(index = 0; index < dimensionsLabels->size(); index++)
     {
         newSpinBox = new QSpinBox;
         newSpinBox->setRange(-1, MAX_DIMENSION);
         newSpinBox->setValue(-1);
 
-        if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+        //Disable the spinbox if they are a Polyline or Polygon
+        if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
             newSpinBox->setEnabled(false);
 
         dimensionsSpinBox->push_back(newSpinBox);
@@ -418,17 +459,23 @@ void CreateShape::SetSecondPgValues()
 
     shapeValuesLayout->setVerticalSpacing(10);
 
-    if(shapeBoxIndex == POLYLINE_VALUE || shapeBoxIndex == POLYGON_VALUE)
+    //Enable the poly spinbox if the shape is part of the Poly family
+    if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
         polySidesBox->setEnabled(true);
 
     shapeInfo->setLayout(shapeValuesLayout);
 }
 
+//Create a new shape using the information stored from the user choices
 newShapeInfo CreateShape::GenerateShape()
 {
-    newShapeInfo newShape;
+    newShapeInfo newShape;  //The new shape
+
+    ShapeType shapeType;    //The enumerated type to match the shape
+
     newShape.shapeId = shapeCBox->currentIndex();
     newShape.name    = shapeName->text();
+    shapeType        = static_cast<ShapeType>(newShape.shapeId);
 
     for(int index = 0; index < dimensionsSpinBox->size(); index++)
     {
@@ -436,17 +483,19 @@ newShapeInfo CreateShape::GenerateShape()
                 (dimensionsSpinBox->operator[](index)->value());
     }
 
-    if(newShape.shapeId != TEXT_VALUE)
+    if(shapeType != ShapeType::Text)
     {
         newShape.shapePen.setColor(StrToColor(penColorCBox->currentText()));
         newShape.shapePen.setWidth(penWidthBox->value());
         newShape.shapePen.setStyle(StrToPenStyle(penStyleCBox->currentText()));
         newShape.shapePen.setCapStyle(StrToCapStyle(penCapCBox->currentText()));
-        newShape.shapePen.setJoinStyle(StrToJoinStyle(penJoinCBox->currentText()));
-        if(newShape.shapeId != LINE_VALUE || newShape.shapeId != POLYLINE_VALUE)
+        newShape.shapePen.setJoinStyle(StrToJoinStyle
+                                       (penJoinCBox->currentText()));
+        if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
         {
             newShape.brush.setColor(StrToColor(brushColorCBox->currentText()));
-            newShape.brush.setStyle(StrToBrushStyle(brushStyleCBox->currentText()));
+            newShape.brush.setStyle(StrToBrushStyle
+                                    (brushStyleCBox->currentText()));
         }
     }
     else
@@ -455,18 +504,25 @@ newShapeInfo CreateShape::GenerateShape()
         newShape.textPen.setColor(StrToColor(textColorCBox->currentText()));
         newShape.allignment =StrToAllignment(textAllignmentCBox->currentText());
         newShape.font.setFamily(textFontFamilyCBox->currentText());
-        newShape.font.setStyle(StrToFontStyle(textFontStyleCBox->currentText()));
-        newShape.font.setWeight(StrToFontWeight(textFontWeightCBox->currentText()));
+        newShape.font.setStyle(StrToFontStyle
+                               (textFontStyleCBox->currentText()));
+        newShape.font.setWeight(StrToFontWeight
+                                (textFontWeightCBox->currentText()));
     }
 
     return newShape;
 }
 
+//Enable or Disable the boxs based on the current index of the Combobox
 void CreateShape::ShapeComboBox(const int& ARGUMENT)
 {
-    switch(ARGUMENT)
+    ShapeType shapeType; //The enumerated type to match the shape
+
+    shapeType = static_cast<ShapeType>(ARGUMENT);
+
+    switch(shapeType)
     {
-    case NO_SHAPE:          //Disable all features until a shape is chosen
+    case ShapeType::NoShape://Disable all features until a shape is chosen
                             shapeName           ->setEnabled(false);
                             penColorCBox        ->setEnabled(false);
                             penStyleCBox        ->setEnabled(false);
@@ -484,8 +540,9 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textString          ->setEnabled(false);
                             break;
 
-    case LINE_VALUE:
-    case POLYLINE_VALUE:    shapeName           ->setEnabled(true);
+    case ShapeType::Line:
+    case ShapeType::Polyline://Enable all options needed for lines
+                            shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(true);
                             penStyleCBox        ->setEnabled(true);
                             penCapCBox          ->setEnabled(true);
@@ -501,11 +558,12 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(false);
                             textString          ->setEnabled(false);
                             break;
-    case POLYGON_VALUE:
-    case RECTANGLE_VALUE:
-    case SQUARE_VALUE:
-    case ELLIPSE_VALUE:
-    case CIRCLE_VALUE:      shapeName           ->setEnabled(true);
+    case ShapeType::Polygon:
+    case ShapeType::Rectangle:
+    case ShapeType::Square:
+    case ShapeType::Ellipse:
+    case ShapeType::Circle: //Enable all options needed for the necessary shapes
+                            shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(true);
                             penStyleCBox        ->setEnabled(true);
                             penCapCBox          ->setEnabled(true);
@@ -521,7 +579,8 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(false);
                             textString          ->setEnabled(false);
                             break;
-    case TEXT_VALUE:        shapeName           ->setEnabled(true);
+    case ShapeType::Text:   //Enable all options needed for text box
+                            shapeName           ->setEnabled(true);
                             penColorCBox        ->setEnabled(false);
                             penStyleCBox        ->setEnabled(false);
                             penCapCBox          ->setEnabled(false);
@@ -537,46 +596,56 @@ void CreateShape::ShapeComboBox(const int& ARGUMENT)
                             textPointBox        ->setEnabled(true);
                             textString          ->setEnabled(true);
                     break;
-    default:        break;
     }
 }
 
+//Check to see if the user is ready to go to the second page and take them there
 void CreateShape::GoToSecPage()
 {
-    bool completed = false;
+    bool      completed;    //The condition to continue
 
-    switch(shapeCBox->currentIndex())
+    ShapeType shapeType;    //The enumerated type to match the shape
+
+    completed = false;
+    shapeType = static_cast<ShapeType>(shapeCBox->currentIndex());
+
+    //Based on the shape chosen, check if they have completed all the
+    //necessary fields
+    switch(shapeType)
     {
-    case NO_SHAPE:          break;
+    case ShapeType::NoShape:          break;
 
-    case LINE_VALUE:
-    case POLYLINE_VALUE:    if(penColorCBox->currentIndex() != 0 &&
-                               penStyleCBox->currentIndex() != 0 &&
-                               penWidthBox ->value()        != 0 &&
-                               shapeName->text().isEmpty()  == false)
-                                completed = true;
+    case ShapeType::Line:
+    case ShapeType::Polyline: if(penColorCBox->currentIndex() != 0 &&
+                                 penStyleCBox->currentIndex() != 0 &&
+                                 penWidthBox ->value()        != 0 &&
+                                 shapeName->text().isEmpty()   == false)
+                                    {completed = true;}
+
+                              break;
+
+    case ShapeType::Polygon:
+    case ShapeType::Rectangle:
+    case ShapeType::Square:
+    case ShapeType::Ellipse:
+    case ShapeType::Circle:   if(penColorCBox->currentIndex()   != 0 &&
+                                 penStyleCBox->currentIndex()   != 0 &&
+                                 penWidthBox  ->value()         != 0 &&
+                                 brushColorCBox->currentIndex() != 0 &&
+                                 brushStyleCBox->currentIndex() != 0 &&
+                                 shapeName->text().isEmpty()    == false)
+                                    {completed = true;}
                             break;
-    case POLYGON_VALUE:
-    case RECTANGLE_VALUE:
-    case SQUARE_VALUE:
-    case ELLIPSE_VALUE:
-    case CIRCLE_VALUE:      if(penColorCBox->currentIndex()   != 0 &&
-                               penStyleCBox->currentIndex()   != 0 &&
-                               penWidthBox  ->value()         != 0 &&
-                               brushColorCBox->currentIndex() != 0 &&
-                               brushStyleCBox->currentIndex() != 0 &&
-                               shapeName->text().isEmpty()    == false)
-                                    completed = true;
-                            break;
-    case TEXT_VALUE:        if(textColorCBox->currentIndex()   != 0     &&
+
+    case ShapeType::Text:   if(textColorCBox->currentIndex()   != 0     &&
                                textPointBox ->value()          != 0     &&
                                textString   ->text().isEmpty() == false &&
                                shapeName    ->text().isEmpty() == false)
-                                    completed = true;
+                                    {completed = true;}
                             break;
-    default:                break;
     }
 
+    //If they haven't completed, do not let the user move on
     if(completed == false)
         QMessageBox::warning(this, "Warning", "invalid fields");
     else
@@ -599,16 +668,22 @@ void CreateShape::GoToSecPage()
         textString          ->setEnabled(false);
         shapeInfo           ->setEnabled(true);
         page2               ->setEnabled(false);
+
+        //Initiailize the second page
         SetSecondPgValues();
     }
 }
 
+//Enable and Diable the polyspinboxs
 void CreateShape::EnablePolySides(const int& ARGUMENT)
 {
-    int index;
+    int index;  //The index in the array
+
+    //Diable all the spinboxes
     for(index = 0; index < dimensionsSpinBox->size(); index++)
         dimensionsSpinBox->operator[](index)->setEnabled(false);
 
+    //Enable all the necessary spinboxes
     if(ARGUMENT > 1)
     {
         for(index = 0; index < (ARGUMENT*2);index++)
@@ -616,32 +691,36 @@ void CreateShape::EnablePolySides(const int& ARGUMENT)
     }
 }
 
+//Check to see if the user is ready to go to complete the shape
 void CreateShape::CompleteShape()
 {
-    bool completed = true;
-    int index = 0;
+    bool completed;     //The condition if the user has finished
 
-    if(shapeCBox->currentIndex() == POLYLINE_VALUE ||
-       shapeCBox->currentIndex() == POLYGON_VALUE)
+    int index;          //The index in the array
+
+    ShapeType shapeType;//The enumerated type to match the shape
+
+    index      = 0;
+    completed = true;
+    shapeType = static_cast<ShapeType>(shapeCBox->currentIndex());
+
+    //Check if all the necessary information has been filled out
+    if(shapeType == ShapeType::Polyline || shapeType == ShapeType::Polygon)
     {
-        if(polySidesBox->value() == 0)
-            completed = false;
+        if(polySidesBox->value() == 0){completed = false;}
+
         while(index < polySidesBox->value() && completed)
         {
-            if(dimensionsSpinBox->operator[](index)->value() != -1)
-                index++;
-            else
-                completed = false;
+            if(dimensionsSpinBox->operator[](index)->value() != -1){index++;}
+            else{completed = false;}
         }
     }
     else
     {
         while(index < dimensionsSpinBox->size() && completed)
         {
-            if(dimensionsSpinBox->operator[](index)->value() != -1)
-                index++;
-            else
-                completed = false;
+            if(dimensionsSpinBox->operator[](index)->value() != -1){index++;}
+            else{completed = false;}
         }
     }
 
@@ -650,15 +729,15 @@ void CreateShape::CompleteShape()
         QMessageBox::information(this, "Shape Created!", "The Shape has "
                                                         "been fully generated");
 
+        //Send the generated shape as a Signal
         emit shapeGenerated(GenerateShape());
+
         close();
     }
-    else
-    {
-        QMessageBox::warning(this, "Warning", "invalid fields");
-    }
+    else{QMessageBox::warning(this, "Warning", "invalid fields");}
 }
 
+//Turn string to color
 Qt::GlobalColor CreateShape::StrToColor(QString info) const
 {
     info = info.toLower();
@@ -677,6 +756,7 @@ Qt::GlobalColor CreateShape::StrToColor(QString info) const
     return color;
 }
 
+//Turn string to pen style
 Qt::PenStyle CreateShape::StrToPenStyle(const QString & INFO) const
 {
     Qt::PenStyle penStyle = Qt::NoPen;
@@ -690,6 +770,7 @@ Qt::PenStyle CreateShape::StrToPenStyle(const QString & INFO) const
     return penStyle;
 }
 
+//Turn string to cap style
 Qt::PenCapStyle CreateShape::StrToCapStyle(const QString& INFO) const
 {
     Qt::PenCapStyle style = Qt::FlatCap;
@@ -701,6 +782,7 @@ Qt::PenCapStyle CreateShape::StrToCapStyle(const QString& INFO) const
     return style;
 }
 
+//Turn string to join style
 Qt::PenJoinStyle CreateShape::StrToJoinStyle(const QString& INFO) const
 {
     Qt::PenJoinStyle style = Qt::MiterJoin;
@@ -712,6 +794,7 @@ Qt::PenJoinStyle CreateShape::StrToJoinStyle(const QString& INFO) const
     return style;
 }
 
+//Turn string to brush style
 Qt::BrushStyle CreateShape::StrToBrushStyle(const QString& INFO) const
 {
     Qt::BrushStyle style = Qt::NoBrush;
@@ -723,6 +806,7 @@ Qt::BrushStyle CreateShape::StrToBrushStyle(const QString& INFO) const
    return style;
 }
 
+//Turn string to font style
 QFont::Style CreateShape::StrToFontStyle(const QString& INFO) const
 {
     QFont::Style style = QFont::StyleNormal;
@@ -734,6 +818,7 @@ QFont::Style CreateShape::StrToFontStyle(const QString& INFO) const
     return style;
 }
 
+//Turn string to font weight
 QFont::Weight CreateShape::StrToFontWeight(const QString& INFO) const
 {
     QFont::Weight weight = QFont::Normal;
@@ -746,30 +831,16 @@ QFont::Weight CreateShape::StrToFontWeight(const QString& INFO) const
     return weight;
 }
 
+//Turn string to allignment
 QString CreateShape::StrToAllignment(const QString &INFO) const
 {
     QString allignment;
 
-    if(INFO == "Allign Center")
-    {
-        allignment = "AlignCenter";
-    }
-    else if(INFO == "Allign Right")
-    {
-        allignment = "AlignRight";
-    }
-    else if(INFO == "Allign Left")
-    {
-        allignment = "AlignLeft";
-    }
-    else if(INFO == "Allign Top")
-    {
-        allignment = "AlignTop";
-    }
-    else if(INFO == "Allign Bottom")
-    {
-        allignment = "AlignBottom";
-    }
+    if(INFO == "Allign Center")     {allignment = "AlignCenter";}
+    else if(INFO == "Allign Right") {allignment = "AlignRight";}
+    else if(INFO == "Allign Left")  {allignment = "AlignLeft";}
+    else if(INFO == "Allign Top")   {allignment = "AlignTop";}
+    else if(INFO == "Allign Bottom"){allignment = "AlignBottom";}
 
     return allignment;
 }

@@ -1,8 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include <QDesktopServices>
-#include <QUrl>
 
+//Constructor
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,69 +11,65 @@ MainWindow::MainWindow(QWidget *parent) :
     renderArea         = new RenderArea;
     createShape        = new CreateShape;
 
-    // show login (lock mainwindow)
-    login = new Login();
-    login->show();
-
+    //Add the render area to the screen
     this->layout()->addWidget(renderArea);
 
+    //connect the signal to create a new shape with the function
     connect(createShape, SIGNAL(shapeGenerated(newShapeInfo)),
             this, SLOT(GenerateShape(newShapeInfo)));
 
+    //Move the render area
     renderArea->move(10, 50);
+
+    //Disable everything until the admin logs in
+    ui->menuCreate_A_New_Shape->setEnabled(false);
+    ui->menuDelete_A_Shape->setEnabled(false);
+    ui->menuMove_A_Shape->setEnabled(false);
 }
 
+//Deconstructor
 MainWindow::~MainWindow()
 {
     delete ui;
     delete renderArea;
     delete createShape;
-    delete login;
 }
 
-void MainWindow::shapeChanged()
-{
-
-}
-
-void MainWindow::penChanged()
-{
-
-}
-
-void MainWindow::brushChanged()
-{
-
-}
-
+//This will generate a new shape using the given information
 void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
 {
-    Line        *newLine;
-    Polyline    *newPloyline;
-    Polygon     *newPolygon;
-    Rectangle   *newRectangle;
-    Rectangle   *newSquare;
-    Ellipse     *newEllipse;
-    Ellipse     *newCircle;
-    Textbox     *newTextbox;
+    Line        *newLine;       //A pointer for a new line
+    Polyline    *newPloyline;   //A pointer for a new polyline
+    Polygon     *newPolygon;    //A pointer for a new polygon
+    Rectangle   *newRectangle;  //A pointer for a new rectangle
+    Rectangle   *newSquare;     //A pointer for a new square
+    Ellipse     *newEllipse;    //A pointer for a new ellipse
+    Ellipse     *newCircle;     //A pointer for a new circle
+    Textbox     *newTextbox;    //A pointer for a new textbox
 
-    int index;
+    ShapeType shapeType;        //The enum class for the shape type
 
-    switch(NEW_SHAPE.shapeId)
+    int index;                  //The index in the array
+
+    shapeType = static_cast<ShapeType>(NEW_SHAPE.shapeId);
+
+    //Create the shape based on the shape type and put it in the vector
+    switch(shapeType)
     {
-    case LINE:      newLine = new Line(this, LINE);
-                    newLine->SetCordinates
-                            (QPoint(NEW_SHAPE.dimensions.operator[](0),
-                                    NEW_SHAPE.dimensions.operator[](1)),
-                             QPoint(NEW_SHAPE.dimensions.operator[](2),
-                                    NEW_SHAPE.dimensions.operator[](3)));
-                    newLine->SetPen(NEW_SHAPE.shapePen);
-                    newLine->SetName(NEW_SHAPE.name);
-                    renderArea->shapes.push_back(newLine);
-                    break;
+    case ShapeType::Line:newLine = new Line(this , static_cast<int>(shapeType));
+                         newLine->SetCordinates
+                                (QPoint(NEW_SHAPE.dimensions.operator[](0),
+                                        NEW_SHAPE.dimensions.operator[](1)),
+                                 QPoint(NEW_SHAPE.dimensions.operator[](2),
+                                        NEW_SHAPE.dimensions.operator[](3)));
+                         newLine->SetPen(NEW_SHAPE.shapePen);
+                         newLine->SetName(NEW_SHAPE.name);
+                         renderArea->shapes.push_back(newLine);
+                         break;
 
-    case POLYLINE:  newPloyline = new Polyline(this, POLYLINE);
-                    for(index = 0; index < NEW_SHAPE.dimensions.size(); index+=2)
+    case ShapeType::Polyline:newPloyline = new Polyline(this ,
+                                                   static_cast<int>(shapeType));
+                   for(index = 0; index < NEW_SHAPE.dimensions.size(); index+=2)
                     {
                         newPloyline->AddPoint
                        (QPoint(NEW_SHAPE.dimensions.operator[](index),
@@ -85,8 +80,9 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     renderArea->shapes.push_back(newPloyline);
                     break;
 
-    case POLYGON:   newPolygon = new Polygon(this, POLYGON);
-                    for(index = 0; index < NEW_SHAPE.dimensions.size(); index+=2)
+    case ShapeType::Polygon:newPolygon = new Polygon(this ,
+                                                   static_cast<int>(shapeType));
+                   for(index = 0; index < NEW_SHAPE.dimensions.size(); index+=2)
                     {
                         newPolygon->AddPoint
                        (QPoint(NEW_SHAPE.dimensions.operator[](index),
@@ -98,7 +94,8 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     renderArea->shapes.push_back(newPolygon);
                     break;
 
-    case RECTANGLE: newRectangle = new Rectangle(this, RECTANGLE);
+    case ShapeType::Rectangle: newRectangle = new Rectangle(this ,
+                                                   static_cast<int>(shapeType));
                     newRectangle->SetCordiantes
                             (QPoint(NEW_SHAPE.dimensions.operator[](0),
                                     NEW_SHAPE.dimensions.operator[](1)));
@@ -111,7 +108,8 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     renderArea->shapes.push_back(newRectangle);
                     break;
 
-    case SQUARE:    newSquare = new Rectangle(this, SQUARE);
+    case ShapeType::Square:    newSquare = new Rectangle(this ,
+                                                   static_cast<int>(shapeType));
                     newSquare->SetCordiantes
                             (QPoint(NEW_SHAPE.dimensions.operator[](0),
                                     NEW_SHAPE.dimensions.operator[](1)));
@@ -123,7 +121,8 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     renderArea->shapes.push_back(newSquare);
                     break;
 
-    case ELLIPSE:   newEllipse = new Ellipse(this, ELLIPSE);
+    case ShapeType::Ellipse:   newEllipse = new Ellipse(this ,
+                                                   static_cast<int>(shapeType));
                     newEllipse->SetCordiantes
                             (QPoint(NEW_SHAPE.dimensions.operator[](0),
                                     NEW_SHAPE.dimensions.operator[](1)));
@@ -135,7 +134,8 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     newEllipse->SetName(NEW_SHAPE.name);
                     renderArea->shapes.push_back(newEllipse);
                     break;
-    case CIRCLE:    newCircle = new Ellipse(this, CIRCLE);
+    case ShapeType::Circle:    newCircle = new Ellipse(this ,
+                                                   static_cast<int>(shapeType));
                     newCircle->SetCordiantes
                             (QPoint(NEW_SHAPE.dimensions.operator[](0),
                                     NEW_SHAPE.dimensions.operator[](1)));
@@ -146,7 +146,8 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
                     newCircle->SetName(NEW_SHAPE.name);
                     renderArea->shapes.push_back(newCircle);
                     break;
-    case TEXT:      newTextbox = new Textbox(this, TEXT);
+    case ShapeType::Text:      newTextbox = new Textbox(this,
+                                                   static_cast<int>(shapeType));
                     newTextbox->SetCordiantes
                             (QPoint(NEW_SHAPE.dimensions.operator[](0),
                                     NEW_SHAPE.dimensions.operator[](1)));
@@ -163,25 +164,166 @@ void MainWindow::GenerateShape(const newShapeInfo& NEW_SHAPE)
     default:        break;
     }
 
+    //Update the canvas to add the shape to the canvas
     renderArea->UpdateCanvas();
 }
 
+//Get the new cordinates for the shape
+void MainWindow::GetNewCordinates()
+{
+    int index;                      //The index in the array
+    int i;                          //Counter
+
+    Vector<int> *shapeCordinates;   //The vector of shapes
+
+    bool ok;                        //The condition to move on
+
+    QStringList items;              //The list of items as strings
+
+    ShapeType shapeType;            //The enum to match the type of shape
+
+    shapeCordinates = new Vector<int>;
+    ok              = true;
+
+    for(index = 0; index < renderArea->shapes.size(); index++)
+        items << renderArea->shapes[index]->GetName();
+
+    QString item = QInputDialog::getItem(this, tr("Move a Shape"),
+                                         tr("Name:"), items, 0, false, &ok);
+    if (ok && !item.isEmpty())
+    {
+        index = items.indexOf(item);
+
+        shapeType = static_cast<ShapeType>(index + 1);
+
+        //Based on the shape, get the amount of cordinates and set them
+        switch (shapeType)
+        {
+        case ShapeType::Line:   GetCordinateInput(ok, *shapeCordinates);
+                                if(ok)
+                                {
+                                    GetCordinateInput(ok, *shapeCordinates);
+                                    if(ok)
+                                    {
+                                        renderArea->shapes[index]->Move
+                                           (shapeCordinates->operator[](0),
+                                            shapeCordinates->operator[](1));
+                                        renderArea->shapes[index]->Move
+                                           (shapeCordinates->operator[](2),
+                                            shapeCordinates->operator[](3));
+                                    }
+                                }
+                                break;
+
+        case ShapeType::Polyline:for(i = 0; i < (MAX_POLY_SIDES/2); i+=2)
+                                    {
+                                        if(ok)
+                                        {
+                                            GetCordinateInput(ok,
+                                                              *shapeCordinates);
+                                            if(ok)
+                                            {
+                                                GetCordinateInput(ok,
+                                                              *shapeCordinates);
+                                            }
+                                        }
+                                    }
+
+                                    if(ok)
+                                    {
+                                        for(i = 0; i < MAX_POLY_SIDES; i+=2)
+                                        {
+                                           renderArea->shapes[index]->Move
+                                           (shapeCordinates->operator[](i),
+                                            shapeCordinates->operator[](i+1)
+                                           );
+                                        }
+                                    }
+                                    break;
+
+        case ShapeType::Polygon:    for(i = 0; i < (MAX_POLY_SIDES/2); i+=2)
+                                    {
+                                        if(ok)
+                                        {
+                                            GetCordinateInput(ok,
+                                                              *shapeCordinates);
+                                            if(ok)
+                                            {
+                                                GetCordinateInput(ok,
+                                                              *shapeCordinates);
+                                            }
+                                        }
+                                    }
+
+                                    if(ok)
+                                    {
+                                        for(i = 0; i < MAX_POLY_SIDES; i+=2)
+                                        {
+                                           renderArea->shapes[index]->Move
+                                           (shapeCordinates->operator[](i),
+                                            shapeCordinates->operator[](i+1)
+                                           );
+                                        }
+                                    }
+                                    break;
+
+        case ShapeType::Rectangle:
+        case ShapeType::Square:
+        case ShapeType::Ellipse:
+        case ShapeType::Circle:
+        case ShapeType::Text:       GetCordinateInput(ok, *shapeCordinates);
+                                    if(ok)
+                                    {
+                                        renderArea->shapes[index]->Move
+                                               (shapeCordinates->operator[](0),
+                                                shapeCordinates->operator[](1));
+                                    }
+                                    break;
+        default:                    break;
+        }
+    }
+
+    delete shapeCordinates;
+}
+
+//Get the new cordinates as input from the user
+void MainWindow::GetCordinateInput(bool &ok, Vector<int>&shapeCords)
+{
+    int xCord;  //The new x cordinate
+    int yCord;  //The new y cordinate
+
+    xCord = QInputDialog::getInt(this, tr("Get X Cordinate"),
+                                 tr("X:"), 0, 0, MAX_DIMENSION, 1, &ok);
+    if(ok)
+    {
+        yCord = QInputDialog::getInt(this, tr("Get Y Cordinate"),
+                                 tr("Y:"), 0, 0, MAX_DIMENSION, 1, &ok);
+        if(ok)
+        {
+            shapeCords.push_back(xCord);
+            shapeCords.push_back(yCord);
+        }
+    }
+}
+
+//Create the new shape window
 void MainWindow::on_actionNew_Shape_triggered()
 {
     createShape->showMaximized();
     createShape        = new CreateShape;
 }
 
+//Delete a shape from the canvas
 void MainWindow::on_actionDelete_Shape_triggered()
 {
-    int index;
-    bool ok;
-    QStringList items;
+    int         index;  //The index in the vector
+
+    bool        ok;     //The condition to move on
+
+    QStringList items;  //The list of items as strings
 
     if(renderArea->shapes.size() == 0)
-    {
         QMessageBox::warning(this, "EMPTY!!!", "The render area is empty");
-    }
     else
     {
         for(index = 0; index < renderArea->shapes.size(); index++)
@@ -197,33 +339,53 @@ void MainWindow::on_actionDelete_Shape_triggered()
     }
 }
 
+//Move the shape
 void MainWindow::on_actionMove_Shape_triggered()
 {
-    //Move a shape here
-    //Move shoudl not redraw the shape within the shape function but change the
-    //X and Y cordinates for the shape. Then call update to change the shape.
-    //I will probably have to remove the shape after moving it
+    if(renderArea->shapes.size() == 0)
+        QMessageBox::warning(this, "EMPTY!!!", "The render area is empty");
+    else
+        GetNewCordinates();
 }
 
-void MainWindow::on_actionContact_Us_triggered()
+//Login for the admin
+void MainWindow::on_actionLogin_triggered()
 {
-    contactInfo = new ContactInfo;
-    contactInfo->show();
-}
+    bool ok;            //The condition to move on
 
-void MainWindow::on_actionSupport_triggered()
-{
-    QDesktopServices::openUrl(QUrl("https://discord.gg/k9Dxpu2"));
-}
+    QString username;   //The username the user inputs
+    QString password;   //The password the user inputs
 
-void MainWindow::on_actionComments_triggered()
-{
-    comment = new Comment;
-    comment->show();
-}
+    username = QInputDialog::getText(this, tr("Login"),
+                                         tr("User name:"), QLineEdit::Normal,
+                                         "", &ok);
+    if (ok && !username.isEmpty())
+    {
+        password = QInputDialog::getText(this, tr("Login"),
+                                             tr("Password:"), QLineEdit::Normal,
+                                             "", &ok);
+        if (ok && !username.isEmpty())
+        {
+            if(username == USERNAME && password == PASSWORD)
+            {
+                QMessageBox::information(this, "Welcome", "Welcome back Admin");
 
-void MainWindow::on_actionAbout_Us_triggered()
-{
-    aboutUs = new AboutUs;
-    aboutUs->show();
+                //Enable everything for the admin
+                ui->menuCreate_A_New_Shape->setEnabled(true);
+                ui->menuDelete_A_Shape->setEnabled(true);
+                ui->menuMove_A_Shape->setEnabled(true);
+                ui->menuLogin->setEnabled(false);
+            }
+            else
+            {
+                QMessageBox::warning(this, "Incorrect",
+                                     "incorrect username or password");
+            }
+        }
+    }
+    else
+    {
+        QMessageBox::warning(this, "Incorrect",
+                             "incorrect username or password");
+    }
 }

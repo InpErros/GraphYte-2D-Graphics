@@ -1,71 +1,83 @@
 #include "RenderArea.h"
 
+//Constructor
 RenderArea::RenderArea(QWidget *parent) : QWidget(parent)
 {
+    //Load in the deafult shapes from the input file
     CreateDefault();
-    currentShape = nullptr;
+
     setBackgroundRole(QPalette::Base);
+
     setAutoFillBackground(true);
+
     setFixedSize(sizeHint());
 }
 
 RenderArea::~RenderArea()
 {
+    //Delete all the shapes that have been generated
     for(auto it: shapes)
         delete it;
 }
 
+//Set the minimum size of the screen
 QSize RenderArea::minimumSizeHint() const
 {
     return QSize(100, 100);
 }
 
+//Set the prefered screen size
 QSize RenderArea::sizeHint() const
 {
     return QSize(2300, 600);
 }
 
+//Load in all the shapes from the input file
 void RenderArea::CreateDefault()
 {
-    int shapeId;
-    int dimension;
+    Line        *newLine;           //The new line
+    Polyline    *newPloyline;       //The new polyline
+    Polygon     *newPolygon;        //The new polygon
+    Rectangle   *newRectangle;      //The new rectangle
+    Rectangle   *newSquare;         //The new square
+    Ellipse     *newEllipse;        //The new ellipse
+    Ellipse     *newCircle;         //The new circle
+    Textbox     *newTextbox;        //The new textbox
+    QFont       *textFont;          //The font of the text
+    QPen        *shapePen;          //The pen for the shape
+    QBrush      *shapeBrush;        //The brush for the shape
+    Vector<int> *shapeDimensions;   //The dimensions of the shape
 
-    Line        *newLine;
-    Polyline    *newPloyline;
-    Polygon     *newPolygon;
-    Rectangle   *newRectangle;
-    Rectangle   *newSquare;
-    Ellipse     *newEllipse;
-    Ellipse     *newCircle;
-    Textbox     *newTextbox;
-    QFont       *textFont;
-    QPen        *shapePen;
-    QBrush      *shapeBrush;
+    int         shapeId;            //The id of the shape
+    int         dimension;          //The dimension of the shape
+    int         penWidth;           //The width of the pen
+    int         textSize;           //The size of the text
+    int         index;              //The index in the array
 
-    string penColor;
-    int penWidth;
-    string penStyle;
-    string penCapStyle;
-    string penJoinStyle;
-    string brushColor;
-    string brushStyle;
-    string textString;
-    string textColor;
-    string textAllignment;
-    int    textSize;
-    string textFrontFam;
-    string textFrontStyle;
-    string textFontWeight;
-    Vector<int>* shapeDimensions;
+    string      penColor;           //The pen color
+    string      penStyle;           //The pen style
+    string      penCapStyle;        //The pen cap style
+    string      penJoinStyle;       //The pen join style
+    string      brushColor;         //The brush color
+    string      brushStyle;         //The brush style
+    string      textString;         //The text
+    string      textColor;          //The text color
+    string      textAllignment;     //The text allignmnet
+    string      textFrontFam;       //The text font family
+    string      textFrontStyle;     //The text font style
+    string      textFontWeight;     //The text font weight
 
-    textFont   = new QFont;
-    shapePen   = new QPen;
-    shapeBrush = new QBrush;
+    ShapeType   shapeType;          //The enumerated type of the shape
+
+    ifstream fin(INPUT_FILE.c_str());//The input file variable
+
+    //Initialize the pointers
+    textFont        = new QFont;
+    shapePen        = new QPen;
+    shapeBrush      = new QBrush;
     shapeDimensions = new Vector<int>;
 
-
-    ifstream fin(INPUT_FILE.c_str());
-
+    //While not at the end of the file, keep loading in shapes
     while(!fin.eof())
     {
         fin.ignore(1000, ' ');
@@ -75,80 +87,102 @@ void RenderArea::CreateDefault()
         fin.ignore(1000, '\n');
         fin.ignore(1000, ' ');
 
+        shapeType = static_cast<ShapeType>(shapeId);
+
         //Store the dimensions of the shape
-        switch(shapeId)
+        switch(shapeType)
         {
-        case POLYLINE:
-        case POLYGON:   for(int index = 0; index < 8; index++)
-                        {
-                            fin >> dimension;
-                            shapeDimensions->push_back(dimension);
+        case ShapeType::Polyline:
+        case ShapeType::Polygon:    for(index = 0; index < 8; index++)
+                                    {
+                                        fin >> dimension;
 
-                            if(index < 7)
-                                fin.ignore(1000, ' ');
-                        }
-                        break;
-        case LINE:
-        case RECTANGLE:
-        case TEXT:
-        case ELLIPSE:   for(int index = 0; index < 4; index++)
-                        {
-                            fin >> dimension;
-                            shapeDimensions->push_back(dimension);
+                                        shapeDimensions->push_back(dimension);
 
-                            if(index < 3)
-                                fin.ignore(1000, ' ');
-                        }
-                        break;
-        case SQUARE:
-        case CIRCLE:    for(int index = 0; index < 3; index++)
-                        {
-                            fin >> dimension;
-                            shapeDimensions->push_back(dimension);
+                                        if(index < 7){fin.ignore(1000, ' ');}
+                                    }
+                                    break;
 
-                            if(index < 2)
-                                fin.ignore(1000, ' ');
-                        }
+        case ShapeType::Line:
+        case ShapeType::Rectangle:
+        case ShapeType::Text:
+        case ShapeType::Ellipse:    for(index = 0; index < 4; index++)
+                                    {
+                                        fin >> dimension;
+
+                                        shapeDimensions->push_back(dimension);
+
+                                        if(index < 3){fin.ignore(1000, ' ');}
+                                    }
+                                    break;
+        case ShapeType::Square:
+        case ShapeType::Circle:     for(index = 0; index < 3; index++)
+                                    {
+                                        fin >> dimension;
+
+                                        shapeDimensions->push_back(dimension);
+
+                                        if(index < 2){fin.ignore(1000, ' ');}
+                                    }
                         break;
+
         default:        break;
         }
         fin.ignore(1000, '\n');
 
         fin.ignore(1000, ' ');
 
-        if(shapeId != TEXT)
+        if(shapeType != ShapeType::Text)
         {
             //Get the Pen info
             getline(fin, penColor);
+
             fin.ignore(1000, ' ');
+
             fin >> penWidth;
+
             fin.ignore(1000, '\n');
+
             fin.ignore(1000, ' ');
+
             getline(fin, penStyle);
+
             fin.ignore(1000, ' ');
+
             getline(fin, penCapStyle);
+
             fin.ignore(1000, ' ');
+
             getline(fin, penJoinStyle);
 
             //Set the Pen info
             shapePen->setColor(StrToColor(QString::fromStdString(penColor)));
+
             shapePen->setWidth(penWidth);
+
             shapePen->setStyle(StrToPenStyle(QString::fromStdString(penStyle)));
+
             shapePen->setCapStyle(StrToCapStyle
                                  (QString::fromStdString(penCapStyle)));
+
             shapePen->setJoinStyle(StrToJoinStyle
                                   (QString::fromStdString(penJoinStyle)));
-            if(shapeId != LINE && shapeId != POLYLINE)
+
+            //Get Brush Info
+            if(shapeType != ShapeType::Line && shapeType != ShapeType::Polyline)
             {
-                //Get Brush Info
                 fin.ignore(1000, ' ');
+
                 getline(fin, brushColor);
+
                 fin.ignore(1000, ' ');
+
                 getline(fin, brushStyle);
 
                 //Set the Brush Info
                 shapeBrush->setColor(StrToColor
                                     (QString::fromStdString(brushColor)));
+
                 shapeBrush->setStyle(StrToBrushStyle
                                     (QString::fromStdString(brushStyle)));
             }
@@ -158,147 +192,233 @@ void RenderArea::CreateDefault()
         {
             //Get the text info
             getline(fin, textString);
+
             fin.ignore(1000, ' ');
+
             getline(fin, textColor);
+
             fin.ignore(1000, ' ');
+
             getline(fin, textAllignment);
+
             fin.ignore(1000, ' ');
+
             fin >> textSize;
+
             fin.ignore(1000, '\n');
+
             fin.ignore(1000, ' ');
+
             getline(fin, textFrontFam);
+
             fin.ignore(1000, ' ');
+
             getline(fin, textFrontStyle);
+
             fin.ignore(1000, ' ');
+
             getline(fin, textFontWeight);
 
             //Set the text info
             textFont->setPointSize(textSize);
+
             textFont->setFamily(QString::fromStdString(textFrontFam));
+
             textFont->setWeight(StrToFontWeight
                                (QString::fromStdString(textFontWeight)));
         }
 
         //Create the shape based on the shape Id
-        switch(shapeId)
+        switch(shapeType)
         {
-        case LINE:      newLine = new Line(this , LINE);
-                        newLine->SetCordinates
+        case ShapeType::Line: newLine = new Line(this ,
+                                                 static_cast<int>(shapeType));
+                              newLine->SetCordinates
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)),
                                  QPoint(shapeDimensions->operator[](2),
                                         shapeDimensions->operator[](3)));
-                        newLine->SetPen(*shapePen);
-                        newLine->SetName("Deafult Line");
-                        shapes.push_back(newLine);
-                        break;
 
-        case POLYLINE:  newPloyline = new Polyline(this , POLYLINE);
+                             newLine->SetPen(*shapePen);
+
+                             newLine->SetName("Default Line");
+
+                             shapes.push_back(newLine);
+
+                             break;
+
+        case ShapeType::Polyline:  newPloyline = new Polyline(this ,
+                                                   static_cast<int>(shapeType));
+
                         newPloyline->AddPoint
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newPloyline->AddPoint
                                  (QPoint(shapeDimensions->operator[](2),
                                          shapeDimensions->operator[](3)));
+
                         newPloyline->AddPoint
                                   (QPoint(shapeDimensions->operator[](4),
                                           shapeDimensions->operator[](5)));
+
                         newPloyline->AddPoint
                                    (QPoint(shapeDimensions->operator[](6),
                                            shapeDimensions->operator[](7)));
+
                         newPloyline->SetPen(*shapePen);
-                        newPloyline->SetName("Deafult Polyline");
+
+                        newPloyline->SetName("Default Polyline");
+
                         shapes.push_back(newPloyline);
+
                         break;
 
-        case POLYGON:   newPolygon = new Polygon(this , POLYGON);
+        case ShapeType::Polygon:   newPolygon = new Polygon(this ,
+                                                   static_cast<int>(shapeType));
+
                         newPolygon->AddPoint
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newPolygon->AddPoint
                                  (QPoint(shapeDimensions->operator[](2),
                                          shapeDimensions->operator[](3)));
+
                         newPolygon->AddPoint
                                   (QPoint(shapeDimensions->operator[](4),
                                           shapeDimensions->operator[](5)));
+
                         newPolygon->AddPoint
                                    (QPoint(shapeDimensions->operator[](6),
                                            shapeDimensions->operator[](7)));
+
                         newPolygon->SetPen(*shapePen);
+
                         newPolygon->SetBrush(*shapeBrush);
-                        newPolygon->SetName("Deafult Polygon");
+
+                        newPolygon->SetName("Default Polygon");
+
                         shapes.push_back(newPolygon);
+
                         break;
-        case RECTANGLE: newRectangle = new Rectangle(this , RECTANGLE);
+
+        case ShapeType::Rectangle: newRectangle = new Rectangle(this ,
+                                                   static_cast<int>(shapeType));
+
                         newRectangle->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newRectangle->SetDimensions
                                  (shapeDimensions->operator[](2),
                                   shapeDimensions->operator[](3));
+
                         newRectangle->SetPen(*shapePen);
+
                         newRectangle->SetBrush(*shapeBrush);
-                        newRectangle->SetName("Deafult Rectangle");
+
+                        newRectangle->SetName("Default Rectangle");
+
                         shapes.push_back(newRectangle);
+
                         break;
-        case SQUARE:    newSquare = new Rectangle(this , SQUARE);
+
+        case ShapeType::Square:    newSquare = new Rectangle(this ,
+                                                   static_cast<int>(shapeType));
+
                         newSquare->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newSquare->SetDimensions
                                  (shapeDimensions->operator[](2));
+
                         newSquare->SetPen(*shapePen);
+
                         newSquare->SetBrush(*shapeBrush);
-                        newSquare->SetName("Deafult Square");
+
+                        newSquare->SetName("Default Square");
+
                         shapes.push_back(newSquare);
+
                         break;
-        case ELLIPSE:   newEllipse = new Ellipse(this , ELLIPSE);
+
+        case ShapeType::Ellipse:   newEllipse = new Ellipse(this ,
+                                                   static_cast<int>(shapeType));
+
                         newEllipse->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newEllipse->SetDimensions
                                  (shapeDimensions->operator[](2),
                                   shapeDimensions->operator[](3));
+
                         newEllipse->SetPen(*shapePen);
+
                         newEllipse->SetBrush(*shapeBrush);
-                        newEllipse->SetName("Deafult Ellipse");
+
+                        newEllipse->SetName("Default Ellipse");
+
                         shapes.push_back(newEllipse);
+
                         break;
-        case CIRCLE:    newCircle = new Ellipse(this , CIRCLE);
+        case ShapeType::Circle:    newCircle = new Ellipse(this ,
+                                                   static_cast<int>(shapeType));
+
                         newCircle->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newCircle->SetDimensions
                                  (shapeDimensions->operator[](2));
+
                         newCircle->SetPen(*shapePen);
+
                         newCircle->SetBrush(*shapeBrush);
-                        newCircle->SetName("Deafult Circle");
+
+                        newCircle->SetName("Default Circle");
+
                         shapes.push_back(newCircle);
+
                         break;
-        case TEXT:      newTextbox = new Textbox(this, TEXT);
+
+        case ShapeType::Text:      newTextbox = new Textbox(this,
+                                                   static_cast<int>(shapeType));
+
                         newTextbox->SetCordiantes
                                 (QPoint(shapeDimensions->operator[](0),
                                         shapeDimensions->operator[](1)));
+
                         newTextbox->SetDimensions
                                  (shapeDimensions->operator[](2),
                                   shapeDimensions->operator[](3));
+
                         newTextbox->SetPen(StrToColor
                                            (QString::fromStdString(textColor)));
+
                         newTextbox->SetText(QString::fromStdString(textString));
+
                         newTextbox->SetAllignment(QString::fromStdString
                                                   (textAllignment));
+
                         newTextbox->SetFont(*textFont);
-                        newTextbox->SetName("Deafult Textbox");
+
+                        newTextbox->SetName("Default Textbox");
+
                         shapes.push_back(newTextbox);
+
                         break;
+
         default:        break;
         }
 
         fin.ignore(1000, '\n');
 
-        textFont   = new QFont;
-        shapePen   = new QPen;
-        shapeBrush = new QBrush;
+        textFont        = new QFont;
+        shapePen        = new QPen;
+        shapeBrush      = new QBrush;
         shapeDimensions = new Vector<int>;
     }//End while
 
@@ -309,29 +429,13 @@ void RenderArea::CreateDefault()
     delete shapeDimensions;
 }
 
+//Call an update to the canvas
 void RenderArea::UpdateCanvas()
 {
     update();
 }
 
-void RenderArea::setShape(Shape* shape)
-{
-    this->currentShape = shape;
-    update();
-}
-
-void RenderArea::setPen(const QPen &pen)
-{
-    this->pen = pen;
-    update();
-}
-
-void RenderArea::setBrush(const QBrush &brush)
-{
-    this->brush = brush;
-    update();
-}
-
+//Draw the shapes in the vector to the canvas
 void RenderArea::paintEvent(QPaintEvent * /* event */)
 {
     QPaintDevice* device = this;
