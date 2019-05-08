@@ -76,7 +76,7 @@ void Login::on_actionExit_triggered()
     this->close();
 }
 
-bool Login::loginSuccess(){ return success; }
+bool Login::loginSuccess(){ return true; }
 
 void Login::setSuccess(bool b){
     success = b;
