@@ -32,14 +32,6 @@ void AccountList::fillList(){
     fin.close();
 }
 
-bool AccountList::usernameExists(string user){
-    for(auto i: list){
-        if(user.compare(i.username) == 0){
-            return true;
-        }
-    }
-    return false;
-}
 
 bool AccountList::passwordMatch(string pass){
     for(auto i: list){

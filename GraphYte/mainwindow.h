@@ -30,6 +30,8 @@ public:
     //Constructor
     explicit MainWindow(QWidget *parent = nullptr);
 
+    void unlockUI();
+
     //Decconstructor
     ~MainWindow();
 

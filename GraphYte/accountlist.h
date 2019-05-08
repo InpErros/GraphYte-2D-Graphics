@@ -10,6 +10,7 @@ using std::fstream;
 using std::endl;
 using std::string;
 
+
 class AccountList{
 private:
     struct Account{
@@ -26,7 +27,6 @@ public:
     void fillList();
     void pushList();
     void newMember();
-    bool usernameExists(string);
     bool passwordMatch(string);
     void pushNewMember(string,string,string,string);
     bool isEmpty(fstream&);

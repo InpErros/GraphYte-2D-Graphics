@@ -7,10 +7,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
-    login = new Login;
-    login->show();
-
     renderArea         = new RenderArea;
     createShape        = new CreateShape;
 
@@ -358,10 +354,7 @@ void MainWindow::on_actionLogin_triggered()
     login->show();
 
     if(login->loginSuccess()){
-        ui->menuCreate_A_New_Shape->setEnabled(true);
-        ui->menuDelete_A_Shape->setEnabled(true);
-        ui->menuMove_A_Shape->setEnabled(true);
-        ui->menuLogin->setEnabled(false);
+        unlockUI();
     }
 }
 
@@ -381,4 +374,11 @@ void MainWindow::on_actionAbout_Us_triggered()
 {
     aboutUs = new AboutUs;
     aboutUs->show();
+}
+
+void MainWindow::unlockUI(){
+    ui->menuCreate_A_New_Shape->setEnabled(true);
+    ui->menuDelete_A_Shape->setEnabled(true);
+    ui->menuMove_A_Shape->setEnabled(true);
+    ui->menuLogin->setEnabled(false);
 }

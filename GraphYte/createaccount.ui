@@ -62,22 +62,6 @@
        <property name="orientation">
         <enum>Qt::Vertical</enum>
        </property>
-       <widget class="QLabel" name="label_name">
-        <property name="text">
-         <string>Name</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_email">
-        <property name="text">
-         <string>Email Address</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
        <widget class="QLabel" name="label_newusername">
         <property name="text">
          <string>Username</string>
@@ -102,12 +86,6 @@
       </widget>
       <widget class="QWidget" name="layoutWidget">
        <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item>
-         <widget class="QLineEdit" name="lineEdit_newname"/>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_newemail"/>
-        </item>
         <item>
          <widget class="QLineEdit" name="lineEdit_newusername"/>
         </item>

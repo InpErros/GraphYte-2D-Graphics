@@ -42,7 +42,8 @@ SOURCES += \
     accountlist.cpp \
     contactinfo.cpp \
     comment.cpp \
-    aboutus.cpp
+    aboutus.cpp \
+    account.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -62,7 +63,8 @@ HEADERS += \
     accountlist.h \
     contactinfo.h \
     comment.h \
-    aboutus.h
+    aboutus.h \
+    account.h
 
 FORMS += \
         mainwindow.ui \

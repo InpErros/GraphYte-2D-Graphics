@@ -5,6 +5,7 @@
 #include "startup.h"
 #include "createaccount.h"
 #include "accountlist.h"
+#include "account.h"
 
 namespace Ui {
 class Login;
@@ -18,6 +19,7 @@ public:
     explicit Login(QWidget *parent = nullptr);
     ~Login();
     bool loginSuccess();
+    void setSuccess(bool);
 
 private slots:
     void on_pushButton_login_clicked();
@@ -26,12 +28,11 @@ private slots:
 
     void on_actionExit_triggered();
 
-    void on_pushButton_clicked();
-
 private:
     Ui::Login *ui;
     Startup * startup;
     CreateAccount * createAccount;
+    bool success;
 };
 
 #endif // LOGIN_H

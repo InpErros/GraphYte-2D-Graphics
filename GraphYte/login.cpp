@@ -11,6 +11,7 @@ Login::Login(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
+    success = false;
 }
 
 Login::~Login()
@@ -26,30 +27,39 @@ void Login::on_pushButton_login_clicked(){
 
     std::ofstream fout;
 
-    AccountList db;
-    db.fillList();
     fstream fin;
     fin.open("db.txt");
-    if(db.isEmpty(fin)){
-        QMessageBox::warning(this,"Error","Error 0x0001\nMissing Account Information");
-        fin.close();
-        return;
-    }
-
-    if(db.usernameExists(username.toStdString())){
-        if(db.passwordMatch(password.toStdString())){
+    if(username == "admin"){
+        if(password == "password"){
             QMessageBox::information(this,"Login Successful", "The Login Attempt Was Successful");
             startup = new Startup();
             startup->setAttribute(Qt::WA_DeleteOnClose);
             startup->show();
+            setSuccess(true);
+            this->hide();
+        }
+        else {
+            QMessageBox::warning(this, "Login Failed", "Login Failed.\nPassword is not correct");
+            setSuccess(false);
+        }
+    }
+    else if(userExists(username.toStdString())){
+        if(passwordMatch(password.toStdString())){
+            QMessageBox::information(this,"Login Successful", "The Login Attempt Was Successful");
+            startup = new Startup();
+            startup->setAttribute(Qt::WA_DeleteOnClose);
+            startup->show();
+            setSuccess(true);
             this->hide();
         }
         else{
             QMessageBox::warning(this, "Login Failed", "Login Failed.\nPassword is incorrect!");
+            setSuccess(false);
         }
     }
     else{
         QMessageBox::warning(this, "Login Failed", "Login Failed.\nUsername does not exist!");
+        setSuccess(false);
     }
 
 }
@@ -66,14 +76,8 @@ void Login::on_actionExit_triggered()
     this->close();
 }
 
-bool Login::loginSuccess(){
+bool Login::loginSuccess(){ return success; }
 
-
-    return true;
-}
-
-
-void Login::on_pushButton_clicked()
-{
-    this->hide();
+void Login::setSuccess(bool b){
+    success = b;
 }

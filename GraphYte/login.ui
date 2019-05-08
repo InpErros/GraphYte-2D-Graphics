@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>430</width>
-    <height>375</height>
+    <height>305</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -87,19 +87,6 @@
        </widget>
       </item>
      </layout>
-    </widget>
-    <widget class="QPushButton" name="pushButton">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>250</y>
-       <width>391</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Login as Guest</string>
-     </property>
     </widget>
    </widget>
   </widget>
