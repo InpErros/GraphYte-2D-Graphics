@@ -1,0 +1,750 @@
+Searching for include files...
+Searching for example files...
+Searching for images...
+Searching for dot files...
+Searching for msc files...
+Searching for dia files...
+Searching for files to exclude
+Searching INPUT for files to process...
+Searching for files in directory /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte
+Reading and parsing tag files
+Parsing files
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/account.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/account.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/account.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/account.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/CreateShape.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/CreateShape.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/main.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/main.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.cpp...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.cpp...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h...
+Preprocessing /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h...
+Parsing file /home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h...
+Building group list...
+Building directory list...
+Building namespace list...
+Building file list...
+Building class list...
+Associating documentation with classes...
+Computing nesting relations for classes...
+Building example list...
+Searching for enumerations...
+Searching for documented typedefs...
+Searching for members imported via using declarations...
+Searching for included using directives...
+Searching for documented variables...
+Building interface member list...
+Building member list...
+Searching for friends...
+Searching for documented defines...
+Computing class inheritance relations...
+Computing class usage relations...
+Flushing cached template relations that have become invalid...
+Creating members for template instances...
+Computing class relations...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:30: warning: Compound CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.h:11: warning: Compound Comment is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:12: warning: Compound newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.h:26: warning: Compound MainWindow is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:11: warning: Compound MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:16: warning: Compound RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:34: warning: Compound Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:14: warning: Compound AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h:15: warning: Compound Login is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.h:11: warning: Compound AboutUs is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.h:12: warning: Compound CreateAccount is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.h:11: warning: Compound ContactInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.h:11: warning: Compound Startup is not documented.
+Add enum values to enums...
+Searching for member function documentation...
+Building page list...
+Search for main page...
+Computing page relations...
+Determining the scope of groups...
+Sorting lists...
+Freeing entry tree
+Determining which enums are documented
+Computing member relations...
+Building full member lists recursively...
+Adding members to member groups.
+Computing member references...
+Inheriting documentation...
+Generating disk names...
+Adding source references...
+Adding xrefitems...
+Sorting member lists...
+Computing dependencies between directories...
+Generating citations page...
+Counting data structures...
+Resolving user defined references...
+Finding anchors and sections in the documentation...
+Transferring function references...
+Combining using relations...
+Adding members to index pages...
+Generating style sheet...
+Generating search indices...
+Generating example documentation...
+Generating file sources...
+Generating code for file aboutus.h...
+Generating code for file account.h...
+Generating code for file accountlist.h...
+Generating code for file comment.h...
+Generating code for file contactinfo.h...
+Generating code for file createaccount.h...
+Generating code for file createshape.h...
+Generating code for file Ellipse.h...
+Generating code for file Line.h...
+Generating code for file login.h...
+Generating code for file mainwindow.h...
+Generating code for file Polygon.h...
+Generating code for file Polyline.h...
+Generating code for file Rectangle.h...
+Generating code for file RenderArea.h...
+Generating code for file Shape.h...
+Generating code for file startup.h...
+Generating code for file Textbox.h...
+Generating code for file vector.h...
+Generating file documentation...
+Generating page documentation...
+Generating group documentation...
+Generating class documentation...
+Generating docs for compound AboutUs...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/aboutus.h:15: warning: Member AboutUs(QWidget *parent=nullptr) (function) of class AboutUs is not documented.
+Generating docs for compound AccountList...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:27: warning: Member fillList() (function) of class AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:28: warning: Member pushList() (function) of class AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:29: warning: Member newMember() (function) of class AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:30: warning: Member passwordMatch(string) (function) of class AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:31: warning: Member pushNewMember(string, string, string, string) (function) of class AccountList is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/accountlist.h:32: warning: Member isEmpty(fstream &) (function) of class AccountList is not documented.
+Generating docs for compound Comment...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/comment.h:15: warning: Member Comment(QWidget *parent=nullptr) (function) of class Comment is not documented.
+Generating docs for compound ContactInfo...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/contactinfo.h:15: warning: Member ContactInfo(QWidget *parent=nullptr) (function) of class ContactInfo is not documented.
+Generating docs for compound CreateAccount...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createaccount.h:16: warning: Member CreateAccount(QWidget *parent=nullptr) (function) of class CreateAccount is not documented.
+Generating docs for compound CreateShape...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:64: warning: Member shapeGenerated(const newShapeInfo &NEW_SHAPE) (signal) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:35: warning: Member CreateShape(QWidget *parent=nullptr) (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:41: warning: Member InitializeUIValues() (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:44: warning: Member SetFirstPgValues() (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:47: warning: Member SetSecondPgValues() (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:50: warning: Member GenerateShape() (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:53: warning: Member StrToColor(QString) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:54: warning: Member StrToPenStyle(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:55: warning: Member StrToCapStyle(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:56: warning: Member StrToJoinStyle(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:57: warning: Member StrToBrushStyle(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:58: warning: Member StrToFontStyle(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:59: warning: Member StrToFontWeight(const QString &) const  (function) of class CreateShape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/createshape.h:60: warning: Member StrToAllignment(const QString &) const  (function) of class CreateShape is not documented.
+Generating docs for compound Ellipse...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:25: warning: Member Ellipse(QPaintDevice *device=nullptr, int id=-1) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:45: warning: Member SetCordiantes(const QPoint &CORDINATES) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:54: warning: Member SetDimensions(const int &WIDTH, const int &LENGTH) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:62: warning: Member SetDimensions(const int &RADIUS) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:71: warning: Member Draw(QPaintDevice *device) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:80: warning: Member Move(const int &X, const int &Y) (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:92: warning: Member Perimeter() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:100: warning: Member Area() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:108: warning: Member GetCords() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:116: warning: Member GetMajorAxis() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:124: warning: Member GetMinorAxis() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:132: warning: Member GetRadius() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Ellipse.h:140: warning: Member isCircle() const  (function) of class Ellipse is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating docs for compound Line...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:25: warning: Member Line(QPaintDevice *device=nullptr, int id=-1) (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:49: warning: Member SetCordinates(const QPoint &START, const QPoint &END) (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:58: warning: Member Draw(QPaintDevice *device) (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:67: warning: Member Move(const int &X, const int &Y) (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:75: warning: Member Perimeter() const  (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:83: warning: Member Area() const  (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:91: warning: Member GetStartPoint() const  (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Line.h:99: warning: Member GetEndPoint() const  (function) of class Line is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating docs for compound Login...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h:19: warning: Member Login(QWidget *parent=nullptr) (function) of class Login is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h:21: warning: Member loginSuccess() (function) of class Login is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/login.h:22: warning: Member setSuccess(bool) (function) of class Login is not documented.
+Generating docs for compound MainWindow...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.h:31: warning: Member MainWindow(QWidget *parent=nullptr) (function) of class MainWindow is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/mainwindow.h:33: warning: Member unlockUI() (function) of class MainWindow is not documented.
+Generating docs for compound newShapeInfo...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:13: warning: Member shapeId (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:14: warning: Member shapePen (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:15: warning: Member brush (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:16: warning: Member font (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:17: warning: Member dimensions (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:18: warning: Member text (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:19: warning: Member allignment (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:20: warning: Member textPen (variable) of class newShapeInfo is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:21: warning: Member name (variable) of class newShapeInfo is not documented.
+Generating docs for compound Polygon...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:25: warning: Member Polygon(QPaintDevice *device=nullptr, int id=-1) (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:48: warning: Member AddPoint(const QPoint &NEW_POINT) (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:57: warning: Member Draw(QPaintDevice *device) (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:66: warning: Member Move(const int &X, const int &Y) (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:74: warning: Member Perimeter() const  (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:82: warning: Member Area() const  (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polygon.h:90: warning: Member GetLinePoints() const  (function) of class Polygon is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating docs for compound Polyline...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:25: warning: Member Polyline(QPaintDevice *device=nullptr, int id=-1) (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:48: warning: Member AddPoint(const QPoint &NEW_POINT) (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:57: warning: Member Draw(QPaintDevice *device) (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:66: warning: Member Move(const int &X, const int &Y) (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:74: warning: Member Perimeter() const  (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:82: warning: Member Area() const  (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Polyline.h:90: warning: Member GetLinePoints() const  (function) of class Polyline is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating docs for compound Rectangle...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:25: warning: Member Rectangle(QPaintDevice *device=nullptr, int id=-1) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:45: warning: Member SetCordiantes(const QPoint &CORDINATES) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:54: warning: Member SetDimensions(const int &LENGTH, const int &WIDTH) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:62: warning: Member SetDimensions(const int &LENGTH) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:71: warning: Member Draw(QPaintDevice *device) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:80: warning: Member Move(const int &X, const int &Y) (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:92: warning: Member Perimeter() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:100: warning: Member Area() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:108: warning: Member GetCords() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:116: warning: Member GetWidth() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:124: warning: Member GetLength() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Rectangle.h:132: warning: Member isSquare() const  (function) of class Rectangle is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating docs for compound RenderArea...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:20: warning: Member RenderArea(QWidget *parent=nullptr) (function) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:26: warning: Member minimumSizeHint() const Q_DECL_OVERRIDE (function) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:27: warning: Member sizeHint() const Q_DECL_OVERRIDE (function) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:30: warning: Member CreateDefault() (function) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:33: warning: Member UpdateCanvas() (function) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:36: warning: Member shapes (variable) of class RenderArea is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/RenderArea.h:43: warning: Member paintEvent(QPaintEvent *event) Q_DECL_OVERRIDE (function) of class RenderArea is not documented.
+Generating docs for compound Shape...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:141: warning: Member Move(const int &X, const int &Y)=0 (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:144: warning: Member Draw(QPaintDevice *device)=0 (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:147: warning: Member Perimeter() const =0 (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:150: warning: Member Area() const =0 (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:41: warning: Member operator<<(ostream &os, const Shape &) (friend) of class Shape is not documented.
+Generating docs for compound Startup...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/startup.h:15: warning: Member Startup(QWidget *parent=nullptr) (function) of class Startup is not documented.
+Generating docs for compound Textbox...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:26: warning: Member Textbox(QPaintDevice *device=nullptr, int id=-1) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:46: warning: Member SetCordiantes(const QPoint &CORDINATES) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:55: warning: Member SetDimensions(const int &LENGTH, const int &WIDTH) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:63: warning: Member SetText(const QString &TEXT) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:71: warning: Member SetFont(const QFont &FONT) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:79: warning: Member SetAllignment(const QString &ALLIGNMENT) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:88: warning: Member Draw(QPaintDevice *device) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:97: warning: Member Move(const int &X, const int &Y) (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:109: warning: Member Perimeter() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:117: warning: Member Area() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:125: warning: Member GetWidth() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:133: warning: Member GetLength() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:141: warning: Member GetCords() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:149: warning: Member GetText() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:157: warning: Member GetFont() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Textbox.h:165: warning: Member GetAlignment() const  (function) of class Textbox is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:55: warning: Member Shape(QPaintDevice *device, int shapeId, ShapeType shapeType) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:81: warning: Member SetShape(const ShapeType &SHAPE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:95: warning: Member SetPen(const Qt::GlobalColor &COLOR, const int &WIDTH, const Qt::PenStyle &STYLE, const Qt::PenCapStyle &CAP_STYLE, const Qt::PenJoinStyle &JOIN_STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:105: warning: Member SetPen(const Qt::GlobalColor &COLOR) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:113: warning: Member SetPen(const QPen &PEN) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:122: warning: Member SetBrush(const Qt::GlobalColor &COLOR, const Qt::BrushStyle &STYLE) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:130: warning: Member SetBrush(const QBrush &BRUSH) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:138: warning: Member SetName(const QString &NAME) (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:162: warning: Member GetShape() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:170: warning: Member GetPen() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:178: warning: Member GetBrush() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:186: warning: Member GetName() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:194: warning: Member IdShapeListing(Vector< Shape * > shapes) const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:202: warning: Member AreaShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:210: warning: Member PerimeterShapeListing() const  (function) of class Shape is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/Shape.h:219: warning: Member GetPainter() (function) of class Shape is not documented.
+Generating namespace index...
+Generating docs for compound MyVector::Vector...
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:136: warning: Member iterator (typedef) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:137: warning: Member const_iterator (typedef) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:17: warning: Member Vector(int size) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:23: warning: Member Vector(const Vector< T > &RHS) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:30: warning: Member operator=(const Vector< T > &RHS) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:47: warning: Member Vector(Vector &&RHS) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:59: warning: Member operator=(Vector &&RHS) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:80: warning: Member operator[](const int &NUM) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:83: warning: Member operator[](const int &NUM) const  (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:86: warning: Member size() const  (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:89: warning: Member capacity() const  (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:92: warning: Member resize(const int &NEW_SIZE) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:100: warning: Member push_back(const T &val) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:113: warning: Member reserve(const int &NEW_ALLOC) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:127: warning: Member clear() (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:134: warning: Member GetElem(const int &INDEX) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:140: warning: Member begin() (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:148: warning: Member begin() const  (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:156: warning: Member end() (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:164: warning: Member end() const  (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:172: warning: Member insert(iterator p, const T &v) (function) of class MyVector::Vector is not documented.
+/home/cs1c/Desktop/GraphYte-2D-Graphics-master/GraphYte/vector.h:194: warning: Member erase(iterator p) (function) of class MyVector::Vector is not documented.
+Generating graph info page...
+Generating directory documentation...
+Generating index page...
+Generating page index...
+Generating module index...
+Generating namespace index...
+Generating namespace member index...
+Generating annotated compound index...
+Generating alphabetical compound index...
+Generating hierarchical class index...
+Generating graphical class hierarchy...
+Generating member index...
+Generating file index...
+Generating file member index...
+Generating example index...
+finalizing index lists...
+writing tag file...
+Running dot...
+Generating dot graphs using 3 parallel threads...
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_about_us__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_about_us__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_comment__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_comment__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_contact_info__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_contact_info__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_contact_info__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_contact_info__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_create_account__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_create_account__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_create_account__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_create_account__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_create_shape__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_create_shape__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_create_shape__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_create_shape__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_ellipse__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_ellipse__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_ellipse__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_ellipse__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_about_us__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_about_us__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_line__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_line__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_login__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_login__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_login__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_login__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_main_window__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_main_window__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_main_window__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_main_window__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/structnew_shape_info__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/structnew_shape_info__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_polygon__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_polygon__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_polygon__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_polygon__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_comment__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_comment__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_line__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_line__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_polyline__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_polyline__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_rectangle__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_rectangle__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_render_area__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_render_area__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_render_area__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_render_area__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_shape__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_shape__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_startup__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_startup__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_startup__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_startup__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_textbox__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_textbox__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_rectangle__inherit__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_rectangle__inherit__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_polyline__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_polyline__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_0.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_0.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_1.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_1.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_2.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_2.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_3.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_3.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_4.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_4.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_5.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_5.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_6.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_6.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/class_textbox__coll__graph.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/class_textbox__coll__graph.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/graph_legend.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/graph_legend.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_9.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_9.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_10.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_10.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_11.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_11.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_7.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_7.png"'
+sh: 1: dot: not found
+error: Problems running dot: exit code=127, command='dot', arguments='"/home/cs1c/Desktop/doxy_final/html/inherit_graph_8.dot" -Tpng -o "/home/cs1c/Desktop/doxy_final/html/inherit_graph_8.png"'
+Running dot for graph 1/45
+Running dot for graph 2/45
+Running dot for graph 3/45
+Running dot for graph 4/45
+Running dot for graph 5/45
+Running dot for graph 6/45
+Running dot for graph 7/45
+Running dot for graph 8/45
+Running dot for graph 9/45
+Running dot for graph 10/45
+Running dot for graph 11/45
+Running dot for graph 12/45
+Running dot for graph 13/45
+Running dot for graph 14/45
+Running dot for graph 15/45
+Running dot for graph 16/45
+Running dot for graph 17/45
+Running dot for graph 18/45
+Running dot for graph 19/45
+Running dot for graph 20/45
+Running dot for graph 21/45
+Running dot for graph 22/45
+Running dot for graph 23/45
+Running dot for graph 24/45
+Running dot for graph 25/45
+Running dot for graph 26/45
+Running dot for graph 27/45
+Running dot for graph 28/45
+Running dot for graph 29/45
+Running dot for graph 30/45
+Running dot for graph 31/45
+Running dot for graph 32/45
+Running dot for graph 33/45
+Running dot for graph 34/45
+Running dot for graph 35/45
+Running dot for graph 36/45
+Running dot for graph 37/45
+Running dot for graph 38/45
+Running dot for graph 39/45
+Running dot for graph 40/45
+Running dot for graph 41/45
+Running dot for graph 42/45
+Running dot for graph 43/45
+Running dot for graph 44/45
+Running dot for graph 45/45
+Patching output file 1/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_about_us__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_about_us__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 2/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_comment__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_comment__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 3/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_contact_info__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_contact_info__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 4/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_create_account__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_create_account__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 5/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_create_shape__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_create_shape__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 6/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_ellipse__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_ellipse__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 7/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_line__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_line__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 8/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_login__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_login__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 9/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_main_window__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_main_window__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 10/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/structnew_shape_info__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 11/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_polygon__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_polygon__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 12/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_polyline__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_polyline__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 13/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_rectangle__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_rectangle__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 14/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_render_area__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_render_area__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 15/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_shape__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 16/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_startup__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_startup__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 17/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_textbox__inherit__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/class_textbox__coll__graph.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+Patching output file 18/18
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_0.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_1.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_2.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_3.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_4.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_5.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_6.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_7.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_8.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_9.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_10.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+error: problems opening map file /home/cs1c/Desktop/doxy_final/html/inherit_graph_11.map for inclusion in the docs!
+If you installed Graphviz/dot after a previous failing run, 
+try deleting the output directory and rerun doxygen.
+lookup cache used 471/65536 hits=2767 misses=501
+finished...
+*** Doxygen has finished
