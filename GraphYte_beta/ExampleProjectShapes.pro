@@ -48,7 +48,8 @@ HEADERS += \
     Ellipse.h \
     RenderArea.h \
     Textbox.h \
-    createshape.h
+    createshape.h \
+    shapeinfofunc.h
 
 FORMS += \
         mainwindow.ui \
@@ -60,4 +61,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
-    shapes.txt
+    shapes.txt \
+    ShapeListing.txt \
+    AreaShapeListing.txt \
+    PerimeterShapeListing.txt

@@ -8,12 +8,58 @@
 #include "Rectangle.h"
 #include "Ellipse.h"
 #include "Textbox.h"
+#include <QtAlgorithms>
+#include <vector.h>
+
+enum compare {
+                ID,
+                AREA,
+                PERIMETER
+};
 
 // Methods for Outputting shape properties sorted by id, area, and perimeter
 // to output files
+template <typename Type>
 class ShapeFunc
 {
 public:
+
+
+
+
+
+
+//    //comparison functions called via a
+//    //function pointer passed to selection sort
+//    bool CompareShapePerimeter(Type& a, Type& b) {return a.Perimeter() > b.Perimeter();}
+//    bool CompareShapeArea(Type& a, Type& b)      {a.Area() > b.Area();}
+
+    //selection sort func must sort a vector of
+    //shapes by id (default) or alternatively via
+    //custom comparison funcs
+    static void SelectionSort(Vector<Shape*>& shapes, compare Compare)
+    {
+        QVector<Shape*> temp = shapes.ToQV();
+
+        switch(Compare)
+        {
+        case ID: std::sort(begin(temp), end(temp),
+                  [](Shape* s1, Shape* s2){return s1->GetId() < s2->GetId();});
+
+            break;
+        case AREA: std::sort(begin(temp), end(temp),
+                    [](Shape* s1, Shape* s2){return s1->Area() < s2->Area();});
+            break;
+        case PERIMETER: std::sort(begin(temp), end(temp),
+                         [](Shape* s1, Shape* s2){return s1->Perimeter() < s2->Perimeter();});
+            break;
+        }
+        shapes.FromQV(temp);
+        int i = 0;
+        i++;
+    }
+
+
 
 /****************************************************************
  * static void PrintShapeListing(const Vector<Shape*>& shapes)
@@ -27,6 +73,12 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
     ofstream fout("ShapeListing.txt");
+    compare Compare = AREA;
+
+
+
+    SelectionSort(temp, Compare);
+
 
     // Runs through the vector and outputs each element
     for(int index = 0; index < temp.size(); index++)
@@ -79,24 +131,12 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
 static void PrintAreaShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
-    Shape* tempSpot;
-    int j;
-    ofstream fout;
+    ofstream fout("AreaShapeListing.txt");
 
-    // Sorts the vector in ascending order of the area
-    for(int i = 1; i < shapes.size(); i++)
-    {
-        tempSpot = temp[i];
-        j = i -1;
-        while(j >= 0 && temp[i]->Area() > tempSpot->Area())
-        {
-            temp[j + 1] = temp[j];
-            j = j -1;
-        }
-        temp[j + 1] = tempSpot;
-    }
+    compare Compare = AREA;
 
-    fout.open("AreaShapeListing.txt");
+    SelectionSort(temp, Compare);
+
     // Outputs the area of the shape, followed by the id and then shape type
     for(int index = 0; index < temp.size(); index++)
     {
@@ -143,40 +183,13 @@ static void PrintAreaShapeListing(const Vector<Shape*>& shapes)
 static void PrintPerimeterShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
-    Shape* tempSpot;
     ofstream fout;
-    int j;
 
-       // Sorts the vector in ascending order of the area
-       for(int i = 1; i < temp.size(); i++)
-       {
-           tempSpot = temp[i];
-           j = i -1;
-           while(j >= 0 && temp[i]->Perimeter() < tempSpot->Perimeter())
-           {
-               temp[j + 1] = temp[j];
-               j = j -1;
-           }
-           temp[j + 1] = tempSpot;
-       }
-//       int index;
+    // Sorts the vector in ascending order of the area
 
-//       for(int i = shapes.size() -1; i >= 1; i--)
-//       {
-//           tempSpot = temp[0];
-//           index = 0;
+    compare Compare = PERIMETER;
 
-//           for(int j = 1; j <= 1; j++)
-//           {
-//               if(temp[j]->Area() > tempSpot->Area())
-//               {
-//                   tempSpot = temp[index];
-//                   index = j;
-//               }
-//           }
-//           temp[index] = temp[i];
-//           temp[i] = tempSpot;
-//       }
+    SelectionSort(temp, Compare);
 
        fout.open("PerimeterShapeListing.txt");
 

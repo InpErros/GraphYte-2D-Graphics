@@ -2,6 +2,7 @@
 #define VECTOR_H
 
 #include <algorithm> /** copy **/
+#include <QVector>
 using namespace std;
 
 // Templated Vector class within namespace MyVector
@@ -216,6 +217,7 @@ namespace MyVector
         void clear()
         {
             delete [] elem;
+            elem = new T[50];
             _size = 0;
         }
 
@@ -359,6 +361,31 @@ namespace MyVector
             if(_size == 0){return nullptr;}
 
             return &elem[_size];
+        }
+
+
+        QVector<T> ToQV()
+        {
+            QVector<T> temp;
+            temp.reserve(50);
+//            for(T t : elem)
+//            {
+//                temp.push_back(t);
+//            }
+            for(int i = 0; i < this->size(); i++)
+            {
+                temp.push_back(elem[i]);
+            }
+            return temp;
+        }
+
+       void FromQV(QVector<T> temp)
+        {
+            this->clear();
+            for(T t : temp)
+            {
+                this->push_back(t);
+            }
         }
 
     private:

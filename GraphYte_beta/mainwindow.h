@@ -57,4 +57,7 @@ private:
     CreateShape    *createShape;    //The Dialog to create a new shape
 };
 
+
+
+
 #endif // MAINWINDOW_H

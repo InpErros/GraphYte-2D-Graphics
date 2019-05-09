@@ -25,11 +25,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->menuCreate_A_New_Shape->setEnabled(false);
     ui->menuDelete_A_Shape->setEnabled(false);
     ui->menuMove_A_Shape->setEnabled(false);
+
+
 }
 
 //Deconstructor
 MainWindow::~MainWindow()
-{
+{    
+
+
     delete ui;
     delete renderArea;
     delete createShape;
@@ -337,6 +341,7 @@ void MainWindow::on_actionDelete_Shape_triggered()
             renderArea->shapes.erase(renderArea->shapes.begin() + index);
         }
     }
+    renderArea->UpdateCanvas();
 }
 
 //Move the shape
@@ -389,3 +394,4 @@ void MainWindow::on_actionLogin_triggered()
                              "incorrect username or password");
     }
 }
+

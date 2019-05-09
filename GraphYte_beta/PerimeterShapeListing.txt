@@ -14,11 +14,11 @@ Square
 6
 Ellipse
 
-1256.64
-7
-Circle
-
 1100
 8
 Text
+
+1256.64
+7
+Circle
 

@@ -6,6 +6,10 @@ Polygon
 4
 Rectangle
 
+25000
+8
+Text
+
 40000
 5
 Square
@@ -17,8 +21,4 @@ Ellipse
 125664
 7
 Circle
-
-25000
-8
-Text
 
