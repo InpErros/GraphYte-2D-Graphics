@@ -1,5 +1,4 @@
-Test 1
-I hope this works
-third line
-Test 2
-we shall see.
+This is a demonstration customer testimonial
+
+This is a second customer testimonial
+
