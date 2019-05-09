@@ -5,10 +5,9 @@
 #include <string>
 
 using std::string;
-using std::ifstream;
-using std::ofstream;
+using std::fstream;
 using std::endl;
 
-bool userExists(string);
-bool passwordMatch(string);
+bool usernameMatch(string);
+bool passwordMatch(string, string);
 #endif // ACCOUNT_H

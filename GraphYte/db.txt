@@ -1,2 +1,6 @@
 admin
 password
+
+user
+pass
+

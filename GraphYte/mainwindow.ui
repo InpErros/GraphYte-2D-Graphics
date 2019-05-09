@@ -109,6 +109,11 @@
     <string>Comments</string>
    </property>
   </action>
+  <action name="actionCreate_Account">
+   <property name="text">
+    <string>Create Account</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>

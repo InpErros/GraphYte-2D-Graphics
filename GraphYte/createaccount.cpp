@@ -35,19 +35,19 @@ void CreateAccount::on_pushButton_clicked()
     }
     else if(fout.eof()){
     fout << user.toStdString() << endl;
-    fout << password.toStdString() << endl;
+    fout << password.toStdString() << endl << endl;
     fout.close();
 
     QMessageBox::information(this, "Account Created", "Your Account Was Created Successfully");
     this->hide();
     }
-    else if(userExists(user.toStdString())){
+    else if(usernameMatch(user.toStdString())){
         QMessageBox::warning(this, "Account Creation Failed", "This Account Username Already Exists");
         fout.close();
     }
     else{
         fout << user.toStdString() << endl;
-        fout << password.toStdString() << endl;
+        fout << password.toStdString() << endl << endl;
         fout.close();
 
         QMessageBox::information(this, "Account Created", "Your Account Was Created Successfully");

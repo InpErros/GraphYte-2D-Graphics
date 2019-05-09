@@ -382,3 +382,9 @@ void MainWindow::unlockUI(){
     ui->menuMove_A_Shape->setEnabled(true);
     ui->menuLogin->setEnabled(false);
 }
+
+void MainWindow::on_actionCreate_Account_triggered()
+{
+    createAccount = new CreateAccount;
+    createAccount->show();
+}

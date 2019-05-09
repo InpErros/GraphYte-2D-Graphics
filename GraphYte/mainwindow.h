@@ -11,6 +11,7 @@
 #include "RenderArea.h"  /** RenderArea  **/
 #include "createshape.h" /** CreateShape **/
 #include "login.h"
+#include "createaccount.h"
 #include "contactinfo.h"
 #include "aboutus.h"
 #include "comment.h"
@@ -63,11 +64,14 @@ private slots:
 
     void on_actionAbout_Us_triggered();
 
+    void on_actionCreate_Account_triggered();
+
 private:
     Ui::MainWindow *ui;             //The main ui for the program
     RenderArea     *renderArea;     //The canvas that draws the shapes
     CreateShape    *createShape;    //The Dialog to create a new shape
     Login* login;
+    CreateAccount* createAccount;
     ContactInfo* contactInfo;
     AboutUs* aboutUs;
     Comment* comment;

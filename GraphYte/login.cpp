@@ -43,8 +43,8 @@ void Login::on_pushButton_login_clicked(){
             setSuccess(false);
         }
     }
-    else if(userExists(username.toStdString())){
-        if(passwordMatch(password.toStdString())){
+    else if(usernameMatch(username.toStdString())){
+        if(passwordMatch(username.toStdString(), password.toStdString())){
             QMessageBox::information(this,"Login Successful", "The Login Attempt Was Successful");
             startup = new Startup();
             startup->setAttribute(Qt::WA_DeleteOnClose);
@@ -67,7 +67,6 @@ void Login::on_pushButton_login_clicked(){
 void Login::on_pushButton_createaccount_clicked()
 {
     createAccount = new CreateAccount();
-    createAccount->setAttribute(Qt::WA_DeleteOnClose);
     createAccount->show();
 }
 

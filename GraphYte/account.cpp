@@ -1,27 +1,39 @@
 #include "account.h"
 
-string p = "";
+bool usernameMatch(string u){
+    string username;
+    bool found = false;
 
-bool userExists(string user){
-    std::ifstream fin;
+    fstream fin;
     fin.open("db.txt");
-    string u;
 
-    while(!fin.eof()){
-        getline(fin,u);
-        if(!fin.peek())
-            return false;
-        getline(fin,p);
-        if(user.compare(u))
-            break;
+    while(!fin.eof() && !found){
+        getline(fin, username);
+        fin.ignore(1000, '\n');
+        fin.ignore(1000, '\n');
+        if(username == u)
+            found = true;
     }
     fin.close();
-    return user.compare(u);
+    return found;
 }
 
-bool passwordMatch(string pass){
-    if(pass == p)
-        return true;
-    else
-        return false;
+bool passwordMatch(string u, string p){
+    string username;
+    string password;
+    bool found = false;
+
+    fstream fin;
+    fin.open("db.txt");
+
+    while(!fin.eof() && !found){
+        getline(fin, username);
+        getline(fin, password);
+        fin.ignore(1000, '\n');
+
+        if(username == u && password == p)
+            found = true;
+    }
+    fin.close();
+    return found;
 }
