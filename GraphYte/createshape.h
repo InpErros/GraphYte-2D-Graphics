@@ -63,6 +63,7 @@ signals:
     //The signal to generate a new shape
     void shapeGenerated(const newShapeInfo& NEW_SHAPE);
 
+
 private slots:
 
     //Controller of the shape combobox

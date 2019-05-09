@@ -31,16 +31,16 @@ void Login::on_pushButton_login_clicked(){
     fin.open("db.txt");
     if(username == "admin"){
         if(password == "password"){
+            emit checkLoginSuccess(true);
             QMessageBox::information(this,"Login Successful", "The Login Attempt Was Successful");
             startup = new Startup();
             startup->setAttribute(Qt::WA_DeleteOnClose);
             startup->show();
-            setSuccess(true);
             this->hide();
         }
         else {
             QMessageBox::warning(this, "Login Failed", "Login Failed.\nPassword is not correct");
-            setSuccess(false);
+            emit checkLoginSuccess(false);
         }
     }
     else if(usernameMatch(username.toStdString())){
@@ -49,17 +49,17 @@ void Login::on_pushButton_login_clicked(){
             startup = new Startup();
             startup->setAttribute(Qt::WA_DeleteOnClose);
             startup->show();
-            setSuccess(true);
+            emit checkLoginSuccess(true);
             this->hide();
         }
         else{
             QMessageBox::warning(this, "Login Failed", "Login Failed.\nPassword is incorrect!");
-            setSuccess(false);
+            emit checkLoginSuccess(false);
         }
     }
     else{
         QMessageBox::warning(this, "Login Failed", "Login Failed.\nUsername does not exist!");
-        setSuccess(false);
+        emit checkLoginSuccess(false);
     }
 
 }

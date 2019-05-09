@@ -66,6 +66,8 @@ private slots:
 
     void on_actionCreate_Account_triggered();
 
+    void catchLoginSuccess(const bool& Success);
+
 private:
     Ui::MainWindow *ui;             //The main ui for the program
     RenderArea     *renderArea;     //The canvas that draws the shapes

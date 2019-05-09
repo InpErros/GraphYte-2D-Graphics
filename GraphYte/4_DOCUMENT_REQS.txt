@@ -1,0 +1,15 @@
+STEPS TO USING PROGRAM:
+got to "login" tab at top of program 
+if you want to create account
+	click create account
+	enter username
+	enter password
+	click submit
+to login
+enter "admin" or your created username
+enter "password" or your created username
+click login 
+(Intro Will Play) Close Window
+
+Now can add, remove, and move shapes
+General Requirements:

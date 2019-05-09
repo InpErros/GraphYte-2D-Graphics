@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     renderArea         = new RenderArea;
     createShape        = new CreateShape;
+    login = new Login;
+
 
     //Add the render area to the screen
     this->layout()->addWidget(renderArea);
@@ -16,6 +18,9 @@ MainWindow::MainWindow(QWidget *parent) :
     //connect the signal to create a new shape with the function
     connect(createShape, SIGNAL(shapeGenerated(newShapeInfo)),
             this, SLOT(GenerateShape(newShapeInfo)));
+    connect(login, SIGNAL(checkLoginSuccess(const bool&)),
+            this, SLOT(catchLoginSuccess(const bool&)));
+
 
     //Move the render area
     renderArea->move(10, 50);
@@ -350,12 +355,8 @@ void MainWindow::on_actionMove_Shape_triggered()
 //Login for the admin
 void MainWindow::on_actionLogin_triggered()
 {
-    login = new Login;
+    //login = new Login;
     login->show();
-
-    if(login->loginSuccess()){
-        unlockUI();
-    }
 }
 
 void MainWindow::on_actionContact_Us_triggered()
@@ -376,11 +377,13 @@ void MainWindow::on_actionAbout_Us_triggered()
     aboutUs->show();
 }
 
-void MainWindow::unlockUI(){
-    ui->menuCreate_A_New_Shape->setEnabled(true);
-    ui->menuDelete_A_Shape->setEnabled(true);
-    ui->menuMove_A_Shape->setEnabled(true);
-    ui->menuLogin->setEnabled(false);
+void MainWindow::catchLoginSuccess(const bool& succ){
+    if(succ){
+        ui->menuCreate_A_New_Shape->setEnabled(true);
+        ui->menuDelete_A_Shape->setEnabled(true);
+        ui->menuMove_A_Shape->setEnabled(true);
+        ui->menuLogin->setEnabled(false);
+    }
 }
 
 void MainWindow::on_actionCreate_Account_triggered()

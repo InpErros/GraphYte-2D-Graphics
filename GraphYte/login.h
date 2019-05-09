@@ -21,6 +21,9 @@ public:
     bool loginSuccess();
     void setSuccess(bool);
 
+signals:
+    void checkLoginSuccess(const bool& Success);
+
 private slots:
     void on_pushButton_login_clicked();
 
