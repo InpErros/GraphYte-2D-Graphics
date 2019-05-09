@@ -24,23 +24,21 @@ class ShapeFunc
 {
 public:
 
-
-
-
-
-
-//    //comparison functions called via a
-//    //function pointer passed to selection sort
-//    bool CompareShapePerimeter(Type& a, Type& b) {return a.Perimeter() > b.Perimeter();}
-//    bool CompareShapeArea(Type& a, Type& b)      {a.Area() > b.Area();}
-
-    //selection sort func must sort a vector of
-    //shapes by id (default) or alternatively via
-    //custom comparison funcs
-    static void SelectionSort(Vector<Shape*>& shapes, compare Compare)
+    /****************************************************************
+     * static void Sort(Vector<Shape*>& shapes, compare Compare)
+     *   Mutator; sorts a vector by id, area, or perimeter
+     *   Parameters: shapes (Vector<Shape*>&) - the vector to be sorted
+     *               Compare (compare)        - enum used to distinguish
+     *                                          how to sort the vector
+     *   Return: none
+     ***************************************************************/
+    static void Sort(Vector<Shape*>& shapes, compare Compare)
     {
+        // Changes the vector to a QVector so that sort is able to be
+        // implemented
         QVector<Shape*> temp = shapes.ToQV();
 
+        // Sorts the vector by id, area, or perimeter
         switch(Compare)
         {
         case ID: std::sort(begin(temp), end(temp),
@@ -51,15 +49,13 @@ public:
                     [](Shape* s1, Shape* s2){return s1->Area() < s2->Area();});
             break;
         case PERIMETER: std::sort(begin(temp), end(temp),
-                         [](Shape* s1, Shape* s2){return s1->Perimeter() < s2->Perimeter();});
+                         [](Shape* s1, Shape* s2)
+                             {return s1->Perimeter() < s2->Perimeter();});
             break;
         }
+        // Changes the QVector back to a vector
         shapes.FromQV(temp);
-        int i = 0;
-        i++;
     }
-
-
 
 /****************************************************************
  * static void PrintShapeListing(const Vector<Shape*>& shapes)
@@ -75,10 +71,8 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
     ofstream fout("ShapeListing.txt");
     compare Compare = AREA;
 
-
-
-    SelectionSort(temp, Compare);
-
+    // Calls the sort function
+    Sort(temp, Compare);
 
     // Runs through the vector and outputs each element
     for(int index = 0; index < temp.size(); index++)
@@ -115,7 +109,6 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
         case ShapeType::NoShape: break;
         }
         fout << endl;
-
     }
     fout.close();
 }
@@ -132,10 +125,10 @@ static void PrintAreaShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
     ofstream fout("AreaShapeListing.txt");
-
     compare Compare = AREA;
 
-    SelectionSort(temp, Compare);
+    // Calls the sort function
+    Sort(temp, Compare);
 
     // Outputs the area of the shape, followed by the id and then shape type
     for(int index = 0; index < temp.size(); index++)
@@ -184,12 +177,10 @@ static void PrintPerimeterShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
     ofstream fout;
-
-    // Sorts the vector in ascending order of the area
-
     compare Compare = PERIMETER;
 
-    SelectionSort(temp, Compare);
+    // Calls the sort function
+    Sort(temp, Compare);
 
        fout.open("PerimeterShapeListing.txt");
 

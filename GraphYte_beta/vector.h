@@ -363,15 +363,17 @@ namespace MyVector
             return &elem[_size];
         }
 
-
+        /****************************************************************
+         * QVector<T> ToQv;
+         *   Mutator; creates a QVector and stores all of the values
+         *             of the vector into the QVector
+         *   Parameters: none
+         *   Return: none
+         ***************************************************************/
         QVector<T> ToQV()
         {
             QVector<T> temp;
             temp.reserve(50);
-//            for(T t : elem)
-//            {
-//                temp.push_back(t);
-//            }
             for(int i = 0; i < this->size(); i++)
             {
                 temp.push_back(elem[i]);
@@ -379,6 +381,12 @@ namespace MyVector
             return temp;
         }
 
+        /****************************************************************
+         * void FromQv(QVector<T> temp);
+         *   Mutator; stores all of the values of the QVector into the vector
+         *   Parameters: temp (QVector<T>) - QVector to be copied from
+         *   Return: none
+         ***************************************************************/
        void FromQV(QVector<T> temp)
         {
             this->clear();
