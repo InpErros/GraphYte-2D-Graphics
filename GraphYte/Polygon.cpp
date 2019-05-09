@@ -170,3 +170,38 @@ float Polygon::Perimeter() const
 
     return perimeter;
 }
+
+/************************************************************************
+* Method Print: Class Polygon
+*----------------------------------------------------------------------
+* 	 This outputs all of the shapes properties
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       os (ostream&) - the output stream
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
+void Polygon::Print(ostream& os) const
+{
+
+    os << "ShapeId: " << GetId() << endl;
+    os << "ShapeType: Polygon" << endl;
+    os << "ShapeDimensions: ";
+    for(int i = 0; i < polygonPoints.size(); i++)
+    {
+        os << polygonPoints[i].x() << ", " << polygonPoints[i].y();
+        if(i != polygonPoints.size() -1) {os << ", ";}
+    }
+    os << endl;
+    os << "PenColor: " << ColortoStr(GetPen()) << endl;
+    os << "PenWidth: " << GetPen().width() << endl;
+    os << "PenStyle: " << PenStyleToStr(GetPen()) << endl;
+    os << "PenCapStyle: " << CapStyleToStr(GetPen()) << endl;
+    os << "PenJoinStyle: " << JoinStyleToStr(GetPen()) << endl;
+    os << "BrushColor: " << BrushColorToStr(GetBrush()) << endl;
+    os << "BrushStyle: " << BrushStyleToStr(GetBrush()) << endl;
+
+}

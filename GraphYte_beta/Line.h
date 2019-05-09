@@ -98,6 +98,14 @@ public:
      ***************************************************************/
     QPoint GetEndPoint() const{return endingPoint;}
 
+    /***************************************************************
+     * void Print(ostream& os) const;
+     *   Accessor; outputs all of the shape properties
+     *   Parameters: os (ostream&) - the output stream
+     *   Return: nothing
+     ***************************************************************/
+    void Print(ostream& os) const;
+
 private:
     QPoint startingPoint; //The starting cordinates of the line
     QPoint endingPoint;   //The ending cordinates of the line

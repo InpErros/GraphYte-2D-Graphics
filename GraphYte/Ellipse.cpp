@@ -177,3 +177,45 @@ float Ellipse::Perimeter() const
         return (2 * M_PI * qSqrt((pow(majorAxis, 2) + pow(minorAxis, 2)) / 2));
     else {return (2 * M_PI * majorAxis);}
 }
+
+/************************************************************************
+* Method Print: Class Ellipse
+*----------------------------------------------------------------------
+* 	 This outputs all of the shapes properties
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       os (ostream&) - the output stream
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
+void Ellipse::Print(ostream& os) const
+{
+    os << "ShapeId: " << GetId() << endl;
+    if(isCircle() == false)
+    {
+        os << "ShapeType: Ellipse" << endl;;
+        os << "ShapeDimensions: " << GetCords().x() << ", "
+                                  << GetCords().y() << ", "
+                                  << GetMajorAxis() << ", "
+                                  << GetMinorAxis() << endl;
+    }
+    else
+    {
+        os << "ShapeType: Circle" << endl;
+        os << "ShapeDimensions: " << GetCords().x() << ", "
+                                  << GetCords().y() << ", "
+                                  << GetRadius()    << endl;
+    }
+
+    os << "PenColor: " << ColortoStr(GetPen()) << endl;
+    os << "PenWidth: " << GetPen().width() << endl;
+    os << "PenStyle: " << PenStyleToStr(GetPen()) << endl;
+    os << "PenCapStyle: " << CapStyleToStr(GetPen()) << endl;
+    os << "PenJoinStyle: " << JoinStyleToStr(GetPen()) << endl;
+    os << "BrushColor: " << BrushColorToStr(GetBrush()) << endl;
+    os << "BrushStyle: " << BrushStyleToStr(GetBrush()) << endl;
+
+}

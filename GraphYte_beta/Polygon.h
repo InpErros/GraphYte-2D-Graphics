@@ -89,6 +89,14 @@ public:
      ***************************************************************/
     Vector<QPoint> GetLinePoints() const{return polygonPoints;}
 
+    /***************************************************************
+     * void Print(ostream& os) const;
+     *   Accessor; outputs all of the shape properties
+     *   Parameters: os (ostream&) - the output stream
+     *   Return: nothing
+     ***************************************************************/
+    void Print(ostream& os) const;
+
 private:
     Vector<QPoint> polygonPoints; //The list of all the points
 };

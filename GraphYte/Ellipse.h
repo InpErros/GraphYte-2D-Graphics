@@ -139,6 +139,14 @@ public:
      ***************************************************************/
     bool isCircle() const{return circle;}
 
+    /***************************************************************
+     * void Print(ostream& os) const;
+     *   Accessor; outputs all of the shape properties
+     *   Parameters: os (ostream&) - the output stream
+     *   Return: nothing
+     ***************************************************************/
+    void Print(ostream& os) const;
+
 private:
     QPoint cordinates; //The cordinates of the shape
     int    majorAxis;  //The major axis of radius of the shape

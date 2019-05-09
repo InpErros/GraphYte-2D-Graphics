@@ -106,3 +106,32 @@ void Line::Move(const int& X, const int& Y)
         start = true;
     }
 }
+
+/************************************************************************
+* Method Print: Class Line
+*----------------------------------------------------------------------
+* 	 This outputs all of the shapes properties
+* 	 ==> returns nothing
+*-----------------------------------------------------------------------
+* PRE-CONDITIONS
+* 	The following need to be passed in
+*       os (ostream&) - the output stream
+*
+* POST-CONDITIONS
+* 	==> returns nothing
+*************************************************************************/
+void Line::Print(ostream& os) const
+{
+    os << "ShapeId: " << GetId() << endl;
+    os << "ShapeType: Line" << endl;
+    os << "ShapeDimensions: " << startingPoint.x() << ", "
+                              << startingPoint.y() << ", "
+                              << endingPoint.x()   << ", "
+                              << endingPoint.y()   << endl;
+    os << "PenColor: " << ColortoStr(GetPen()) << endl;
+    os << "PenWidth: " << GetPen().width() << endl;
+    os << "PenStyle: " << PenStyleToStr(GetPen()) << endl;
+    os << "PenCapStyle: " << CapStyleToStr(GetPen()) << endl;
+    os << "PenJoinStyle: " << JoinStyleToStr(GetPen()) << endl;
+
+}
