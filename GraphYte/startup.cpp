@@ -11,6 +11,8 @@ Startup::Startup(QWidget *parent) :
     ui->label_logo->setMovie(logo);
     ui->label_logo->resize(350,350);
     logo->start();
+
+
 }
 
 Startup::~Startup()

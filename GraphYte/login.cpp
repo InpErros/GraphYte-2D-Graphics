@@ -2,6 +2,8 @@
 #include "ui_login.h"
 #include <QMessageBox>
 #include <fstream>
+#include <QTimer>
+#include <QDebug>
 
 using std::fstream;
 
@@ -11,7 +13,9 @@ Login::Login(QWidget *parent) :
 {
     ui->setupUi(this);
     setWindowModality(Qt::ApplicationModal);
-    success = false;
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()),
+          this, SLOT(closeStartup()));
 }
 
 Login::~Login()
@@ -36,6 +40,9 @@ void Login::on_pushButton_login_clicked(){
             startup = new Startup();
             startup->setAttribute(Qt::WA_DeleteOnClose);
             startup->show();
+            timer->setSingleShot(true);
+            timer->setInterval(3500);
+            timer->start();
             this->hide();
         }
         else {
@@ -77,6 +84,6 @@ void Login::on_actionExit_triggered()
 
 bool Login::loginSuccess(){ return true; }
 
-void Login::setSuccess(bool b){
-    success = b;
+void Login::closeStartup(){
+    startup->hide();
 }

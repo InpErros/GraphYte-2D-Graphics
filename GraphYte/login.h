@@ -6,6 +6,7 @@
 #include "createaccount.h"
 #include "accountlist.h"
 #include "account.h"
+#include <QTimer>
 
 namespace Ui {
 class Login;
@@ -31,11 +32,13 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void closeStartup();
+
 private:
     Ui::Login *ui;
     Startup * startup;
     CreateAccount * createAccount;
-    bool success;
+    QTimer *timer;
 };
 
 #endif // LOGIN_H
