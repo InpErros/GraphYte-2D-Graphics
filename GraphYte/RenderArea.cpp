@@ -433,9 +433,9 @@ void RenderArea::CreateDefault()
 void RenderArea::UpdateCanvas()
 {
     update();
-    ShapeFunc::PrintShapeListing(shapes);
-    ShapeFunc::PrintAreaShapeListing(shapes);
-    ShapeFunc::PrintPerimeterShapeListing(shapes);
+    ShapeFunc<Shape*>::PrintShapeListing(shapes);
+    ShapeFunc<Shape*>::PrintAreaShapeListing(shapes);
+    ShapeFunc<Shape*>::PrintPerimeterShapeListing(shapes);
 }
 
 //Draw the shapes in the vector to the canvas

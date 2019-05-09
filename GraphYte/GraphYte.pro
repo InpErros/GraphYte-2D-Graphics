@@ -64,7 +64,8 @@ HEADERS += \
     contactinfo.h \
     comment.h \
     aboutus.h \
-    account.h
+    account.h \
+    shapeinfofunc.h
 
 FORMS += \
         mainwindow.ui \
