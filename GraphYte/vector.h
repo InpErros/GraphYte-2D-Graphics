@@ -2,6 +2,7 @@
 #define VECTOR_H
 
 #include <algorithm> /** copy **/
+#include <QVector>
 using namespace std;
 
 // Templated Vector class within namespace MyVector
@@ -216,6 +217,7 @@ namespace MyVector
         void clear()
         {
             delete [] elem;
+            elem = new T[50];
             _size = 0;
         }
 
@@ -359,6 +361,39 @@ namespace MyVector
             if(_size == 0){return nullptr;}
 
             return &elem[_size];
+        }
+
+        /****************************************************************
+         * QVector<T> ToQv;
+         *   Mutator; creates a QVector and stores all of the values
+         *             of the vector into the QVector
+         *   Parameters: none
+         *   Return: none
+         ***************************************************************/
+        QVector<T> ToQV()
+        {
+            QVector<T> temp;
+            temp.reserve(50);
+            for(int i = 0; i < this->size(); i++)
+            {
+                temp.push_back(elem[i]);
+            }
+            return temp;
+        }
+
+        /****************************************************************
+         * void FromQv(QVector<T> temp);
+         *   Mutator; stores all of the values of the QVector into the vector
+         *   Parameters: temp (QVector<T>) - QVector to be copied from
+         *   Return: none
+         ***************************************************************/
+       void FromQV(QVector<T> temp)
+        {
+            this->clear();
+            for(T t : temp)
+            {
+                this->push_back(t);
+            }
         }
 
     private:

@@ -8,12 +8,54 @@
 #include "Rectangle.h"
 #include "Ellipse.h"
 #include "Textbox.h"
+#include <QtAlgorithms>
+#include <vector.h>
+
+enum compare {
+                ID,
+                AREA,
+                PERIMETER
+};
 
 // Methods for Outputting shape properties sorted by id, area, and perimeter
 // to output files
+template <typename Type>
 class ShapeFunc
 {
 public:
+
+    /****************************************************************
+     * static void Sort(Vector<Shape*>& shapes, compare Compare)
+     *   Mutator; sorts a vector by id, area, or perimeter
+     *   Parameters: shapes (Vector<Shape*>&) - the vector to be sorted
+     *               Compare (compare)        - enum used to distinguish
+     *                                          how to sort the vector
+     *   Return: none
+     ***************************************************************/
+    static void Sort(Vector<Shape*>& shapes, compare Compare)
+    {
+        // Changes the vector to a QVector so that sort is able to be
+        // implemented
+        QVector<Shape*> temp = shapes.ToQV();
+
+        // Sorts the vector by id, area, or perimeter
+        switch(Compare)
+        {
+        case ID: std::sort(begin(temp), end(temp),
+                  [](Shape* s1, Shape* s2){return s1->GetId() < s2->GetId();});
+
+            break;
+        case AREA: std::sort(begin(temp), end(temp),
+                    [](Shape* s1, Shape* s2){return s1->Area() < s2->Area();});
+            break;
+        case PERIMETER: std::sort(begin(temp), end(temp),
+                         [](Shape* s1, Shape* s2)
+                             {return s1->Perimeter() < s2->Perimeter();});
+            break;
+        }
+        // Changes the QVector back to a vector
+        shapes.FromQV(temp);
+    }
 
 /****************************************************************
  * static void PrintShapeListing(const Vector<Shape*>& shapes)
@@ -27,6 +69,10 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
     ofstream fout("ShapeListing.txt");
+    compare Compare = AREA;
+
+    // Calls the sort function
+    Sort(temp, Compare);
 
     // Runs through the vector and outputs each element
     for(int index = 0; index < temp.size(); index++)
@@ -63,7 +109,6 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
         case ShapeType::NoShape: break;
         }
         fout << endl;
-
     }
     fout.close();
 }
@@ -79,24 +124,12 @@ static void PrintShapeListing(const Vector<Shape*>& shapes)
 static void PrintAreaShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
-    Shape* tempSpot;
-    int j;
-    ofstream fout;
+    ofstream fout("AreaShapeListing.txt");
+    compare Compare = AREA;
 
-    // Sorts the vector in ascending order of the area
-    for(int i = 1; i < shapes.size(); i++)
-    {
-        tempSpot = temp[i];
-        j = i -1;
-        while(j >= 0 && temp[i]->Area() > tempSpot->Area())
-        {
-            temp[j + 1] = temp[j];
-            j = j -1;
-        }
-        temp[j + 1] = tempSpot;
-    }
+    // Calls the sort function
+    Sort(temp, Compare);
 
-    fout.open("AreaShapeListing.txt");
     // Outputs the area of the shape, followed by the id and then shape type
     for(int index = 0; index < temp.size(); index++)
     {
@@ -143,40 +176,11 @@ static void PrintAreaShapeListing(const Vector<Shape*>& shapes)
 static void PrintPerimeterShapeListing(const Vector<Shape*>& shapes)
 {
     Vector<Shape*> temp = shapes;
-    Shape* tempSpot;
     ofstream fout;
-    int j;
+    compare Compare = PERIMETER;
 
-       // Sorts the vector in ascending order of the area
-       for(int i = 1; i < temp.size(); i++)
-       {
-           tempSpot = temp[i];
-           j = i -1;
-           while(j >= 0 && temp[i]->Perimeter() < tempSpot->Perimeter())
-           {
-               temp[j + 1] = temp[j];
-               j = j -1;
-           }
-           temp[j + 1] = tempSpot;
-       }
-//       int index;
-
-//       for(int i = shapes.size() -1; i >= 1; i--)
-//       {
-//           tempSpot = temp[0];
-//           index = 0;
-
-//           for(int j = 1; j <= 1; j++)
-//           {
-//               if(temp[j]->Area() > tempSpot->Area())
-//               {
-//                   tempSpot = temp[index];
-//                   index = j;
-//               }
-//           }
-//           temp[index] = temp[i];
-//           temp[i] = tempSpot;
-//       }
+    // Calls the sort function
+    Sort(temp, Compare);
 
        fout.open("PerimeterShapeListing.txt");
 
